@@ -1,4 +1,4 @@
-# examples
+﻿# examples
 
 test-planner の使用例。実際のテスト計画は `<機能名>.md` でこのディレクトリに追加する。
 

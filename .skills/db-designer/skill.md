@@ -1,4 +1,4 @@
----
+﻿---
 name: db-designer
 description: >-
   Supabase (PostgreSQL) 前提で、テーブル・カラム・制約・index・RLS を含む

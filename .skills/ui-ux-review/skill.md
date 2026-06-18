@@ -1,4 +1,4 @@
----
+﻿---
 name: ui-ux-review
 description: >-
   Next.js の管理画面・LIFF・スマホ画面を対象に、導線・フォーム・表示状態・

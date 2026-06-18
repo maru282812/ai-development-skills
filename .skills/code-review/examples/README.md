@@ -1,4 +1,4 @@
-# examples
+﻿# examples
 
 code-review の使用例。実際のレビュー結果は `<対象の簡潔な名前>.md` でこのディレクトリに追加する。
 

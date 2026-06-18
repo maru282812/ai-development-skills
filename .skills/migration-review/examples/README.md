@@ -1,4 +1,4 @@
-# examples
+﻿# examples
 
 migration-review の使用例。実際のレビュー結果は `<migration名>.md` でこのディレクトリに追加する。
 

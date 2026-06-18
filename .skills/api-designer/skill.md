@@ -1,4 +1,4 @@
----
+﻿---
 name: api-designer
 description: >-
   Next.js の Route Handler / Server Actions 前提で、エンドポイント・

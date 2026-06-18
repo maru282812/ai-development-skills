@@ -1,4 +1,4 @@
-# リファクタリングリファレンス(Next.js + Supabase)
+﻿# リファクタリングリファレンス(Next.js + Supabase)
 
 refactor-planner スキルの Step 3(構造設計)・Step 4(段階的移行)で参照する。
 

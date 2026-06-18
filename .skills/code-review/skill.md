@@ -1,4 +1,4 @@
----
+﻿---
 name: code-review
 description: >-
   Next.js + Supabase の実装済みコードを対象に、型・コンポーネント境界・

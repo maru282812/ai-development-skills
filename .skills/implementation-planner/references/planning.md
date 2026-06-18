@@ -1,4 +1,4 @@
-# 実装計画リファレンス
+﻿# 実装計画リファレンス
 
 implementation-planner スキルの Step 5(Phase分け)・Step 7(実装指示文)で参照する。
 

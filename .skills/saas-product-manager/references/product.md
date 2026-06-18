@@ -1,4 +1,4 @@
-# SaaS プロダクト整理リファレンス
+﻿# SaaS プロダクト整理リファレンス
 
 saas-product-manager スキルの Step 3(機能の洗い出し)・Step 4(MVP)で参照する。
 

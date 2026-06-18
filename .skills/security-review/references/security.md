@@ -1,4 +1,4 @@
-# セキュリティリファレンス(Next.js + Supabase)
+﻿# セキュリティリファレンス(Next.js + Supabase)
 
 security-review スキルの Step 2〜6 で参照する。
 code-review / migration-review / api-designer からも共通リファレンスとして参照される。

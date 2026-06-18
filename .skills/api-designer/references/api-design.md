@@ -1,4 +1,4 @@
-# API設計リファレンス(Next.js + Supabase)
+﻿# API設計リファレンス(Next.js + Supabase)
 
 api-designer スキルの Step 2(方式選択)・Step 4(Request/Response)・Step 5(認証認可)で参照する。
 Route Handler / Server Actions の探索・実装パターンは

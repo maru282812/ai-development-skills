@@ -1,4 +1,4 @@
----
+﻿---
 name: data-flow-mapper
 description: >-
   Next.js + Supabase 構成で、特定のデータ(画面の表示値・テーブル・カラム)が

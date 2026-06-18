@@ -1,4 +1,4 @@
-# Next.js 調査リファレンス
+﻿# Next.js 調査リファレンス
 
 system-investigator スキルの Step 2(関連ファイル検索)・Step 6(画面/コンポーネント確認)で参照する。
 

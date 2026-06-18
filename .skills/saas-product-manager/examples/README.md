@@ -1,4 +1,4 @@
-# examples
+﻿# examples
 
 saas-product-manager の使用例。実際の整理結果は `<機能名>.md` でこのディレクトリに追加する。
 

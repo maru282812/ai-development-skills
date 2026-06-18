@@ -1,4 +1,4 @@
----
+﻿---
 name: refactor-planner
 description: >-
   既存の挙動を壊さずに、責務分離・共通化・ファイル分割を段階的に進める

@@ -1,4 +1,4 @@
-# examples
+﻿# examples
 
 api-designer の使用例。実際の設計結果は `<機能名>.md` でこのディレクトリに追加する。
 

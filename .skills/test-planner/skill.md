@@ -1,4 +1,4 @@
----
+﻿---
 name: test-planner
 description: >-
   Next.js + Supabase の機能に対するテスト観点・動作確認項目・受け入れ条件を

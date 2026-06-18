@@ -1,4 +1,4 @@
----
+﻿---
 name: bug-investigator
 description: >-
   Next.js + Supabase 構成のアプリで発生した不具合・エラーの原因を特定する

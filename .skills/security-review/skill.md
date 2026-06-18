@@ -1,4 +1,4 @@
----
+﻿---
 name: security-review
 description: >-
   Next.js + Supabase 構成のセキュリティを確認するスキル。RLS・service_role・

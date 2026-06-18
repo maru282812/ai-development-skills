@@ -1,44 +1,25 @@
-# system-investigator
+# References
 
-## Purpose
+このフォルダは、複数 skill から参照する横断資料や設計メモの置き場です。
 
-既存システムの調査を行う
+skill 本文はここには置かず、以下を canonical とします。
 
-## When To Use
+- 汎用 skill: `.skills/<skill-name>/skill.md`
+- Claude Code 専用 skill: `.claude/skills/<skill-name>/SKILL.md`
 
-- 使用されているか調べたい
-- 影響範囲を知りたい
-- 改修箇所を特定したい
-- 関連ファイルを探したい
+`system-investigator` の本文は `.skills/system-investigator/skill.md` を参照してください。
 
-## Procedure
+## 置いてよいもの
 
-1. 関連キーワードを抽出
-2. 関連ファイルを検索
-3. DB確認
-4. API確認
-5. Service確認
-6. Controller確認
-7. View確認
-8. CRUD整理
-9. 影響範囲整理
+- 複数 skill で共有する用語集
+- profile 設計のメモ
+- skill 間の連携方針
+- プロジェクトへコピーしない背景資料
 
-## Output
+## 置かないもの
 
-# 調査結果
+- 個別 skill の本文
+- 特定 skill だけが使う参考資料
+- 特定プロジェクト固有の要件・素材・参考サイト
 
-## 概要
-
-## 関連ファイル
-
-## 関連DB
-
-## 関連API
-
-## 関連画面
-
-## 影響範囲
-
-## 改修候補
-
-## 注意点
+個別 skill だけが使う資料は `.skills/<skill-name>/references/` に置きます。

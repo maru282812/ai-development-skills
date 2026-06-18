@@ -1,4 +1,4 @@
----
+﻿---
 name: prompt-architect
 description: >-
   アプリに組み込む LLM プロンプト(system prompt / 分析プロンプト /

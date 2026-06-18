@@ -1,4 +1,4 @@
----
+﻿---
 name: migration-review
 description: >-
   Supabase migration (SQL) を本番適用前に確認し、既存データ破壊・RLS漏れ・

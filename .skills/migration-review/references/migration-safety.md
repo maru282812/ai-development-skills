@@ -1,4 +1,4 @@
-# Migration 安全性リファレンス(Supabase / PostgreSQL)
+﻿# Migration 安全性リファレンス(Supabase / PostgreSQL)
 
 migration-review スキルの Step 3(危険操作のチェック)・Step 6(rollback)で参照する。
 RLS ポリシーの書き方は [db-designer の db-design.md](../../db-designer/references/db-design.md) セクション3を参照。

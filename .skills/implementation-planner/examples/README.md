@@ -1,4 +1,4 @@
-# examples
+﻿# examples
 
 implementation-planner の使用例。実際の計画結果は `<機能名>.md` でこのディレクトリに追加する。
 

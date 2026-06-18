@@ -1,12 +1,29 @@
-# Skill 選択ガイド
+﻿# Skill 選択ガイド
 
 「今の依頼はどの Skill に投げるべきか」を3秒で判断するためのガイドです。
+
+## 原本とミラー
+
+Discovery suite は `.skills/` を正式な原本とする。
+`.agents/skills/` と `.claude/skills/` が存在する場合はミラーとして扱い、恒久的な `.agents` 単独運用にはしない。
+
+今後 discovery suite を修正する場合は、まず `.skills/<skill-name>/SKILL.md` を更新し、必要に応じて `.agents/skills/` と `.claude/skills/` に同内容を同期する。
 
 ---
 
 ## 開発フロー と Skill の対応
 
 ```
+要件探索
+  └─ requirements-discovery  実装前の要件を段階式チェックリストで洗い出し
+
+↓
+
+画面設計
+  └─ screen-design-architect  要件→画面・導線・状態・UI仕様へ変換しStitchで反復改善
+
+↓
+
 調査
   ├─ system-investigator   使用箇所・影響範囲の調査
   ├─ bug-investigator      エラー・不具合の原因特定
@@ -50,6 +67,42 @@
 ---
 
 ## こんな時はこの Skill
+
+---
+
+## 実装前に要件を洗い出したい
+
+**Skill:** `requirements-discovery`
+
+例:
+- 要件を洗い出して
+- 何が必要か整理して
+- 作る前に要件を固めたい
+- 抜け漏れがないか確認して
+- 実装前に要件を詰めたい
+- 要件定義して
+- 後から「これも必要だった」を減らしたい
+
+> 一問一答ではなく段階ごとの表でまとめて質問し、「必要 / 不要 / 後で / 未定 / コメント」で回答する。
+> 要件が固まったら画面設計は `screen-design-architect`、仕様化は `feature-spec-writer`、MVP・Phase設計は `saas-product-manager` を使う
+
+---
+
+## 画面・導線・UIを設計したい / 画面の抜け漏れを潰したい
+
+**Skill:** `screen-design-architect`
+
+例:
+- 画面を設計して
+- 必要な画面を洗い出して
+- 画面遷移・導線を作って
+- Stitch用のプロンプトを作って
+- UI設計をレビューして直して
+- 画面・状態の抜け漏れを確認して
+- 実装後に画面が足りないと発覚するのを防ぎたい
+
+> requirements-discovery の成果物を入力に、画面カタログ・導線・状態マトリクス・UI仕様・Stitchプロンプトを生成し、Stitch出力やコメント・`ui-ux-review` で反復改善する。
+> UIが確定したら仕様化は `feature-spec-writer`、実装手順分解は `implementation-planner` を使う
 
 ---
 
@@ -323,6 +376,8 @@
 
 | やりたいこと | Skill |
 |---|---|
+| 実装前の要件洗い出し・抜け漏れ確認 | `requirements-discovery` |
+| 画面設計・導線・状態・Stitchプロンプト・UI反復改善 | `screen-design-architect` |
 | 使用箇所調査・影響範囲分析 | `system-investigator` |
 | エラー・不具合の原因調査 | `bug-investigator` |
 | データの流れ・CRUD可視化 | `data-flow-mapper` |
@@ -344,6 +399,12 @@
 ## よくある質問からの逆引き
 
 ```
+「要件を洗い出して」「何が必要か整理して」「抜け漏れ確認して」
+→ requirements-discovery
+
+「画面を設計して」「必要な画面を洗い出して」「Stitch用プロンプト作って」「画面の抜け漏れ確認して」
+→ screen-design-architect
+
 「使われてる？」
 → system-investigator
 
@@ -413,7 +474,7 @@
 
 ```
 新機能開発
-saas-product-manager → db-designer → api-designer → feature-spec-writer → implementation-planner
+requirements-discovery → screen-design-architect → saas-product-manager → db-designer → api-designer → feature-spec-writer → implementation-planner
 
 リリース前チェック
 code-review → migration-review → security-review → test-planner

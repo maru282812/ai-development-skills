@@ -1,4 +1,4 @@
----
+﻿---
 name: feature-spec-writer
 description: >-
   機能要望を、AIエージェント(Codex / Claude Code 等)にそのまま渡せる

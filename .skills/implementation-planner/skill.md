@@ -1,4 +1,4 @@
----
+﻿---
 name: implementation-planner
 description: >-
   Next.js + Supabase の機能開発で、実装前に目的・変更対象・実装順序・Phase分けを

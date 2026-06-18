@@ -1,4 +1,4 @@
-# テスト観点リファレンス(Next.js + Supabase)
+﻿# テスト観点リファレンス(Next.js + Supabase)
 
 test-planner スキルの Step 3(異常系)・Step 4(権限・RLS)・Step 7(振り分け)で参照する。
 

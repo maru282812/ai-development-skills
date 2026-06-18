@@ -1,4 +1,4 @@
----
+﻿---
 name: saas-product-manager
 description: >-
   SaaS の機能仕様を整理し、ユーザー種別・導線・MVP・Phase分け・権限・運用要件を

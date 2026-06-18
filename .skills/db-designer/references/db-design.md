@@ -1,4 +1,4 @@
-# DB設計リファレンス(Supabase / PostgreSQL)
+﻿# DB設計リファレンス(Supabase / PostgreSQL)
 
 db-designer スキルの Step 3〜6 で参照する。
 既存スキーマの調査コマンドは [system-investigator の supabase.md](../../system-investigator/references/supabase.md) を参照。

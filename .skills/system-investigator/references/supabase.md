@@ -1,4 +1,4 @@
-# Supabase 調査リファレンス
+﻿# Supabase 調査リファレンス
 
 system-investigator スキルの Step 3(DB確認)・Step 5(Supabaseクライアント呼び出し確認)で参照する。
 

@@ -1,4 +1,4 @@
----
+﻿---
 name: system-investigator
 description: >-
   Next.js(フロントエンド/APIルート/Server Actions) + Supabase(DB/RLS/Functions)
