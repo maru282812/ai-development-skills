@@ -233,12 +233,13 @@ Phase 1→13 の一方通行ではない。後段の発見が前段を更新す�
 
 # 次工程への引き渡し
 
-[[screen-design-architect]] へ渡す際は **全ドキュメントを渡さない**。UI設計に必要な情報だけを抽出する。
+[[screen-design-architect]] へ渡す際は **全ドキュメントを渡さない**。UI設計に必要な情報だけを抽出する。screen-design-architect はこの引き渡しを **優先情報源** として扱い、画面・状態・導線・Stitch連携・実装引き渡し（implementation-ui-brief.md）へ変換する。
 
-- 渡す: `requirements/requirements.md` / `requirements/requirements-checklist.md` / `requirements/screen-catalog-draft.md` / `user-flows.md` / `admin-flows.md` から画面設計に必要な部分
+- 渡す（必須）: `requirements/requirements.md` / `requirements/requirements-checklist.md` / `requirements/screen-catalog-draft.md` / `scope/users.md`（利用者区分＝user/admin分離の基準）/ `scope/mvp-boundary.md`（MVP境界の基準）
+- 渡す（条件付き）: `user-flows.md` / `admin-flows.md`（User/Admin Flow 完走判定の基準）/ `decisions.md` / `open-questions.md`（未昇格の仮置きを確定UIにさせないため）
 - 原則渡さない: 法務 / 運営 / 収益 / リスク情報
 
-`implementation-brief.md` にこの抽出結果と、確定済みの前提・禁止事項・未解決の仮置き（あれば明示）をまとめる。
+`implementation-brief.md` にこの抽出結果と、確定済みの前提・禁止事項・未解決の仮置き（あれば明示）をまとめる。screen-design-architect は画面生成の前に Screen Coverage Audit を実施し、不足があれば [[requirements-discovery]] / [[scope-discovery]] へ差し戻す（境界・要件を勝手に変えさせない）。
 
 # Output Template
 
