@@ -11,7 +11,9 @@
 ## ファイル
 
 - [evals.json](evals.json) — 人間可読の元データ（12 Skill、should_trigger / should_not_trigger / expected_output / notes）
-- [trigger/](trigger/) — 上記を **skill-creator のトリガーeval形式**へ変換した skill 単位ファイル（`[{ "query": ..., "should_trigger": true|false }]`）
+- [trigger/](trigger/) — 上記を **skill-creator のトリガーeval形式**へ変換した skill 単位ファイル（`[{ "query": ..., "should_trigger": true|false }]`）。競合4本（scope/requirements/business/operations）は20件へ拡充済み、他は6件
+- [run-trigger-eval.ps1](run-trigger-eval.ps1) — skill-creator の `run_loop` をワンコマンドで回す runner（`claude` CLI が PATH にある端末で実行）
+- [skill-methodology.md](skill-methodology.md) — スキル別に「eval駆動(TDD)で詰める / 現状維持」を判定した方針
 
 ## skill-creator の eval は2系統ある（重要）
 
