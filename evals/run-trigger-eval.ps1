@@ -28,6 +28,13 @@ param(
 $ErrorActionPreference = "Stop"
 $repo = Split-Path -Parent $PSScriptRoot
 
+# Force Python UTF-8 mode. run_loop.py reads the eval JSON with Path.read_text(),
+# which defaults to the OS ANSI codepage (cp932 on Japanese Windows) and chokes on
+# our UTF-8 Japanese. UTF-8 mode fixes all of run_loop/run_eval text I/O without
+# touching the plugin source.
+$env:PYTHONUTF8 = "1"
+$env:PYTHONIOENCODING = "utf-8"
+
 # A-group skills that have 20-case trigger sets (see evals/skill-methodology.md)
 $AGroup = @(
   "scope-discovery","requirements-discovery","business-discovery","operations-discovery",
