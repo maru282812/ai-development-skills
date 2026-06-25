@@ -12,7 +12,8 @@
 
 - [evals.json](evals.json) — 人間可読の元データ（12 Skill、should_trigger / should_not_trigger / expected_output / notes）
 - [trigger/](trigger/) — 上記を **skill-creator のトリガーeval形式**へ変換した skill 単位ファイル（`[{ "query": ..., "should_trigger": true|false }]`）。**A群13本は正10/負10=20件へ拡充済み**。残り3本（legal-publication-manager / migration-review / project-quality-tooling）は6件（B/C層のため次点）
-- [run-trigger-eval.ps1](run-trigger-eval.ps1) — skill-creator の `run_loop` をワンコマンド／一括で回す runner（`claude` CLI が PATH にある端末で実行）
+- [run-trigger-eval.ps1](run-trigger-eval.ps1) — skill-creator の `run_loop` をワンコマンド／一括で回す runner（`claude` CLI が PATH にある端末で実行。内部で win/run_loop_win.py を使用）
+- [win/run_loop_win.py](win/run_loop_win.py) — **Windows 対応 launcher**。skill-creator の Windows 非対応バグ（`select` on pipe）を本体改変なしで回避（後述）
 - [skill-methodology.md](skill-methodology.md) — スキル別に「eval駆動(TDD)で詰める / 現状維持」を判定した方針
 
 ## skill-creator の eval は2系統ある（重要）
@@ -50,12 +51,12 @@ python -m scripts.run_loop \
 `run_loop` は eval を train 60% / test 40% に分け、現 description のトリガー率を各クエリ3回測定 →
 失敗例をもとに description 改善案を生成 → 再評価、を最大5回。`best_description`（test スコアで選択＝過学習回避）を返す。
 
-### 環境制約（要対応）
+### 環境制約と Windows 対応（重要）
 
-- `run_loop.py` / `run_eval.py` / `improve_description.py` はいずれも **`claude` CLI を subprocess 起動**する（`claude -p`）。
-- 本リポジトリの実行シェル（git bash）では **`claude` が PATH 上に無く、そのままでは実行不可**。
-- 対応案: (a) `claude` CLI が PATH にある実際の Claude Code ターミナルから上記を実行する、
-  (b) 各 `trigger/<skill>.json` を推奨の20件規模へ拡充してから走らせる（現状は各6件で形式確認用）。
+1. **`claude` CLI が必要**: `run_loop` 系は `claude -p` を subprocess 起動する。`claude --version` が通る端末で実行すること。
+2. **skill-creator の発火検出は素の Windows では壊れる**: `run_eval.py` が `select.select([process.stdout], …)` で claude 出力を読むが、`select` は Windows ではソケット専用で**パイプに使えず `OSError [WinError 10093]`** になる。結果、**全クエリが「発火せず」と誤判定され trigger_rate が全部 0.0**（負例だけ trivially pass して見かけ50%）。**この 0.0 は description の良し悪しではなく測定バグ**。
+3. **対応 = [win/run_loop_win.py](win/run_loop_win.py)**: skill-creator 本体を改変せず、`select`→スレッド読み取り / `ProcessPoolExecutor`→`ThreadPoolExecutor` に差し替えるモンキーパッチ launcher。検出ロジックは本体と同一。[run-trigger-eval.ps1](run-trigger-eval.ps1) はこの launcher 経由で動く。`python win/run_loop_win.py --selftest` で claude 無しに reader/検出を検証可能（PASS 済み）。
+4. 代替: WSL/Linux/macOS（`select` がパイプで動く）で skill-creator を回す手もあるが、その環境にも `claude` が要る。
 
 ### 拡充の指針（skill-creator 推奨）
 

@@ -55,6 +55,8 @@ $scGlob = Join-Path $env:USERPROFILE ".claude/plugins/cache/anthropic-agent-skil
 $sc = @(Resolve-Path $scGlob -ErrorAction SilentlyContinue)
 if (-not $sc -or $sc.Count -eq 0) { throw "skill-creator not found under plugins cache. Is example-skills installed?" }
 $scPath = $sc[0].Path
+$env:SKILL_CREATOR_DIR = $scPath
+$winLauncher = Join-Path $repo "evals/win/run_loop_win.py"   # Windows-safe wrapper (select/ProcessPool patched)
 
 # code-review / security-review live only in .skills; discovery skills live in .claude/skills too.
 function Resolve-SkillDir([string]$name) {
@@ -75,9 +77,10 @@ function Invoke-OneSkill([string]$name) {
   Write-Host "=== $name ===" -ForegroundColor Cyan
   Write-Host "  eval:  $evalSet"
   Write-Host "  skill: $skillDir"
-  Push-Location $scPath
+  # Run from repo root so the harness finds this repo's .claude/ for command files.
+  Push-Location $repo
   try {
-    python -m scripts.run_loop --eval-set $evalSet --skill-path $skillDir --model $Model --max-iterations $MaxIterations --verbose
+    python $winLauncher --eval-set $evalSet --skill-path $skillDir --model $Model --max-iterations $MaxIterations --verbose
   } finally { Pop-Location }
 }
 

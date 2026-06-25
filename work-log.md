@@ -79,9 +79,30 @@
 - **方針**: [evals/skill-methodology.md](evals/skill-methodology.md) に スキル別 eval駆動(TDD)/現状維持/次点 を3層で判定。
 - **descriptionの直接書き換えはしていない**: run_loop の測定なしに既存の良好な description（排他句あり）を手で書き換えると劣化リスクがあるため、最適化は measured loop に委ね、端末側で実行する設計にした。
 
+## 4.5 run_loop 実行で判明した2つの不具合と修正（2026-06-26）
+
+ユーザー端末（`claude` CLI あり）で `run-trigger-eval.ps1 -All` を実行して判明:
+
+1. **UTF-8 デコードエラー**: `run_loop.py` が eval JSON を `Path.read_text()`（既定cp932）で読み、日本語で `UnicodeDecodeError`。
+   → 修正: runner に `PYTHONUTF8=1` / `PYTHONIOENCODING=utf-8` を設定（コミット `46ccbf9`）。
+2. **発火検出が全部 0.0**: 修正後に走ったが、**全クエリ・全description・全iterationで trigger_rate 0.0**（負例だけ pass で見かけ50%頭打ち）。
+   原因を特定: `run_eval.py` の `select.select([process.stdout], …)` は **Windows でパイプ不可（`OSError [WinError 10093]`）**。`python -c` で再現確認済み。
+   → **0.0 は description の品質ではなく測定バグ**。この数値で description を書き換えない。
+   → 修正: [evals/win/run_loop_win.py](evals/win/run_loop_win.py) を新規作成。skill-creator 本体を改変せず
+     `select`→スレッド+queue 読み取り / `ProcessPoolExecutor`→`ThreadPoolExecutor` にモンキーパッチ。
+     検出ステートマシンは本体と同一。`--selftest` で reader/検出を claude 無しに検証（PASS）。
+     runner はこの launcher 経由に変更。
+
+→ メモリ追加: [skillcreator-trigger-eval-windows](../../memory/skillcreator-trigger-eval-windows.md)。
+
+### description は未変更（重要）
+- 壊れた 0.0 を根拠に description を書き換えていない。既存 description は排他句を備えており、構造監査でも良好。
+- 正しい測定は、修正後の launcher 経由で再実行して得る。
+
 ### 残タスク
-- ★ `claude` が通る端末で `evals/run-trigger-eval.ps1 -All`（または優先4本）→ `best_description` を `.skills/<skill>/SKILL.md` へ反映 → `scripts/sync-skills.ps1 -Apply` で同期
-- F6 -Apply は実行済み（4.2）。以降は description 反映後の再同期
+- ★ `claude` が通る端末で **再実行**: `git pull` → `powershell -File evals/run-trigger-eval.ps1 -Skill security-review -MaxIterations 2`（まず1本で 0.0 が解消するか確認）→ 良ければ `-All`
+- 得られた `best_description`（test スコア基準）を before/after 確認のうえ `.skills/<skill>/SKILL.md` へ反映 → `scripts/sync-skills.ps1 -Apply` で同期
+- F6 -Apply は実行済み（4.2）
 - skill-creator 導入（プラグイン許可）→ evals.json を実フォーマットへ変換し実行
 - 3ディレクトリ全件 diff でドリフト棚卸し
 
