@@ -1,0 +1,26 @@
+[
+  {
+    "query": "RLSが漏れてないか・他人のデータが見えないか確認して",
+    "should_trigger": true
+  },
+  {
+    "query": "service_role の使い方が危なくないか監査して",
+    "should_trigger": true
+  },
+  {
+    "query": "anon key で何ができてしまうか確認して",
+    "should_trigger": true
+  },
+  {
+    "query": "差分のセキュリティを一般的にレビューして",
+    "should_trigger": false
+  },
+  {
+    "query": "コード品質全般を見て",
+    "should_trigger": false
+  },
+  {
+    "query": "この ALTER TABLE は危なくない？",
+    "should_trigger": false
+  }
+]

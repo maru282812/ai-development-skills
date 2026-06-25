@@ -1,0 +1,26 @@
+[
+  {
+    "query": "必要な画面を洗い出して",
+    "should_trigger": true
+  },
+  {
+    "query": "画面遷移とStitch用プロンプトを作って",
+    "should_trigger": true
+  },
+  {
+    "query": "実装後に画面が足りないと発覚するのを防ぎたい",
+    "should_trigger": true
+  },
+  {
+    "query": "要件を段階的に洗い出して",
+    "should_trigger": false
+  },
+  {
+    "query": "APIのエンドポイントを設計して",
+    "should_trigger": false
+  },
+  {
+    "query": "テーブル設計して",
+    "should_trigger": false
+  }
+]

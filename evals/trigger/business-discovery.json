@@ -1,0 +1,26 @@
+[
+  {
+    "query": "事業として成立するか整理したい",
+    "should_trigger": true
+  },
+  {
+    "query": "誰に何をどの価値で売るのか決めたい",
+    "should_trigger": true
+  },
+  {
+    "query": "事業観点のKPIを出して",
+    "should_trigger": true
+  },
+  {
+    "query": "毎日の運営作業を洗い出して",
+    "should_trigger": false
+  },
+  {
+    "query": "詳細な財務予測のPLを作って",
+    "should_trigger": false
+  },
+  {
+    "query": "利用規約が要るか整理して",
+    "should_trigger": false
+  }
+]

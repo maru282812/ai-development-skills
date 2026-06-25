@@ -1,0 +1,26 @@
+[
+  {
+    "query": "そもそも何を作るか決めたい",
+    "should_trigger": true
+  },
+  {
+    "query": "今回のMVP範囲と対象外を線引きしたい",
+    "should_trigger": true
+  },
+  {
+    "query": "要件定義の前に方向性を固めたい",
+    "should_trigger": true
+  },
+  {
+    "query": "業務フローと例外の要件を詰めたい",
+    "should_trigger": false
+  },
+  {
+    "query": "DB設計して",
+    "should_trigger": false
+  },
+  {
+    "query": "収益モデルを固めたい",
+    "should_trigger": false
+  }
+]

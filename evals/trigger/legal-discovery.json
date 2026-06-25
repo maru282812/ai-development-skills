@@ -1,0 +1,26 @@
+[
+  {
+    "query": "公開前に必要な法務書類を洗い出して",
+    "should_trigger": true
+  },
+  {
+    "query": "利用規約やプライバシーポリシーが要るか整理して",
+    "should_trigger": true
+  },
+  {
+    "query": "特商法表記が必要か確認して",
+    "should_trigger": true
+  },
+  {
+    "query": "この契約条件で適法か判断して",
+    "should_trigger": false
+  },
+  {
+    "query": "規約をどのページに載せるか決めたい",
+    "should_trigger": false
+  },
+  {
+    "query": "外注のNDAが要るか洗い出して",
+    "should_trigger": false
+  }
+]

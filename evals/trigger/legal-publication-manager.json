@@ -1,0 +1,26 @@
+[
+  {
+    "query": "法務文書をどこに載せるか整理して",
+    "should_trigger": true
+  },
+  {
+    "query": "規約・ポリシーの再利用雛形を用意して",
+    "should_trigger": true
+  },
+  {
+    "query": "課金方式を変えたらどの法務文書を直すか決めたい",
+    "should_trigger": true
+  },
+  {
+    "query": "必要な法務書類を洗い出して",
+    "should_trigger": false
+  },
+  {
+    "query": "この規約は法的に有効か判断して",
+    "should_trigger": false
+  },
+  {
+    "query": "契約の責任範囲を決めたい",
+    "should_trigger": false
+  }
+]

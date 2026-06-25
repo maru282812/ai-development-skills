@@ -1,0 +1,26 @@
+[
+  {
+    "query": "このSupabase実装のRLSと認可漏れを見て",
+    "should_trigger": true
+  },
+  {
+    "query": "Server Action の認可チェックの置き場所が正しいかレビューして",
+    "should_trigger": true
+  },
+  {
+    "query": "Next.js+Supabase のこの実装、型と境界が大丈夫か見て",
+    "should_trigger": true
+  },
+  {
+    "query": "この差分を一般的にレビューして",
+    "should_trigger": false
+  },
+  {
+    "query": "セキュリティ脆弱性を網羅監査して",
+    "should_trigger": false
+  },
+  {
+    "query": "migration SQL が本番で安全か確認して",
+    "should_trigger": false
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "query": "提供範囲と対象外を決めたい",
+    "should_trigger": true
+  },
+  {
+    "query": "返金・キャンセル条件を固めたい",
+    "should_trigger": true
+  },
+  {
+    "query": "成果物の権利・データ所有権を整理したい",
+    "should_trigger": true
+  },
+  {
+    "query": "必要な法務書類を洗い出して",
+    "should_trigger": false
+  },
+  {
+    "query": "契約書本文を起案して適法性を判断して",
+    "should_trigger": false
+  },
+  {
+    "query": "扱うデータの保持期間を決めたい",
+    "should_trigger": false
+  }
+]

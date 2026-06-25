@@ -1,0 +1,26 @@
+[
+  {
+    "query": "運営体制を整理したい",
+    "should_trigger": true
+  },
+  {
+    "query": "問い合わせ対応フローを決めたい",
+    "should_trigger": true
+  },
+  {
+    "query": "MVPで手作業運用する範囲を確定したい",
+    "should_trigger": true
+  },
+  {
+    "query": "誰に何を売るか事業を整理したい",
+    "should_trigger": false
+  },
+  {
+    "query": "非機能要件の性能目標を決めたい",
+    "should_trigger": false
+  },
+  {
+    "query": "画面遷移を作って",
+    "should_trigger": false
+  }
+]

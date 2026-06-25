@@ -1,0 +1,26 @@
+[
+  {
+    "query": "実装前に要件を洗い出して",
+    "should_trigger": true
+  },
+  {
+    "query": "この機能、何が必要か段階的に整理して",
+    "should_trigger": true
+  },
+  {
+    "query": "後から『これも必要だった』を減らしたい",
+    "should_trigger": true
+  },
+  {
+    "query": "今回どこまで作るか範囲を決めたい",
+    "should_trigger": false
+  },
+  {
+    "query": "必要な画面を洗い出して",
+    "should_trigger": false
+  },
+  {
+    "query": "テーブル設計して",
+    "should_trigger": false
+  }
+]

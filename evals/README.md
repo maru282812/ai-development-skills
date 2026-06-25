@@ -10,7 +10,46 @@
 
 ## ファイル
 
-- [evals.json](evals.json) — 12 Skill 分のテストケース案（should_trigger / should_not_trigger / expected_output / notes）
+- [evals.json](evals.json) — 人間可読の元データ（12 Skill、should_trigger / should_not_trigger / expected_output / notes）
+- [trigger/](trigger/) — 上記を **skill-creator のトリガーeval形式**へ変換した skill 単位ファイル（`[{ "query": ..., "should_trigger": true|false }]`）
+
+## skill-creator の eval は2系統ある（重要）
+
+| 系統 | 何を測るか | フォーマット | 実行 | 我々の用途 |
+|---|---|---|---|---|
+| **出力eval** `evals/evals.json` | skill の**出力品質** | `{skill_name, evals:[{id, prompt, expected_output, files, expectations}]}` | subagent で with/without 比較 → benchmark | 今回は対象外 |
+| **トリガーeval**（description最適化） | skill が**正しく発火するか** | `[{query, should_trigger}]`（推奨20件 = 正8〜10 / 負8〜10の近接ケース） | `scripts/run_loop.py`（`claude -p` をsubprocess起動） | ★ **これが目的**。兄弟競合・バンドル重複の発火境界を測る |
+
+→ 我々の `evals.json`（should_trigger/should_not_trigger）は **トリガーeval** に対応する。`trigger/<skill>.json` がその正式形式。
+→ 出力eval（`expectations` で出力検証）とは別物。混同しないこと。
+
+## 実行手順（トリガー精度の測定・description最適化）
+
+```bash
+# skill-creator のディレクトリから実行（<SC> = plugins cache の skill-creator）
+cd <SC>
+python -m scripts.run_loop \
+  --eval-set <repo>/evals/trigger/scope-discovery.json \
+  --skill-path <repo>/.claude/skills/scope-discovery \
+  --model claude-opus-4-8 \
+  --max-iterations 5 --verbose
+```
+
+`run_loop` は eval を train 60% / test 40% に分け、現 description のトリガー率を各クエリ3回測定 →
+失敗例をもとに description 改善案を生成 → 再評価、を最大5回。`best_description`（test スコアで選択＝過学習回避）を返す。
+
+### 環境制約（要対応）
+
+- `run_loop.py` / `run_eval.py` / `improve_description.py` はいずれも **`claude` CLI を subprocess 起動**する（`claude -p`）。
+- 本リポジトリの実行シェル（git bash）では **`claude` が PATH 上に無く、そのままでは実行不可**。
+- 対応案: (a) `claude` CLI が PATH にある実際の Claude Code ターミナルから上記を実行する、
+  (b) 各 `trigger/<skill>.json` を推奨の20件規模へ拡充してから走らせる（現状は各6件で形式確認用）。
+
+### 拡充の指針（skill-creator 推奨）
+
+- 正例 8〜10: 同一意図の言い換え（フォーマル/口語）、skill 名やファイル種別を明示しない自然文も含める。
+- 負例 8〜10: **近接ケース（near-miss）**を厚く。兄弟 skill のキーワードを共有しつつ別 skill が正解になる依頼、
+  バンドル `/code-review` `/security-review` に委ねるべき汎用依頼など。明らかに無関係な負例は価値が低い。
 
 ## 使い方（skill-creator 連携）
 
