@@ -1,6 +1,14 @@
 [
   {
+    "query": "契約条件を整理したい",
+    "should_trigger": true
+  },
+  {
     "query": "提供範囲と対象外を決めたい",
+    "should_trigger": true
+  },
+  {
+    "query": "SLAを決めたい",
     "should_trigger": true
   },
   {
@@ -8,19 +16,67 @@
     "should_trigger": true
   },
   {
-    "query": "成果物の権利・データ所有権を整理したい",
+    "query": "成果物の権利・データ所有権を整理して",
     "should_trigger": true
   },
   {
-    "query": "必要な法務書類を洗い出して",
+    "query": "責任範囲を明確にしたい",
+    "should_trigger": true
+  },
+  {
+    "query": "外注やNDAが要るか洗い出して",
+    "should_trigger": true
+  },
+  {
+    "query": "サポート範囲と保守の条件を決めたい",
+    "should_trigger": true
+  },
+  {
+    "query": "契約終了時の扱いを決めたい",
+    "should_trigger": true
+  },
+  {
+    "query": "顧客やパートナーと何を合意すべきか整理したい",
+    "should_trigger": true
+  },
+  {
+    "query": "必要な法務書類（規約・ポリシー）を洗い出して",
     "should_trigger": false
   },
   {
-    "query": "契約書本文を起案して適法性を判断して",
+    "query": "契約書本文を起案して適法か判断して",
     "should_trigger": false
   },
   {
-    "query": "扱うデータの保持期間を決めたい",
+    "query": "返金対応の運用フローを決めたい",
+    "should_trigger": false
+  },
+  {
+    "query": "保存する情報と取得元を洗い出して",
+    "should_trigger": false
+  },
+  {
+    "query": "SLA達成のための可用性目標を決めたい",
+    "should_trigger": false
+  },
+  {
+    "query": "今回の対象外範囲(スコープ)を決めたい",
+    "should_trigger": false
+  },
+  {
+    "query": "規約の掲載先と雛形を用意して",
+    "should_trigger": false
+  },
+  {
+    "query": "事業として成立するか整理したい",
+    "should_trigger": false
+  },
+  {
+    "query": "決済が必要か外部連携を整理して",
+    "should_trigger": false
+  },
+  {
+    "query": "リスクを洗い出して優先順位つけて",
     "should_trigger": false
   }
 ]

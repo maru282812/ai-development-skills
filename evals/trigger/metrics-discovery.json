@@ -1,0 +1,82 @@
+[
+  {
+    "query": "成功条件を指標化したい",
+    "should_trigger": true
+  },
+  {
+    "query": "KPIを決めたい",
+    "should_trigger": true
+  },
+  {
+    "query": "何を計測すればいいか整理して",
+    "should_trigger": true
+  },
+  {
+    "query": "North Starを決めたい",
+    "should_trigger": true
+  },
+  {
+    "query": "MVPで見るべき指標を3〜7個に絞りたい",
+    "should_trigger": true
+  },
+  {
+    "query": "計測イベントを洗い出して",
+    "should_trigger": true
+  },
+  {
+    "query": "KPIツリーを作って",
+    "should_trigger": true
+  },
+  {
+    "query": "曖昧な成功状態を計測可能な指標に落としたい",
+    "should_trigger": true
+  },
+  {
+    "query": "何をもって成功とするか測り方を決めたい",
+    "should_trigger": true
+  },
+  {
+    "query": "計測手段までを整理したい",
+    "should_trigger": true
+  },
+  {
+    "query": "KPIダッシュボードをSQLとBIで作って",
+    "should_trigger": false
+  },
+  {
+    "query": "計測イベントをコードに実装して",
+    "should_trigger": false
+  },
+  {
+    "query": "事業観点のKPIと収益モデルを整理して",
+    "should_trigger": false
+  },
+  {
+    "query": "成功条件を含むスコープを決めたい",
+    "should_trigger": false
+  },
+  {
+    "query": "運営KPIの運用フローを決めたい",
+    "should_trigger": false
+  },
+  {
+    "query": "非機能の性能目標を決めたい",
+    "should_trigger": false
+  },
+  {
+    "query": "リスクの優先順位を出して",
+    "should_trigger": false
+  },
+  {
+    "query": "必要な要件を洗い出して",
+    "should_trigger": false
+  },
+  {
+    "query": "analyticsテーブルの設計をして",
+    "should_trigger": false
+  },
+  {
+    "query": "画面に表示する指標のUIを設計して",
+    "should_trigger": false
+  }
+]

@@ -12,6 +12,34 @@
     "should_trigger": true
   },
   {
+    "query": "'use client'にservice_roleやサーバ専用処理が混ざってないか確認して",
+    "should_trigger": true
+  },
+  {
+    "query": "このPRのSupabaseクライアントの使い分けが正しいか見て",
+    "should_trigger": true
+  },
+  {
+    "query": "RLS前提のクエリで他人のデータに触れないかレビューして",
+    "should_trigger": true
+  },
+  {
+    "query": "App Routerのこの実装、規約準拠と回帰リスクを見て",
+    "should_trigger": true
+  },
+  {
+    "query": "実装漏れがないかSupabase観点でレビューして",
+    "should_trigger": true
+  },
+  {
+    "query": "このコンポーネント境界と認可、設計的に大丈夫か見て",
+    "should_trigger": true
+  },
+  {
+    "query": "マージ前にNext.js+Supabaseの観点で最終チェックして",
+    "should_trigger": true
+  },
+  {
     "query": "この差分を一般的にレビューして",
     "should_trigger": false
   },
@@ -20,7 +48,35 @@
     "should_trigger": false
   },
   {
-    "query": "migration SQL が本番で安全か確認して",
+    "query": "migration SQLが本番で安全か確認して",
+    "should_trigger": false
+  },
+  {
+    "query": "このコードをリファクタして共通化して",
+    "should_trigger": false
+  },
+  {
+    "query": "テスト観点と受け入れ条件を作って",
+    "should_trigger": false
+  },
+  {
+    "query": "RLSポリシーの到達性を攻撃者目線で監査して",
+    "should_trigger": false
+  },
+  {
+    "query": "UIの使いやすさと導線を見て",
+    "should_trigger": false
+  },
+  {
+    "query": "実装計画とPhase分けを作って",
+    "should_trigger": false
+  },
+  {
+    "query": "この500エラーの原因を調べて",
+    "should_trigger": false
+  },
+  {
+    "query": "一般的なTypeScriptのコード品質を見て",
     "should_trigger": false
   }
 ]

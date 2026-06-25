@@ -29,8 +29,8 @@
 | code-review | バンドル `/code-review` / security-review | 汎用はバンドル、自作は Supabase 特化に寄せる境界を数値で確認 |
 | security-review | バンドル `/security-review` / code-review | 同上 |
 
-> **今回 run_loop を回す優先4本**: scope / requirements / business / operations（trigger eval を20件へ拡充済み）。
-> 残りの A 群は、まず20件へ拡充してから順次。
+> **A群13本すべて trigger eval を正10/負10=20件へ拡充済み**（[trigger/](trigger/)）。run_loop をそのまま回せる。
+> 最優先で効果検証するなら scope / requirements / business / operations の4本から。
 
 ### B: 現状維持で十分（トリガーが固有／意図的に呼ばれる）
 | Skill | 理由 |
@@ -61,12 +61,10 @@
 
 ## 実行（A群・あなたの端末で）
 
-`claude` CLI が通るターミナルから:
+`claude` CLI が通るターミナルから（A群13本を一括、または1本ずつ）:
 ```powershell
+powershell -File evals/run-trigger-eval.ps1 -All
 powershell -File evals/run-trigger-eval.ps1 -Skill scope-discovery
-powershell -File evals/run-trigger-eval.ps1 -Skill requirements-discovery
-powershell -File evals/run-trigger-eval.ps1 -Skill business-discovery
-powershell -File evals/run-trigger-eval.ps1 -Skill operations-discovery
 ```
 出力の `best_description`（test スコア基準で過学習回避）を、各 `.skills/<skill>/SKILL.md` の description に反映し、`scripts/sync-skills.ps1 -Apply` でミラーへ同期する。
 

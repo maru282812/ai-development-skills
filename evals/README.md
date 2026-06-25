@@ -11,8 +11,8 @@
 ## ファイル
 
 - [evals.json](evals.json) — 人間可読の元データ（12 Skill、should_trigger / should_not_trigger / expected_output / notes）
-- [trigger/](trigger/) — 上記を **skill-creator のトリガーeval形式**へ変換した skill 単位ファイル（`[{ "query": ..., "should_trigger": true|false }]`）。競合4本（scope/requirements/business/operations）は20件へ拡充済み、他は6件
-- [run-trigger-eval.ps1](run-trigger-eval.ps1) — skill-creator の `run_loop` をワンコマンドで回す runner（`claude` CLI が PATH にある端末で実行）
+- [trigger/](trigger/) — 上記を **skill-creator のトリガーeval形式**へ変換した skill 単位ファイル（`[{ "query": ..., "should_trigger": true|false }]`）。**A群13本は正10/負10=20件へ拡充済み**。残り3本（legal-publication-manager / migration-review / project-quality-tooling）は6件（B/C層のため次点）
+- [run-trigger-eval.ps1](run-trigger-eval.ps1) — skill-creator の `run_loop` をワンコマンド／一括で回す runner（`claude` CLI が PATH にある端末で実行）
 - [skill-methodology.md](skill-methodology.md) — スキル別に「eval駆動(TDD)で詰める / 現状維持」を判定した方針
 
 ## skill-creator の eval は2系統ある（重要）
@@ -27,9 +27,19 @@
 
 ## 実行手順（トリガー精度の測定・description最適化）
 
+`claude` CLI が PATH にある端末で、同梱 runner を使うのが簡単（skill-creator パスは自動解決）:
+
+```powershell
+# A群13本を一括
+powershell -File evals/run-trigger-eval.ps1 -All
+# 1本だけ
+powershell -File evals/run-trigger-eval.ps1 -Skill scope-discovery
+```
+
+手動で直接叩く場合（runner と等価）:
+
 ```bash
-# skill-creator のディレクトリから実行（<SC> = plugins cache の skill-creator）
-cd <SC>
+cd <SC>            # <SC> = plugins cache の skill-creator
 python -m scripts.run_loop \
   --eval-set <repo>/evals/trigger/scope-discovery.json \
   --skill-path <repo>/.claude/skills/scope-discovery \

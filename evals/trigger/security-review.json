@@ -4,11 +4,39 @@
     "should_trigger": true
   },
   {
-    "query": "service_role の使い方が危なくないか監査して",
+    "query": "service_roleの使い方が危なくないか監査して",
     "should_trigger": true
   },
   {
-    "query": "anon key で何ができてしまうか確認して",
+    "query": "anon keyで何ができてしまうか確認して",
+    "should_trigger": true
+  },
+  {
+    "query": "テナント横断で他人のデータに到達できないか見て",
+    "should_trigger": true
+  },
+  {
+    "query": "個人情報がAPIレスポンスで返りすぎてないか確認して",
+    "should_trigger": true
+  },
+  {
+    "query": "Storage bucketのpolicyが公開されすぎてないか見て",
+    "should_trigger": true
+  },
+  {
+    "query": "未認証で叩けるエンドポイントがないか監査して",
+    "should_trigger": true
+  },
+  {
+    "query": "IDORでURLのIDを差し替えて他人のリソースに行けないか確認して",
+    "should_trigger": true
+  },
+  {
+    "query": "ログにトークンや個人情報が出てないか確認して",
+    "should_trigger": true
+  },
+  {
+    "query": "リリース前にSupabaseの権限モデルを攻撃者目線で監査して",
     "should_trigger": true
   },
   {
@@ -20,7 +48,35 @@
     "should_trigger": false
   },
   {
-    "query": "この ALTER TABLE は危なくない？",
+    "query": "このALTER TABLEは危なくない？",
+    "should_trigger": false
+  },
+  {
+    "query": "事業リスクを洗い出して優先順位つけて",
+    "should_trigger": false
+  },
+  {
+    "query": "必要な法務書類を洗い出して",
+    "should_trigger": false
+  },
+  {
+    "query": "依存パッケージの脆弱性をスキャンして",
+    "should_trigger": false
+  },
+  {
+    "query": "XSSの一般的な対策を実装して",
+    "should_trigger": false
+  },
+  {
+    "query": "このコードをリファクタして",
+    "should_trigger": false
+  },
+  {
+    "query": "非機能のセキュリティ要件を明文化したい",
+    "should_trigger": false
+  },
+  {
+    "query": "テスト観点を作って",
     "should_trigger": false
   }
 ]

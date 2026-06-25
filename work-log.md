@@ -69,8 +69,19 @@
 - **見送り理由**: これらは手順を**インラインで持つことで網羅性を担保するオーケストレーション skill**。reference へ切り出すとオンデマンド読み込みになり、モデルが参照を引かないと**手順欠落で挙動劣化**しうる（token 節約の利得より副作用リスクが大きい）。2026-06-25 ユーザー確認で「分離しない」を選択。
 - 対応: 既存ファイルは変更しない。将来 token 負荷が問題化したら個別に再検討。
 
+## 4.4 skill-creator 連携・トリガーeval整備（2026-06-25）
+
+- skill-creator はプラグインとして利用可能（`example-skills:skill-creator`）。ただし **`/plugin` コマンドと `claude` CLI は本環境の PATH に無く**、`run_loop`（description最適化）は**この端末からは実行不可**。
+- eval 系統を整理: skill-creator は「**出力eval**（evals.json、出力品質）」と「**トリガーeval**（[{query,should_trigger}]、発火精度）」の2系統。我々のデータは後者に対応。
+- **変換**: [evals/trigger/](evals/trigger/) に12→16 skill のトリガーeval（skill-creator形式）を生成。
+- **拡充**: 発火競合の強い **A群13本を正10/負10=20件**へ拡充（scope/requirements/business/operations/legal/contract/risk/nfr/integration/metrics/screen-design-architect/code-review/security-review）。risk/nfr/integration/metrics は新規作成。
+- **runner**: [evals/run-trigger-eval.ps1](evals/run-trigger-eval.ps1)（skill-creator パス自動解決・`claude` 前提チェック・`-All` で A群一括）。glob 解決と run_loop.py 存在を確認、両モードのパース健全を確認。
+- **方針**: [evals/skill-methodology.md](evals/skill-methodology.md) に スキル別 eval駆動(TDD)/現状維持/次点 を3層で判定。
+- **descriptionの直接書き換えはしていない**: run_loop の測定なしに既存の良好な description（排他句あり）を手で書き換えると劣化リスクがあるため、最適化は measured loop に委ね、端末側で実行する設計にした。
+
 ### 残タスク
-- F6 -Apply（ドリフト確認後）
+- ★ `claude` が通る端末で `evals/run-trigger-eval.ps1 -All`（または優先4本）→ `best_description` を `.skills/<skill>/SKILL.md` へ反映 → `scripts/sync-skills.ps1 -Apply` で同期
+- F6 -Apply は実行済み（4.2）。以降は description 反映後の再同期
 - skill-creator 導入（プラグイン許可）→ evals.json を実フォーマットへ変換し実行
 - 3ディレクトリ全件 diff でドリフト棚卸し
 

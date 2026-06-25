@@ -1,14 +1,42 @@
 [
   {
+    "query": "画面を設計して",
+    "should_trigger": true
+  },
+  {
     "query": "必要な画面を洗い出して",
     "should_trigger": true
   },
   {
-    "query": "画面遷移とStitch用プロンプトを作って",
+    "query": "画面遷移を作って",
+    "should_trigger": true
+  },
+  {
+    "query": "Stitch用のプロンプトを作って",
+    "should_trigger": true
+  },
+  {
+    "query": "UI設計をレビューして直して",
+    "should_trigger": true
+  },
+  {
+    "query": "画面・状態の抜け漏れを確認して",
     "should_trigger": true
   },
   {
     "query": "実装後に画面が足りないと発覚するのを防ぎたい",
+    "should_trigger": true
+  },
+  {
+    "query": "各画面の空・ローディング・エラー状態を洗い出したい",
+    "should_trigger": true
+  },
+  {
+    "query": "共通コンポーネントと画面構成を整理して",
+    "should_trigger": true
+  },
+  {
+    "query": "予約フローの画面と導線を設計したい",
     "should_trigger": true
   },
   {
@@ -21,6 +49,34 @@
   },
   {
     "query": "テーブル設計して",
+    "should_trigger": false
+  },
+  {
+    "query": "このボタン配置と文言を使いやすく直して",
+    "should_trigger": false
+  },
+  {
+    "query": "フォームのUXを改善して",
+    "should_trigger": false
+  },
+  {
+    "query": "今回の対象範囲を決めたい",
+    "should_trigger": false
+  },
+  {
+    "query": "機能仕様をMVPとPhaseに分けて",
+    "should_trigger": false
+  },
+  {
+    "query": "Reactで画面を実装して",
+    "should_trigger": false
+  },
+  {
+    "query": "KPIを画面に出すための指標を決めて",
+    "should_trigger": false
+  },
+  {
+    "query": "運営の管理フローを決めたい",
     "should_trigger": false
   }
 ]
