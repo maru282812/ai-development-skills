@@ -1,5 +1,6 @@
 ---
 name: agent-planner
+allowed-tools: Read, Grep, Glob, Bash
 description: Use after agent-tester has produced a検証レポート (or after a Claude Code implementation) to decide the single next step. Reads git diff + the tester report, summarizes the change, extracts unmet requirements, scans side-effect / DB / cache impact, prioritizes a backlog, and emits ONE short, scope-limited「Claude Code用指示文」as a code block. Does NOT implement large changes; DB changes are proposed and stopped. Always ends the cycle with a confirmation checklist for the user.
 ---
 

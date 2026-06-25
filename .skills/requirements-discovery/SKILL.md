@@ -1,5 +1,6 @@
-﻿---
+---
 name: requirements-discovery
+allowed-tools: Read, Write, Edit, Grep, Glob
 description: >-
   実装に入る前に、必要要件を段階式チェックリストで網羅的に洗い出すスキル。
   業務フロー・利用者・状態・例外・通知連携・画面導線を段階ごとにまとめて質問し、

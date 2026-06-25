@@ -1,5 +1,6 @@
-﻿---
+---
 name: bug-investigator
+allowed-tools: Read, Grep, Glob, Bash
 description: >-
   Next.js + Supabase 構成のアプリで発生した不具合・エラーの原因を特定する
   障害解析スキル。トリガー例:
@@ -29,8 +30,8 @@ system-investigator が「正常なシステムの構造を調べる」のに対
 - build は通るのに本番/開発で動かない
 - 「昨日まで動いていたのに動かなくなった」
 
-エラーがなく構造・影響範囲を調べたいだけなら [system-investigator](../system-investigator/skill.md)、
-データの流れ自体を整理したいなら [data-flow-mapper](../data-flow-mapper/skill.md) を使う。
+エラーがなく構造・影響範囲を調べたいだけなら [system-investigator](../system-investigator/SKILL.md)、
+データの流れ自体を整理したいなら [data-flow-mapper](../data-flow-mapper/SKILL.md) を使う。
 
 # Procedure
 

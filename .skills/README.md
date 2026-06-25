@@ -41,7 +41,8 @@ Discovery suite は `.skills/` を正式な原本とする。
 ↓
 
 実装
-  └─ implementation-planner  実装計画・Phase分け・Codex指示文
+  ├─ project-quality-tooling  新規案件のlint/format初期セットアップ（スタック別ツール選定）
+  └─ implementation-planner   実装計画・Phase分け・Codex指示文
 
 ↓
 
@@ -245,6 +246,25 @@ Discovery suite は `.skills/` を正式な原本とする。
 
 ---
 
+## 新規案件にlint/formatを初期セットアップしたい
+
+**Skill:** `project-quality-tooling`
+
+例:
+- 新規案件にLinter/Formatterを入れたい
+- Biome入れて
+- iOSのコード整形ツール（SwiftLint/SwiftFormat）を設定して
+- この案件にどの静的解析ツールが要るか判定して
+- 初期テンプレートにlint/format設定を入れて
+- Android Kotlinの整形ツールを整理して
+- コード品質ツールを初期セットアップして
+
+> スタックを検出して TS/JS→Biome、Swift→SwiftLint+SwiftFormat、Kotlin→ktlint（候補）を選定し、
+> 設定ファイル・scripts・README まで一貫生成する。越境（Swiftに Biome 等）はしない。
+> 不明・混在スタックは無理に導入せず確認事項にする。実装計画への組み込みは `implementation-planner`。
+
+---
+
 ## プロンプト設計・改善したい
 
 **Skill:** `prompt-architect`
@@ -386,6 +406,7 @@ Discovery suite は `.skills/` を正式な原本とする。
 | API設計・エンドポイント設計 | `api-designer` |
 | AI向け実装仕様書作成 | `feature-spec-writer` |
 | 実装計画・Codex指示文作成 | `implementation-planner` |
+| 新規案件のlint/format初期セットアップ（スタック別ツール選定） | `project-quality-tooling` |
 | LLMプロンプト設計・改善 | `prompt-architect` |
 | migration SQL安全確認 | `migration-review` |
 | セキュリティ確認・RLS監査 | `security-review` |

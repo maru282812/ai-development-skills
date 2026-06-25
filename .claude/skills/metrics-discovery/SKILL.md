@@ -1,5 +1,6 @@
 ---
 name: metrics-discovery
+allowed-tools: Read, Write, Edit, Grep, Glob
 description: >-
   Project Discovery の Phase11（Metrics / Success Discovery）担当。プロジェクトの目的・成功条件・利用状況を、
   後続工程で扱える「計測可能な指標」に変換する。scope/goals.md の曖昧な「成功状態」を North Star / KPIツリー /

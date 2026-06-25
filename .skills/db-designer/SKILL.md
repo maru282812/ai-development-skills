@@ -1,5 +1,6 @@
-﻿---
+---
 name: db-designer
+allowed-tools: Read, Write, Edit, Grep, Glob
 description: >-
   Supabase (PostgreSQL) 前提で、テーブル・カラム・制約・index・RLS を含む
   DB設計を行い、migration 案まで作成するスキル。トリガー例:
@@ -36,8 +37,8 @@ Supabase (PostgreSQL) を前提に、要件からテーブル設計・RLS方針�
 - RLS 前提でアクセス制御込みのスキーマを設計したい
 - ER図(リレーション図)を整理したい
 
-既存スキーマの調査は [system-investigator](../system-investigator/skill.md)、
-作成済み migration SQL の安全確認は [migration-review](../migration-review/skill.md) を使う。
+既存スキーマの調査は [system-investigator](../system-investigator/SKILL.md)、
+作成済み migration SQL の安全確認は [migration-review](../migration-review/SKILL.md) を使う。
 
 # Procedure
 
@@ -77,7 +78,7 @@ Supabase (PostgreSQL) を前提に、要件からテーブル設計・RLS方針�
 ### 7. migration 案の作成
 
 - CREATE TABLE / index / RLS有効化 / ポリシーまで含む SQL を1ファイル分作成する
-- 既存テーブルへの変更を含む場合は [migration-review](../migration-review/skill.md) の観点(NOT NULL追加の危険等)を事前に織り込む
+- 既存テーブルへの変更を含む場合は [migration-review](../migration-review/SKILL.md) の観点(NOT NULL追加の危険等)を事前に織り込む
 
 # Output Template
 

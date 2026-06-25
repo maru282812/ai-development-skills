@@ -1,5 +1,6 @@
 ---
 name: project-discovery
+allowed-tools: Read, Write, Edit, Grep, Glob
 description: >-
   プロジェクトを成功させるために「決めるべきこと」を全部洗い出し、不足を発見・提案し、
   意思決定を支援して、実装可能な状態まで持っていくオーケストレーター・スキル。

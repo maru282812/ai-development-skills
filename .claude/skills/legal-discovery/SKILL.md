@@ -1,5 +1,6 @@
 ---
 name: legal-discovery
+allowed-tools: Read, Write, Edit, Grep, Glob
 description: >-
   Project Discovery の Phase7（Legal Discovery）担当。「どの法律が適用されるか」を調べるスキルではない。
   サービスを公開・運営・課金・個人情報管理するために「何の法務成果物が必要か」を発見する工程。
@@ -202,6 +203,7 @@ Stripe / Supabase / OpenAI / Google / LINE / AWS など。
 | 引き渡し先 | 渡す情報 |
 |---|---|
 | [[contract-discovery]] | 契約形態の有無 / 委託・NDA・SaaS契約の必要シグナル |
+| [[legal-publication-manager]] | 必要な法務成果物一覧（掲載設計・雛形適用・版管理の入力） |
 | [[scope-discovery]] | MVP で必須の法務成果物 / 後回し可能な成果物 |
 | [[screen-design-architect]] | 同意取得 UI / 規約・ポリシーの設置箇所（フッター・登録画面） |
 | [[data-discovery]] | 同意ログの保存要否 / 削除・エクスポート対応の要否 |

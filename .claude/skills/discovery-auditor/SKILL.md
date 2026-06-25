@@ -1,5 +1,6 @@
 ---
 name: discovery-auditor
+allowed-tools: Read, Write, Edit, Grep, Glob
 description: >-
   Project Discovery の最終監査役（旧称 project-auditor）。[[agent-tester]] の「軽量に横断検証して
   止める」思想を、コード検証ではなく **ドキュメント横断監査** に移植したもの。typecheck / test /

@@ -1,5 +1,6 @@
 ---
 name: agent-tester
+allowed-tools: Read, Edit, Grep, Glob, Bash
 description: Use right after Claude Code implements a change (or before agent-planner plans the next step) to run the lightweight verification that does not need full Claude Code reasoning — typecheck / test / lint, git diff review, and a side-effect / 画面崩れ / DB / キャッシュ影響スキャン. May apply only minor fixes (UI文言・テスト微修正). Produces a structured「検証レポート」that agent-planner consumes, then STOPS the cycle for user confirmation.
 ---
 
@@ -34,6 +35,13 @@ description: Use right after Claude Code implements a change (or before agent-pl
 - **DBスキーマ変更（migration追加・列追加）はしない**。必要なら検証レポートに「DB影響: 要対応」として上げて止める。
 - 推測でコードを書き換えない。落ちる原因が不明なら原因候補を列挙して planner に渡す。
 - 軽微修正の線引き: **1ファイル数行・ロジック非変更**を超えるものは実装せず指示文化する。
+
+## バンドルコマンドとの関係
+
+検証の**実体**（typecheck / test / lint・実機確認）は Claude Code バンドルの `/run` `/verify`、
+品質観点は `/code-review`、セキュリティは `/security-review` に委譲してよい（二重メンテを避ける）。
+本スキルの固有価値は検証そのものではなく、**「実装→検証→停止→次の1手」のサイクル制御と停止ゲート**にある。
+バンドルで賄える確認はバンドルを呼び、結果を下記「検証レポート」の構造に集約して [[agent-planner]] へ渡す。
 
 ## スキャン観点（副作用・画面崩れ・DB・キャッシュ）
 

@@ -1,5 +1,6 @@
 ---
 name: discovery-planner
+allowed-tools: Read, Write, Edit, Grep, Glob
 description: >-
   Project Discovery 専用のプランナー。[[agent-planner]] の「次の1手に絞る・停止ゲートで止める」
   思想を、コード実装ではなく **意思決定** に移植したもの。git diff は読まない（discovery 段階に

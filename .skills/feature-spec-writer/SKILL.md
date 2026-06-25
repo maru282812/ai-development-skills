@@ -1,5 +1,6 @@
-﻿---
+---
 name: feature-spec-writer
+allowed-tools: Read, Write, Edit, Grep, Glob
 description: >-
   機能要望を、AIエージェント(Codex / Claude Code 等)にそのまま渡せる
   実装仕様書・実装指示文に変換するスキル。トリガー例:
@@ -22,9 +23,9 @@ description: >-
 - 口頭・チャットで散らばった仕様を1つの仕様書に統合したい
 - 外部の開発者・AIに渡す引き継ぎドキュメントが欲しい
 
-要件がまだ曖昧(MVP範囲・ユーザー種別が未定)なら先に [saas-product-manager](../saas-product-manager/skill.md)、
-大規模で実装順序の計画が必要なら [implementation-planner](../implementation-planner/skill.md)、
-DB・API設計だけ深掘りしたいなら [db-designer](../db-designer/skill.md) / [api-designer](../api-designer/skill.md) を使う。
+要件がまだ曖昧(MVP範囲・ユーザー種別が未定)なら先に [saas-product-manager](../saas-product-manager/SKILL.md)、
+大規模で実装順序の計画が必要なら [implementation-planner](../implementation-planner/SKILL.md)、
+DB・API設計だけ深掘りしたいなら [db-designer](../db-designer/SKILL.md) / [api-designer](../api-designer/SKILL.md) を使う。
 
 # Procedure
 
@@ -38,7 +39,7 @@ DB・API設計だけ深掘りしたいなら [db-designer](../db-designer/skill.
 
 仕様書は既存コードベースと整合していなければ実装に使えない。最低限以下を確認する:
 
-- 関連する既存テーブル・既存画面・既存API(必要なら [system-investigator](../system-investigator/skill.md) の手順で調査)
+- 関連する既存テーブル・既存画面・既存API(必要なら [system-investigator](../system-investigator/SKILL.md) の手順で調査)
 - プロジェクトの規約: App Router / Pages Router、Server Action か Route Handler か、UIライブラリ、バリデーション方式
 - 認証方式と既存の権限モデル
 

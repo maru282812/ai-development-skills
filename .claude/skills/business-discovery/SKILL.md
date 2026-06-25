@@ -1,5 +1,6 @@
 ---
 name: business-discovery
+allowed-tools: Read, Write, Edit, Grep, Glob
 description: >-
   Project Discovery の Phase5（Business Discovery）担当。収益計画書やPLを作るスキルではない。
   project / scope / metrics の成果物を入力に、「このプロダクトが事業として成立するための前提・収益構造・

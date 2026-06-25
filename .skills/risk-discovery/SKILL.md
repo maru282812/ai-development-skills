@@ -1,5 +1,6 @@
 ---
 name: risk-discovery
+allowed-tools: Read, Write, Edit, Grep, Glob
 description: >-
   Project Discovery の Phase8（Risk Discovery）担当。セキュリティ監査・脆弱性診断・インフラ設計をするスキルではない。
   business / operations / integration / legal / metrics の成果物を入力に、「MVP検証・事業継続・運営継続を妨げる

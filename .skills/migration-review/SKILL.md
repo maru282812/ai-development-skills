@@ -1,5 +1,6 @@
-﻿---
+---
 name: migration-review
+allowed-tools: Read, Grep, Glob, Bash
 description: >-
   Supabase migration (SQL) を本番適用前に確認し、既存データ破壊・RLS漏れ・
   rollback 可否を判定するスキル。トリガー例:
@@ -34,8 +35,8 @@ Supabase migration を適用前にレビューし、「適用可 / 修正必要 
 - RLS ポリシーが十分か確認したい
 - 既存データへの影響や rollback 手段を確認したい
 
-これから設計する段階なら [db-designer](../db-designer/skill.md)、
-RLS を含むアプリ全体のセキュリティ確認は [security-review](../security-review/skill.md) を使う。
+これから設計する段階なら [db-designer](../db-designer/SKILL.md)、
+RLS を含むアプリ全体のセキュリティ確認は [security-review](../security-review/SKILL.md) を使う。
 
 # Procedure
 

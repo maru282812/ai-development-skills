@@ -1,5 +1,6 @@
-﻿---
+---
 name: data-flow-mapper
+allowed-tools: Read, Grep, Glob, Bash
 description: >-
   Next.js + Supabase 構成で、特定のデータ(画面の表示値・テーブル・カラム)が
   どこから来てどこへ保存されるか、流れを図解するスキル。トリガー例:
@@ -24,8 +25,8 @@ system-investigator が「改修のための影響範囲」を出すのに対し
 - あるテーブルがどの画面・APIから読み書きされているか一覧したい
 - 機能のデータフローをドキュメント化したい
 
-改修箇所・影響範囲が知りたいなら [system-investigator](../system-investigator/skill.md)、
-データが「来ない/おかしい」原因調査なら [bug-investigator](../bug-investigator/skill.md) を使う。
+改修箇所・影響範囲が知りたいなら [system-investigator](../system-investigator/SKILL.md)、
+データが「来ない/おかしい」原因調査なら [bug-investigator](../bug-investigator/SKILL.md) を使う。
 
 # Procedure
 

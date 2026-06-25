@@ -1,5 +1,6 @@
-﻿---
+---
 name: ui-ux-review
+allowed-tools: Read, Grep, Glob, Bash
 description: >-
   Next.js の管理画面・LIFF・スマホ画面を対象に、導線・フォーム・表示状態・
   文言を確認し改善案を出す UI/UX レビュースキル。トリガー例:
@@ -36,8 +37,8 @@ Next.js で作られた画面(管理画面・LIFF・スマホ向け画面)を対
 - スマホ(LIFF含む)での使い勝手を確認したい
 - ボタン配置・文言に迷っている
 
-機能仕様そのものの整理は [saas-product-manager](../saas-product-manager/skill.md)、
-コードの品質確認は [code-review](../code-review/skill.md) を使う。
+機能仕様そのものの整理は [saas-product-manager](../saas-product-manager/SKILL.md)、
+コードの品質確認は [code-review](../code-review/SKILL.md) を使う。
 
 # Procedure
 

@@ -1,5 +1,6 @@
-﻿---
+---
 name: prompt-architect
+allowed-tools: Read, Write, Edit, Grep, Glob
 description: >-
   アプリに組み込む LLM プロンプト(system prompt / 分析プロンプト /
   インタビュープロンプト等)の設計・改善を行うスキル。トリガー例:
@@ -29,8 +30,8 @@ description: >-
 - 出力形式(JSON等)が守られないのを直したい
 - プロンプトをテンプレート化・パッケージ化したい
 
-プロンプトを DB に保存する機能の設計は [db-designer](../db-designer/skill.md)、
-AI 呼び出し API の設計は [api-designer](../api-designer/skill.md) を使う。
+プロンプトを DB に保存する機能の設計は [db-designer](../db-designer/SKILL.md)、
+AI 呼び出し API の設計は [api-designer](../api-designer/SKILL.md) を使う。
 
 # Procedure
 

@@ -1,5 +1,6 @@
 ---
 name: nfr-discovery
+allowed-tools: Read, Write, Edit, Grep, Glob
 description: >-
   Project Discovery の Phase12（NFR Discovery）担当。DB設計・インフラ構築・監視ツール導入・CI/CD実装などの
   具体実装をするスキルではない。project / requirements / data / integration / operations / legal / metrics / risk の

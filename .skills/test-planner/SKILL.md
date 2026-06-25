@@ -1,5 +1,6 @@
-﻿---
+---
 name: test-planner
+allowed-tools: Read, Write, Edit, Grep, Glob
 description: >-
   Next.js + Supabase の機能に対するテスト観点・動作確認項目・受け入れ条件を
   作成するスキル。トリガー例:
@@ -36,8 +37,8 @@ description: >-
 - E2E・自動テストのケースを設計したい
 - 改修による既存機能への回帰確認項目を作りたい
 
-確認の結果コードの問題を指摘したい場合は [code-review](../code-review/skill.md)、
-セキュリティ到達性の確認は [security-review](../security-review/skill.md) と組み合わせる。
+確認の結果コードの問題を指摘したい場合は [code-review](../code-review/SKILL.md)、
+セキュリティ到達性の確認は [security-review](../security-review/SKILL.md) と組み合わせる。
 
 # Procedure
 
@@ -70,7 +71,7 @@ description: >-
 ### 6. 回帰確認の列挙
 
 - 変更したテーブル・共通コンポーネント・共通関数の利用元を洗い出し、影響を受けうる既存機能の確認項目を作る
-  (調査は [system-investigator](../system-investigator/skill.md) の手順)
+  (調査は [system-investigator](../system-investigator/SKILL.md) の手順)
 
 ### 7. 手動 / 自動の振り分けと完了条件
 

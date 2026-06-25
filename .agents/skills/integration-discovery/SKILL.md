@@ -1,5 +1,6 @@
 ---
 name: integration-discovery
+allowed-tools: Read, Write, Edit, Grep, Glob
 description: >-
   Project Discovery の Phase10（Integration Discovery）担当。外部API設計や実装方式を決めるスキルではない。
   「プロジェクト外部との接続点・依存先・連携責任を発見する」工程。requirements / data / operations / business の成果物を入力に、

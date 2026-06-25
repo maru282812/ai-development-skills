@@ -1,5 +1,6 @@
-﻿---
+---
 name: refactor-planner
+allowed-tools: Read, Write, Edit, Grep, Glob
 description: >-
   既存の挙動を壊さずに、責務分離・共通化・ファイル分割を段階的に進める
   リファクタリング計画を作成するスキル。トリガー例:
@@ -34,7 +35,7 @@ description: >-
 - 機能追加の前に、土台を整理しておきたい
 
 リファクタと同時に機能を変えたい場合は、**先にこのスキルで整理 → 後で
-[implementation-planner](../implementation-planner/skill.md) で機能追加**の2段に分ける。
+[implementation-planner](../implementation-planner/SKILL.md) で機能追加**の2段に分ける。
 挙動変更とリファクタを同じ変更に混ぜない。
 
 # Procedure
@@ -48,7 +49,7 @@ description: >-
 
 - 対象ファイルの責務を列挙する(1ファイルに何種類の仕事があるか)
 - 重複を検索で特定する(類似の Supabase クエリ、同じ整形処理、コピペされた UI ブロック)
-- 利用元を洗い出す(調査は [system-investigator](../system-investigator/skill.md) の手順)
+- 利用元を洗い出す(調査は [system-investigator](../system-investigator/SKILL.md) の手順)
 
 ### 3. あるべき構造の設計
 
@@ -65,7 +66,7 @@ description: >-
 ### 5. regression 確認方法の定義
 
 - 既存の自動テストの有無を確認し、なければ「リファクタ前に最低限の特性テスト(現状の挙動の固定)を書く」ことを検討する
-- 手動確認項目は対象機能の主要導線に絞って列挙する(詳細化は [test-planner](../test-planner/skill.md))
+- 手動確認項目は対象機能の主要導線に絞って列挙する(詳細化は [test-planner](../test-planner/SKILL.md))
 
 ### 6. 計画の出力
 

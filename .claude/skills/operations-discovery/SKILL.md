@@ -1,5 +1,6 @@
 ---
 name: operations-discovery
+allowed-tools: Read, Write, Edit, Grep, Glob
 description: >-
   Project Discovery の Phase6（Operations Discovery）担当。機能要件・画面要件を定義するスキルではなく、
   インフラ設計・非機能設計を行うスキルでもない。「システムを継続運営するために必要な運用実態を発見する」工程。

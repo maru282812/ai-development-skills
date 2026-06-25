@@ -1,5 +1,6 @@
-﻿---
+---
 name: saas-product-manager
+allowed-tools: Read, Write, Edit, Grep, Glob
 description: >-
   SaaS の機能仕様を整理し、ユーザー種別・導線・MVP・Phase分け・権限・運用要件を
   実装に落とせる形にまとめるスキル。トリガー例:
@@ -36,8 +37,8 @@ description: >-
 - ユーザー種別ごとの導線・権限を整理したい
 - 機能一覧・Phase 分けの形でロードマップ化したい
 
-仕様が固まった後の実装計画は [implementation-planner](../implementation-planner/skill.md)、
-画面単位の使い勝手の改善は [ui-ux-review](../ui-ux-review/skill.md) を使う。
+仕様が固まった後の実装計画は [implementation-planner](../implementation-planner/SKILL.md)、
+画面単位の使い勝手の改善は [ui-ux-review](../ui-ux-review/SKILL.md) を使う。
 
 # Procedure
 

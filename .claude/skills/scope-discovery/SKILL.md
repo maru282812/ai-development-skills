@@ -1,5 +1,6 @@
 ---
 name: scope-discovery
+allowed-tools: Read, Write, Edit, Grep, Glob
 description: >-
   Project Discovery の最前段（Scope Discovery）担当。requirements-discovery が「どう作るか」を固める工程なら、
   scope-discovery は「そもそも何を作るのか / どこまで作るのか / 今回は何を作らないのか」を決める工程。

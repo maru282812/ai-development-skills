@@ -1,5 +1,6 @@
-﻿---
+---
 name: api-designer
+allowed-tools: Read, Write, Edit, Grep, Glob
 description: >-
   Next.js の Route Handler / Server Actions 前提で、エンドポイント・
   request/response・認証認可・エラー設計を含む API 設計を行うスキル。
@@ -38,15 +39,15 @@ Next.js + Supabase 構成で、実装に直結する API 設計(仕様書)を作
 - 認可チェックの置き場所(API側 / RLS側)を整理したい
 - 実装者(またはAIエージェント)に渡すAPI仕様書を作りたい
 
-DB スキーマ自体の設計は [db-designer](../db-designer/skill.md)、
-実装後の確認は [code-review](../code-review/skill.md) / [security-review](../security-review/skill.md) を使う。
+DB スキーマ自体の設計は [db-designer](../db-designer/SKILL.md)、
+実装後の確認は [code-review](../code-review/SKILL.md) / [security-review](../security-review/SKILL.md) を使う。
 
 # Procedure
 
 ### 1. 要件の整理
 
 - 誰が(ユーザー種別)、どの画面から、何をするためのAPIかを整理する
-- 既存APIの有無・流用可否を確認する(調査は [system-investigator](../system-investigator/skill.md))
+- 既存APIの有無・流用可否を確認する(調査は [system-investigator](../system-investigator/SKILL.md))
 
 ### 2. Server Actions / Route Handler の選択
 

@@ -1,5 +1,6 @@
-﻿---
+---
 name: security-review
+allowed-tools: Read, Grep, Glob, Bash
 description: >-
   Next.js + Supabase 構成のセキュリティを確認するスキル。RLS・service_role・
   認証認可・個人情報・ログ・Storage policy を対象とする。トリガー例:
@@ -30,6 +31,14 @@ Next.js + Supabase 構成のコードベース(または変更差分)を対象�
 - Storage bucket policy(公開バケット・パス権限)
 - Edge Functions(認証検証、シークレットの扱い)
 
+# バンドルコマンドとの使い分け
+
+Claude Code には汎用の `/security-review`(変更差分のセキュリティ監査・有料プラン)がバンドルされている。
+**一般的な脆弱性スキャン(injection / XSS / 依存関係 等)はバンドル `/security-review` を一次窓口にする。**
+本スキルは、バンドルでは踏み込みにくい **Supabase 権限モデル固有**——RLS ポリシーの行レベル到達性、
+service_role/anon key の到達範囲、テナント横断 IDOR、Storage policy、Edge Functions の JWT 検証——に特化する。
+固有依頼で発火させ、汎用依頼はバンドル側に委ねてよい。バンドルが無効な環境では本スキルが fallback になる。
+
 # When To Use
 
 - リリース前・マージ前にセキュリティ観点だけを深く確認したい
@@ -37,8 +46,8 @@ Next.js + Supabase 構成のコードベース(または変更差分)を対象�
 - service_role や anon key の使い方が正しいか確認したい
 - 個人情報の扱い・ログ出力を点検したい
 
-コード品質全般のレビューは [code-review](../code-review/skill.md)、
-migration 単体の確認は [migration-review](../migration-review/skill.md) を使う。
+コード品質全般のレビューは [code-review](../code-review/SKILL.md)、
+migration 単体の確認は [migration-review](../migration-review/SKILL.md) を使う。
 このスキルは「攻撃者目線でデータに到達できるか」に集中する。
 
 # Procedure

@@ -1,5 +1,6 @@
-﻿---
+---
 name: implementation-planner
+allowed-tools: Read, Write, Edit, Grep, Glob
 description: >-
   Next.js + Supabase の機能開発で、実装前に目的・変更対象・実装順序・Phase分けを
   整理し、Codex / Claude Code にそのまま渡せる実装指示文を作成するスキル。
@@ -37,9 +38,9 @@ description: >-
 - どのファイルを作成・修正するか事前に洗い出したい
 - 複数人(または複数セッション)で分担するためにタスク分解したい
 
-調査だけが目的なら [system-investigator](../system-investigator/skill.md)、
-DB設計の詳細は [db-designer](../db-designer/skill.md)、
-API設計の詳細は [api-designer](../api-designer/skill.md) を先に使うこと。
+調査だけが目的なら [system-investigator](../system-investigator/SKILL.md)、
+DB設計の詳細は [db-designer](../db-designer/SKILL.md)、
+API設計の詳細は [api-designer](../api-designer/SKILL.md) を先に使うこと。
 
 # Procedure
 
@@ -51,7 +52,7 @@ API設計の詳細は [api-designer](../api-designer/skill.md) を先に使う�
 ### 2. 現状調査
 
 - 関連する既存コード・テーブル・APIを把握する
-- 調査が必要な場合は [system-investigator](../system-investigator/skill.md) の手順に従う
+- 調査が必要な場合は [system-investigator](../system-investigator/SKILL.md) の手順に従う
 - 既存の実装パターン(Supabaseクライアントの使い分け、ディレクトリ構成、バリデーション方法)を確認し、計画をそれに合わせる
 
 ### 3. 変更対象の洗い出し

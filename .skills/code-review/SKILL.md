@@ -1,5 +1,6 @@
-﻿---
+---
 name: code-review
+allowed-tools: Read, Grep, Glob, Bash
 description: >-
   Next.js + Supabase の実装済みコードを対象に、型・コンポーネント境界・
   認証認可・RLS・バリデーション・エラーハンドリング・既存機能への影響を
@@ -30,6 +31,14 @@ description: >-
 - UI崩れ(レイアウト、レスポンシブ)
 - 既存機能への影響(回帰リスク)
 
+# バンドルコマンドとの使い分け
+
+Claude Code には汎用の `/code-review`(バグ・品質・スタイル)と PR 用 `/review` がバンドルされている。
+**汎用的なバグ/品質レビューはバンドル `/code-review` を一次窓口にする。**
+本スキルは、バンドルが浅くなりがちな **Supabase/RLS・service_role・Server/Client 境界・認可絞り込み・Next.js App Router 固有**の観点に特化したレイヤとして使う。
+「Supabase の認可漏れを見て」「RLS 大丈夫?」「service_role 危なくない?」のような固有依頼で発火させ、
+単に「差分をレビューして」という汎用依頼はバンドル側に委ねてよい。
+
 # When To Use
 
 - 実装が終わったコード(diff / PR / ブランチ)を確認してほしい
@@ -37,9 +46,9 @@ description: >-
 - 実装漏れ・考慮漏れがないか確認したい
 - マージ前の最終チェックをしたい
 
-セキュリティだけを深く見たい場合は [security-review](../security-review/skill.md)、
-migration SQL の確認は [migration-review](../migration-review/skill.md)、
-構造の整理が主目的なら [refactor-planner](../refactor-planner/skill.md) を使う。
+セキュリティだけを深く見たい場合は [security-review](../security-review/SKILL.md)、
+migration SQL の確認は [migration-review](../migration-review/SKILL.md)、
+構造の整理が主目的なら [refactor-planner](../refactor-planner/SKILL.md) を使う。
 
 # Procedure
 

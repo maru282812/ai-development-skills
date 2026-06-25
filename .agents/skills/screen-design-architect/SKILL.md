@@ -1,5 +1,6 @@
 ---
 name: screen-design-architect
+allowed-tools: Read, Write, Edit, Grep, Glob
 description: >-
   project-discovery / requirements-discovery の成果物を入力に、必要画面・画面遷移・画面状態・
   UI構成・共通コンポーネント・Google Stitch 用プロンプトを生成し、Stitch 出力 /

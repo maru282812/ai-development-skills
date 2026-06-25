@@ -1,5 +1,6 @@
 ---
 name: contract-discovery
+allowed-tools: Read, Write, Edit, Grep, Glob
 description: >-
   Project Discovery の契約発見担当。法務文書・契約書を作成するスキルではない。
   サービス提供後のトラブルを防ぐために「誰と・何を・どの条件で契約するか」を発見・整理する工程。

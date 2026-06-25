@@ -1,5 +1,6 @@
 ---
 name: data-discovery
+allowed-tools: Read, Write, Edit, Grep, Glob
 description: >-
   Project Discovery の Phase9（Data Discovery）担当。DB設計をするスキルではない。
   「そもそも何のデータを扱うサービスなのか」を、画面・機能・運営・法務・リスク検討の結果として確定する。

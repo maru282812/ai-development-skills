@@ -1,5 +1,6 @@
-﻿---
+---
 name: system-investigator
+allowed-tools: Read, Grep, Glob, Bash
 description: >-
   Next.js(フロントエンド/APIルート/Server Actions) + Supabase(DB/RLS/Functions)
   構成の既存システムを対象に、機能・項目・カラム・APIの使用箇所、影響範囲、
