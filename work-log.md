@@ -99,10 +99,19 @@
 - 壊れた 0.0 を根拠に description を書き換えていない。既存 description は排他句を備えており、構造監査でも良好。
 - 正しい測定は、修正後の launcher 経由で再実行して得る。
 
-### 残タスク
-- ★ `claude` が通る端末で **再実行**: `git pull` → `powershell -File evals/run-trigger-eval.ps1 -Skill security-review -MaxIterations 2`（まず1本で 0.0 が解消するか確認）→ 良ければ `-All`
-- 得られた `best_description`（test スコア基準）を before/after 確認のうえ `.skills/<skill>/SKILL.md` へ反映 → `scripts/sync-skills.ps1 -Apply` で同期
-- F6 -Apply は実行済み（4.2）
+## 4.6 測定実行と最終判断（2026-06-26）
+
+ユーザー端末（claude 2.1.191）で security-review を実測（launcher 経由、UTF-8修正後）。
+
+- **Windows 測定バグは解消**: trigger_rate に非ゼロが出た（例「権限モデルを攻撃者目線で監査して」「テナント横断…」「IDOR…」「anon key…」が 1/3）。前回の全0.0は再現せず。
+- **結果の解釈**: precision=100%（負例で誤発火ゼロ）／recall 6–17%（強い under-trigger）。自動改善案は **元 description を上回れず、original が best**（4/8）。
+- **低 recall はハーネス由来が大きい**: 素の `claude -p` にスキル1個だけ登録した一発質問では、Claude は自力でできるタスクでスキルを参照しにくい（skill-creator 公式も明記）。実プロジェクト内の発火条件とは異なり、絶対 recall は実使用より低めに出る。
+- **最終判断（ユーザー: 「これでいい」）= 現状維持で確定**。理由: ①最適化ツールが元 description を上回れない、②precision 100%、③低 recall はハーネス由来。**description は一切変更しない。**
+
+### 完了
+- 棚卸し（F1–F4・A・F6・F7）＋ skill-creator 連携（トリガーeval整備・Windows対応launcher）まで完了。description は measured で validated のうえ据え置き。
+- F5（長文分離）・description最適化はいずれも「見送り/据え置き」で確定。
+- PR #1（chore/skill-audit）に全コミット反映済み。
 - skill-creator 導入（プラグイン許可）→ evals.json を実フォーマットへ変換し実行
 - 3ディレクトリ全件 diff でドリフト棚卸し
 
