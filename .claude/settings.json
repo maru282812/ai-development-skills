@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(perl -v)",
+      "Edit(/.claude/skills/agent-tester/**)",
+      "PowerShell(powershell -ExecutionPolicy Bypass -File scripts/sync-skills.ps1)",
+      "PowerShell(powershell -ExecutionPolicy Bypass -File scripts/sync-skills.ps1 | Select-Object -First 6; Write-Host \"...\"; powershell -ExecutionPolicy Bypass -File scripts/sync-skills.ps1 | Select-Object -Last 4)",
+      "PowerShell(powershell -ExecutionPolicy Bypass -File scripts/sync-skills.ps1 -Apply | Select-Object -Last 3)",
+      "Bash(git add *)"
+    ]
+  }
+}
