@@ -132,3 +132,50 @@
 2. skill-creator 導入可否（プラグイン許可ポリシー）→ 導入後 evals.json を実フォーマットへ調整し実行
 3. `.skills` ↔ `.agents` ↔ `.claude` の全件 diff を取りドリフト棚卸し
 4. 重複2本（code-review/security-review）の固有差分価値を eval で測定 → 非推奨の要否を再判断
+
+---
+
+## 追記: 2026-06-29 — Discovery→画像UIチェーンを両ツール・任意プロジェクトへ配布
+
+目的: 「要件定義 → 各Discovery → screen-design-architect（Google Stitch=画像UIへ投げる）→
+feature-spec-writer / implementation-planner 実装引き渡し」のチェーン全体を、
+Codex と Claude Code の両方・どのプロジェクトでも使えるようにする。
+
+実施:
+- 下流4本（feature-spec-writer / implementation-planner / saas-product-manager / ui-ux-review）を
+  `.skills/` 原本から両ミラー（`.agents/skills` `.claude/skills`）へコピー。チェーンの幽霊参照を解消。
+- 新規 `scripts/install-discovery-chain.ps1` を作成。
+  - チェーン21本（両ツール）＋ Claude専用 agent-planner/agent-tester を定義。
+  - `-Global`: `~/.codex/skills`（21本）/ `~/.claude/skills`（23本）へ導入。
+  - `-Project <path>`: `<path>/.agents/skills` / `<path>/.claude/skills` へ一括コピー。
+  - dry-run 既定・`-Apply` で書き込み。既存スキルdirは置換、無関係スキルは温存。
+- `-Global -Apply` を実行しグローバル導入完了（Codex 21・Claude 23、既存 .system/testmaster は温存）。
+- README にチェーン配布手順を追記。
+
+監査: 両ミラーの `[[link]]` を走査。残る未解決は agent-planner/agent-tester（Claude専用・
+「思想の参照元/流用禁止」と明記された意図的参照）と data-flow-mapper（data-discovery の任意の
+詳細フロー図化の渡し先・画像UIチェーン外）のみ。チェーン本体は全リンク解決済み。
+
+差し戻し条件: 既存通り。グローバル/プロジェクトの skills dir を削除すれば原状復帰（原本 .skills は不変）。
+
+---
+
+## 5. Discovery を /loop でフェーズ末ゲート化（2026-06-30・ユーザー指示「実行していい」）
+
+**背景・判断**: 「要件定義書を作り込んでいるのにフェーズ途中で人間指示が要るのはおかしい。フェーズ末に人間ゲートが来る形にできないか」というユーザー指摘を採用。旧 discovery-planner の「次の1問だけ・毎サイクル停止」は 1フェーズ内に人間ゲートが多数でき `/loop` と最悪の相性だった。粒度を **1問 → フェーズ** に反転。
+
+**設計（確定）**: セルフペース `/loop`（時間ループは人待ちで空回りするため不採用）＋ チェックリスト式 Exit Gate。1イテレーション＝1フェーズを仮置き(assumption)で完走→フェーズ末にだけ停止。
+
+| 観点 | 内容 |
+|---|---|
+| 自動充填可 | 技術慣習・デフォルト・前段から導ける項目 → `assumption`（確信度＋根拠）で前進・途中で止めない |
+| 人間必須 | 事業意図/課金/対象ユーザー/提供価値/責任範囲/データ所有権/法務方針 → 仮置き断定せず「要確認」に上げる |
+| 停止規約 | フェーズ末で人間必須が残る/Gate未充足なら `ScheduleWakeup` を呼ばず終了。再開は時刻でなくユーザー承認 |
+| 歯止め | discovery-auditor が「人間必須の未昇格仮置きが下流へ漏れ」を **Critical で弾く**（まとめ確認の手戻り防止） |
+
+**変更ファイル（原本 .skills → .agents/.claude 同期、各3＝計9）**:
+- [discovery-planner/SKILL.md](.skills/discovery-planner/SKILL.md): フェーズ末ゲートへ全面改稿。description／ループ図／手順／制約／出力フォーマット（仮置き一括確認表＋人間必須の要確認＋ゲート判定）／停止ルール。自動充填可 vs 人間必須の2分類を追加。
+- [discovery-auditor/SKILL.md](.skills/discovery-auditor/SKILL.md): 2モード追加（フェーズ末・軽量／全体・横断）。担当範囲#1に「人間必須の未昇格仮置きは Critical で弾く」を追記。停止ルールを軽量モードでは二重停止しないよう調整。
+- [project-discovery/SKILL.md](.skills/project-discovery/SKILL.md): Phase完了判定を □チェックリスト Exit Gate に変更。「Discovery Loop プロトコル」節（/loop の停止規約＋起動文雛形）を追加。Agent連携ループ図をフェーズ末ゲート型に書換。frontmatter 説明も整合。
+
+**検証**: 6ミラー全て原本と `diff` 一致を確認。未コミット（コミット/PRはユーザー指示待ち、ブランチ `chore/skill-audit`）。

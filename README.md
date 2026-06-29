@@ -15,6 +15,29 @@ AI 開発で使う skill を蓄積し、他プロジェクトへ必要な分だ�
 > 原本は `.skills/`。修正は原本 `SKILL.md` を更新してからミラー（`.agents/` `.claude/`）へ同期する。詳細な選択ガイドは [.skills/README.md](.skills/README.md)。
 > 棚卸し・整理の記録は [skill-review-report.md](skill-review-report.md) / [skill-migration-plan.md](skill-migration-plan.md) / [work-log.md](work-log.md)。
 
+## どんなプロジェクトでも使う（Codex / Claude Code 両対応）
+
+「要件定義 → 各 Discovery → 画面設計（Google Stitch=画像UI へ投げる）→ 実装引き渡し」の
+チェーン全体を、Codex と Claude Code の両方・任意のプロジェクトで使えるように配布します。
+
+```powershell
+# グローバル導入（~/.codex/skills と ~/.claude/skills に全チェーンを入れる＝全プロジェクトで自動利用）
+powershell -File scripts/install-discovery-chain.ps1 -Global -Apply
+
+# 特定プロジェクトへ導入（<path>/.agents/skills と <path>/.claude/skills へ一括コピー）
+powershell -File scripts/install-discovery-chain.ps1 -Project C:\work\foo -Apply
+
+# 両方まとめて／まず dry-run（-Apply を外すと書き込まずプレビュー）
+powershell -File scripts/install-discovery-chain.ps1 -Global -Project C:\work\foo
+```
+
+- 配布されるチェーン（両ツール・21本）: project / scope / requirements / business / operations /
+  legal / legal-publication-manager / contract / risk / data / integration / metrics / nfr /
+  discovery-planner / discovery-auditor / project-quality-tooling / screen-design-architect /
+  ui-ux-review / feature-spec-writer / saas-product-manager / implementation-planner。
+- Claude Code には加えて実装ループ専用の agent-planner / agent-tester も入る（Codex には入れない）。
+- 原本は常に `.skills/`（チェーン本体）と `.claude/skills/`（Claude 専用2本）。スクリプトはここからコピーする。
+
 ## 使い分け
 
 通常の開発プロジェクトでは [initial-set](profiles/initial-set/README.md) を使います。
