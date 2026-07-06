@@ -1,6 +1,9 @@
 ---
 name: dispatch-pattern-builder
 allowed-tools: Read, Write, Edit, Grep, Glob
+metadata:
+  reasoning-tier: standard
+  summary: "指示文ディスパッチ方式の機能を作る builder 担当。対象をDBに保存してID発行→コピー用スキル実行文→サブスク側で処理して書き戻す構成の実装指示と受け側スキルを設計する（API課金回避）。"
 description: >-
   サイト側ではLLM APIを使わず、対象をDBに保存してIDを発行し、「スキル実行文」を
   コピーしてClaude Code / Codex に貼るとサブスク側で重い処理を実行して結果を書き戻す
@@ -160,3 +163,10 @@ implementation-planner → Claude Code。順序: migration → API → コピー
 
 受け側スキルの出力テンプレは [references/receiver-skill-template.md](references/receiver-skill-template.md)。
 実例の方式メモは [[skill-dispatch-pattern]]（メモリ）。
+
+# 実行モデルティア
+
+推奨ティア: **standard**（手順追従型のため標準クラスのモデルで品質が安定する）。
+最上位推論クラスのモデルを占有する必要はない。手順から外れる複雑な判断が
+必要になったら、その論点を明示して deep ティアの設計・監査系スキルへ引き渡すこと。
+具体的なモデル名はここに書かない（対応表は `.skills/MODEL-TIERS.md`）。
