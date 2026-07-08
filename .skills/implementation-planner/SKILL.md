@@ -1,6 +1,9 @@
 ---
 name: implementation-planner
 allowed-tools: Read, Write, Edit, Grep, Glob
+metadata:
+  reasoning-tier: standard
+  summary: "実装計画づくり担当。Next.js + Supabase の機能開発で、目的・変更対象・実装順序・Phase分けを整理し、Codex/Claude Code にそのまま渡せる実装指示文を作る。"
 description: >-
   Next.js + Supabase の機能開発で、実装前に目的・変更対象・実装順序・Phase分けを
   整理し、Codex / Claude Code にそのまま渡せる実装指示文を作成するスキル。
@@ -134,3 +137,10 @@ API設計の詳細は [api-designer](../api-designer/SKILL.md) を先に使う�
 ```
 
 実例は [examples/](examples/README.md) を参照。
+
+# 実行モデルティア
+
+推奨ティア: **standard**（手順追従型のため標準クラスのモデルで品質が安定する）。
+最上位推論クラスのモデルを占有する必要はない。手順から外れる複雑な判断が
+必要になったら、その論点を明示して deep ティアの設計・監査系スキルへ引き渡すこと。
+具体的なモデル名はここに書かない（対応表は `.skills/MODEL-TIERS.md`）。

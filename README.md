@@ -31,10 +31,12 @@ powershell -File scripts/install-discovery-chain.ps1 -Project C:\work\foo -Apply
 powershell -File scripts/install-discovery-chain.ps1 -Global -Project C:\work\foo
 ```
 
-- 配布されるチェーン（両ツール・21本）: project / scope / requirements / business / operations /
+- 配布されるチェーン（両ツール・27本）: project / scope / requirements / business / operations /
   legal / legal-publication-manager / contract / risk / data / integration / metrics / nfr /
   discovery-planner / discovery-auditor / project-quality-tooling / screen-design-architect /
-  ui-ux-review / feature-spec-writer / saas-product-manager / implementation-planner。
+  ui-ux-review / feature-spec-writer / saas-product-manager / implementation-planner、
+  および test & quality ループの test-planner / system-investigator / bug-investigator /
+  migration-review / adversarial-review。
 - Claude Code には加えて実装ループ専用の agent-planner / agent-tester も入る（Codex には入れない）。
 - 原本は常に `.skills/`（チェーン本体）と `.claude/skills/`（Claude 専用2本）。スクリプトはここからコピーする。
 
@@ -45,6 +47,23 @@ powershell -File scripts/install-discovery-chain.ps1 -Global -Project C:\work\fo
 HP・Web サイト作成では [hp-creation](profiles/hp-creation/README.md) を使います。HP 作成が不要なプロジェクトでは、この profile はコピー対象に含めません。
 
 Claude Code で実装後の検証と次指示作成を回す場合は [claude-code-loop](profiles/claude-code-loop/README.md) を追加します。
+
+## skill 一覧ダッシュボード（管理者向け）
+
+全 skill を分類・検索・起動方法（トリガー語）付きで一覧するダッシュボードを、`.skills/*/SKILL.md` から自動生成します。
+
+```powershell
+# 再生成（新しい skill を追加したら必ず実行）
+powershell -ExecutionPolicy Bypass -File scripts/build-skills-dashboard.ps1
+
+# 生成して localhost で表示
+powershell -ExecutionPolicy Bypass -File scripts/build-skills-dashboard.ps1 -Serve
+# → http://localhost:8777/skills-dashboard.html
+```
+
+- 出力は [skills-dashboard.html](skills-dashboard.html)（単一ファイル・データ埋め込みなので `file://` でも閲覧可）。
+- 分類は生成スクリプト内の `$CategoryMap` で定義。未登録の skill は「その他」に入るので、新規追加時は 1 行足す。
+- **skill を追加・改名したら `scripts/build-skills-dashboard.ps1` を再実行してダッシュボードを更新すること。**
 
 ## 追加ルール
 

@@ -1,6 +1,9 @@
 ---
 name: project-quality-tooling
 allowed-tools: Read, Write, Edit, Grep, Glob, Bash
+metadata:
+  reasoning-tier: standard
+  summary: "新規案件の lint/format 初期セットアップ担当。スタックを検出して（TS→Biome / Swift→SwiftLint+SwiftFormat / Kotlin→ktlint）、設定ファイル・scripts・README まで一貫生成する。スタック越境はしない。"
 description: >-
   新規案件の初期化時に「プロジェクト種別に応じて、どのコード整形・静的解析ツールを導入すべきか」を判定し、
   設定ファイル・scripts・README まで一貫して生成するセットアップ・スキル。
@@ -202,3 +205,10 @@ description: >-
 ---
 
 関連スキル: 入力元 [[scope-discovery]]（利用環境）/ [[nfr-discovery]]（保守性方針）/ 引き渡し先 [[implementation-planner]]（実装計画・CI連携）/ 進行補助 [[discovery-planner]]（次の1問）/ オーケストレーター [[project-discovery]]。雛形本文は [references/tool-templates.md](references/tool-templates.md)。
+
+# 実行モデルティア
+
+推奨ティア: **standard**（手順追従型のため標準クラスのモデルで品質が安定する）。
+最上位推論クラスのモデルを占有する必要はない。手順から外れる複雑な判断が
+必要になったら、その論点を明示して deep ティアの設計・監査系スキルへ引き渡すこと。
+具体的なモデル名はここに書かない（対応表は `.skills/MODEL-TIERS.md`）。

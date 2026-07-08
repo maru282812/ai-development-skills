@@ -1,6 +1,9 @@
 ---
 name: risk-discovery
 allowed-tools: Read, Write, Edit, Grep, Glob
+metadata:
+  reasoning-tier: deep
+  summary: "Project Discovery の Phase8（Risk Discovery）担当。MVP検証・事業継続・運営継続を妨げる主要リスクと前提条件を発見し、発生可能性×影響度で優先順位を付け、受容/軽減/後回し/情報不足に分類する。脆弱性診断はしない。"
 description: >-
   Project Discovery の Phase8（Risk Discovery）担当。セキュリティ監査・脆弱性診断・インフラ設計をするスキルではない。
   business / operations / integration / legal / metrics の成果物を入力に、「MVP検証・事業継続・運営継続を妨げる
@@ -419,3 +422,11 @@ description: >-
 ---
 
 関連スキル: [[project-discovery]]（オーケストレーター・Phase8）/ [[discovery-planner]]（次に検証すべきリスク仮説1件）/ [[discovery-auditor]]（KPI未接続・属人化・API依存・収益/集客/法務前提崩壊の検出）/ 入力元: [[business-discovery]]（収益・集客・事業仮説）・[[operations-discovery]]（運営体制・属人化）・[[integration-discovery]]（外部依存・失敗時対応）・[[legal-discovery]]（法務論点）・[[metrics-discovery]]（KPI・計測手段）/ 引き渡し先: [[nfr-discovery]]（可用性/性能/バックアップ/復旧）・[[contract-discovery]]（返金/SLA/サポート/責任範囲）。
+
+# 実行モデルティア
+
+推奨ティア: **deep**（判断・設計・監査の質がモデルの推論力に依存する）。
+最上位推論クラスのモデルが使えない環境でも中止しない。代わりに劣化運転として、
+結論は候補＋根拠＋確信度で提示して1本に絞り込まず、工程を細かく区切って
+ユーザー確認を挟み、不可逆な提案（削除・破壊的変更・本番適用）では必ず停止すること。
+具体的なモデル名はここに書かない（対応表は `.skills/MODEL-TIERS.md`）。

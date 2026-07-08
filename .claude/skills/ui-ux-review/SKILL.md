@@ -1,6 +1,9 @@
 ---
 name: ui-ux-review
 allowed-tools: Read, Grep, Glob, Bash
+metadata:
+  reasoning-tier: standard
+  summary: "UI/UX レビュー担当。管理画面・LIFF・スマホ画面の導線・フォーム・表示状態・文言を確認し改善案を出す。"
 description: >-
   Next.js の管理画面・LIFF・スマホ画面を対象に、導線・フォーム・表示状態・
   文言を確認し改善案を出す UI/UX レビュースキル。トリガー例:
@@ -110,3 +113,10 @@ Next.js で作られた画面(管理画面・LIFF・スマホ向け画面)を対
 ```
 
 実例は [examples/](examples/README.md) を参照。
+
+# 実行モデルティア
+
+推奨ティア: **standard**（手順追従型のため標準クラスのモデルで品質が安定する）。
+最上位推論クラスのモデルを占有する必要はない。手順から外れる複雑な判断が
+必要になったら、その論点を明示して deep ティアの設計・監査系スキルへ引き渡すこと。
+具体的なモデル名はここに書かない（対応表は `.skills/MODEL-TIERS.md`）。

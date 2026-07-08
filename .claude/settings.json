@@ -7,7 +7,10 @@
       "PowerShell(powershell -ExecutionPolicy Bypass -File scripts/sync-skills.ps1 | Select-Object -First 6; Write-Host \"...\"; powershell -ExecutionPolicy Bypass -File scripts/sync-skills.ps1 | Select-Object -Last 4)",
       "PowerShell(powershell -ExecutionPolicy Bypass -File scripts/sync-skills.ps1 -Apply | Select-Object -Last 3)",
       "Bash(git add *)",
-      "Bash(cd c:/work/ai-development-skills && cp .skills/project-discovery/SKILL.md .agents/skills/project-discovery/SKILL.md && cp .skills/project-discovery/SKILL.md .claude/skills/project-discovery/SKILL.md && echo synced && diff -q .skills/project-discovery/SKILL.md .agents/skills/project-discovery/SKILL.md && diff -q .skills/project-discovery/SKILL.md .claude/skills/project-discovery/SKILL.md && echo all-match)"
+      "Bash(cd c:/work/ai-development-skills && cp .skills/project-discovery/SKILL.md .agents/skills/project-discovery/SKILL.md && cp .skills/project-discovery/SKILL.md .claude/skills/project-discovery/SKILL.md && echo synced && diff -q .skills/project-discovery/SKILL.md .agents/skills/project-discovery/SKILL.md && diff -q .skills/project-discovery/SKILL.md .claude/skills/project-discovery/SKILL.md && echo all-match)",
+      "PowerShell(powershell -File scripts/install-discovery-chain.ps1 -Project C:\\\\work\\\\ai-ideas)",
+      "PowerShell(powershell -File scripts/install-discovery-chain.ps1 -Project C:\\\\work\\\\ai-ideas -Apply 2>&1 | Select-Object -Last 6)",
+      "PowerShell(& \"C:\\\\Users\\\\PC_User\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--work-ai-development-skills\\\\36634648-9db0-49d5-8238-5bc757d7e700\\\\scratchpad\\\\distribute-all.ps1\")"
     ],
     "additionalDirectories": [
       "c:\\work\\ai-development-skills\\.claude\\skills\\project-discovery"

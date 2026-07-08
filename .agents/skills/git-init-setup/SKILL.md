@@ -1,6 +1,9 @@
 ---
 name: git-init-setup
 allowed-tools: Read, Write, Edit, Bash, Glob
+metadata:
+  reasoning-tier: standard
+  summary: "新規プロジェクトの git/GitHub 初期化担当。既存 .git 退避→git init→初回コミット→GitHub private作成→remote連携→push を全自動で行う。安全ガードで既存リポジトリは保護する。"
 description: >-
   新規プロジェクトの初期化時に、Gitリポジトリを作り直して GitHub と連携するまでを全自動で行うセットアップ・スキル。
   トリガー例:「git作成」「gitを初期化して」「リポジトリ作り直して」「新規プロジェクトのgitを作って」
@@ -121,3 +124,10 @@ gh repo create "$(basename "$PWD")" --private --source=. --remote=origin --push
 - 要件定義・仕様・スコープの整理（→ [[requirements-discovery]] / [[scope-discovery]] / [[project-discovery]]）
 - CI/CD・ブランチ保護・Issue テンプレ等のリポジトリ運用設定（必要なら別途）
 - 既存リポジトリへの追加コミットや通常の push 運用（これは初期化専用スキル）
+
+# 実行モデルティア
+
+推奨ティア: **standard**（手順追従型のため標準クラスのモデルで品質が安定する）。
+最上位推論クラスのモデルを占有する必要はない。手順から外れる複雑な判断が
+必要になったら、その論点を明示して deep ティアの設計・監査系スキルへ引き渡すこと。
+具体的なモデル名はここに書かない（対応表は `.skills/MODEL-TIERS.md`）。

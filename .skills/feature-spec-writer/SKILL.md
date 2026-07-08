@@ -1,6 +1,9 @@
 ---
 name: feature-spec-writer
 allowed-tools: Read, Write, Edit, Grep, Glob
+metadata:
+  reasoning-tier: standard
+  summary: "実装仕様書づくり担当。機能要望を、AIエージェント（Codex/Claude Code）にそのまま渡せる実装仕様書・指示文（目的・画面・API・DB・権限・受け入れ条件）に変換する。"
 description: >-
   機能要望を、AIエージェント(Codex / Claude Code 等)にそのまま渡せる
   実装仕様書・実装指示文に変換するスキル。トリガー例:
@@ -118,3 +121,10 @@ DB・API設計だけ深掘りしたいなら [db-designer](../db-designer/SKILL.
 ```
 
 実例は [examples/](examples/README.md) を参照。
+
+# 実行モデルティア
+
+推奨ティア: **standard**（手順追従型のため標準クラスのモデルで品質が安定する）。
+最上位推論クラスのモデルを占有する必要はない。手順から外れる複雑な判断が
+必要になったら、その論点を明示して deep ティアの設計・監査系スキルへ引き渡すこと。
+具体的なモデル名はここに書かない（対応表は `.skills/MODEL-TIERS.md`）。

@@ -1,6 +1,9 @@
 ---
 name: requirements-discovery
 allowed-tools: Read, Write, Edit, Grep, Glob
+metadata:
+  reasoning-tier: standard
+  summary: "実装前の要件洗い出し担当（Project Discovery の Phase2 も兼ねる）。業務フロー・利用者・状態・例外・通知・画面導線を段階式チェックリストで網羅質問し、後からの手戻りを減らす。一問一答はしない。"
 description: >-
   実装に入る前に、必要要件を段階式チェックリストで網羅的に洗い出すスキル。
   業務フロー・利用者・状態・例外・通知連携・画面導線を段階ごとにまとめて質問し、
@@ -305,3 +308,10 @@ Stage 1〜6 の全項目を以下に分類する。理想形を洗い出した�
 
 関連スキル（Discovery）: [[project-discovery]]（Phase2 としての親）/ [[scope-discovery]]（前段・境界確定）/ [[discovery-planner]]（次の1問）/ [[discovery-auditor]]（横断監査）/ [[screen-design-architect]]（要件→画面・次工程）。
 関連スキル（実装系）: [[feature-spec-writer]]（実装仕様書化）/ [[saas-product-manager]]（MVP・Phase設計）/ [[implementation-planner]]（実装手順分解）/ [[ui-ux-review]]（画面の使い勝手改善）。
+
+# 実行モデルティア
+
+推奨ティア: **standard**（手順追従型のため標準クラスのモデルで品質が安定する）。
+最上位推論クラスのモデルを占有する必要はない。手順から外れる複雑な判断が
+必要になったら、その論点を明示して deep ティアの設計・監査系スキルへ引き渡すこと。
+具体的なモデル名はここに書かない（対応表は `.skills/MODEL-TIERS.md`）。

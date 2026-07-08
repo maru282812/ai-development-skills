@@ -1,6 +1,9 @@
 ---
 name: project-discovery
 allowed-tools: Read, Write, Edit, Grep, Glob
+metadata:
+  reasoning-tier: deep
+  summary: "Project Discovery 全体のオーケストレーター担当。決めるべきこと（要件/UX/運営/収益/法務/リスク/データ/連携/指標/非機能/スコープ）を全部洗い出し、決定と仮置きを分離記録して実装可能な状態まで持っていく。各ドメインは *-discovery へ委譲する。"
 description: >-
   プロジェクトを成功させるために「決めるべきこと」を全部洗い出し、不足を発見・提案し、
   意思決定を支援して、実装可能な状態まで持っていくオーケストレーター・スキル。
@@ -333,3 +336,11 @@ Phase Exit Gate を判定。フェーズ末に「仮置き一括確認表＋人�
 ---
 
 関連スキル: [[discovery-planner]]（次に決める1問）/ [[discovery-auditor]]（横断監査）/ [[requirements-discovery]]（Phase2 機能発見）/ [[data-discovery]]（Phase9 データ発見）/ [[legal-discovery]]（Phase7 必要法務成果物の発見）/ [[screen-design-architect]]（UI設計・次工程）。[[scope-discovery]]（最前段の境界確定 + 再入MVPゲート）。個別ドメイン: [[metrics-discovery]]（Phase11 実装済）/ [[business-discovery]]（Phase5 実装済・事業成立条件）/ [[operations-discovery]]（Phase6 実装済・運用実態の発見）/ [[integration-discovery]]（Phase10 実装済・外部連携の発見）/ [[contract-discovery]]（Phase7a 実装済・契約条件と相手の発見）/ [[risk-discovery]]（Phase8 実装済）/ [[nfr-discovery]]（Phase12 実装済）。
+
+# 実行モデルティア
+
+推奨ティア: **deep**（判断・設計・監査の質がモデルの推論力に依存する）。
+最上位推論クラスのモデルが使えない環境でも中止しない。代わりに劣化運転として、
+結論は候補＋根拠＋確信度で提示して1本に絞り込まず、工程を細かく区切って
+ユーザー確認を挟み、不可逆な提案（削除・破壊的変更・本番適用）では必ず停止すること。
+具体的なモデル名はここに書かない（対応表は `.skills/MODEL-TIERS.md`）。

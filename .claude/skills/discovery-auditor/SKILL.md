@@ -1,6 +1,9 @@
 ---
 name: discovery-auditor
 allowed-tools: Read, Write, Edit, Grep, Glob
+metadata:
+  reasoning-tier: deep
+  summary: "Project Discovery の最終監査担当。decisions.md と全フェーズ成果物を横断し、決定と仮置きの混同・Phase間の矛盾・幽霊ドキュメント・未昇格仮置きの漏れ・MVPの線を検出してレポートを出し、サイクルを止める。"
 description: >-
   Project Discovery の最終監査役（旧称 project-auditor）。[[agent-tester]] の「軽量に横断検証して
   止める」思想を、コード検証ではなく **ドキュメント横断監査** に移植したもの。typecheck / test /
@@ -100,3 +103,11 @@ planner / project-discovery がそのまま食えるよう、必ずこの構造�
 ---
 
 関連スキル: [[project-discovery]]（オーケストレーター）/ [[discovery-planner]]（次の1問・対）/ 思想の参照元 [[agent-tester]]（ただし実装ループ専用で流用不可）。
+
+# 実行モデルティア
+
+推奨ティア: **deep**（判断・設計・監査の質がモデルの推論力に依存する）。
+最上位推論クラスのモデルが使えない環境でも中止しない。代わりに劣化運転として、
+結論は候補＋根拠＋確信度で提示して1本に絞り込まず、工程を細かく区切って
+ユーザー確認を挟み、不可逆な提案（削除・破壊的変更・本番適用）では必ず停止すること。
+具体的なモデル名はここに書かない（対応表は `.skills/MODEL-TIERS.md`）。

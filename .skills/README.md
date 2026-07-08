@@ -9,6 +9,34 @@ Discovery suite は `.skills/` を正式な原本とする。
 
 今後 discovery suite を修正する場合は、まず `.skills/<skill-name>/SKILL.md` を更新し、必要に応じて `.agents/skills/` と `.claude/skills/` に同内容を同期する。
 
+## モデルティア（役割分担）
+
+各 Skill は frontmatter の `metadata.reasoning-tier` で実行推奨ティアを持つ。
+
+- **deep** — 判断・設計・監査系。出力の質がモデルの推論力に依存する（最上位推論クラスで実行）
+- **standard** — 手順追従型。どのモデルでも品質が安定する（標準クラスで十分）
+
+具体的なモデル名は SKILL.md に書かず、ティア↔モデルの対応・フォールバック規則・全 Skill の分類表は
+[MODEL-TIERS.md](./MODEL-TIERS.md) の1箇所だけで管理する。モデルが入れ替わってもそこだけ更新すればよい。
+
+## 要約（metadata.summary）— 全 Skill 必須
+
+各 Skill は frontmatter の `metadata.summary` に **日本語の1文** を必ず持つ。管理者向けダッシュボード
+（`skills-dashboard.html`）はこの値をカードの要約として表示する。管理者は日本人なので英語で書かない。
+
+**書き方のルール:**「**何担当か（役割 / どのフェーズか）**」＋「**どんなことをするか**」を1文に必ず両方入れる。
+
+```yaml
+metadata:
+  reasoning-tier: standard
+  summary: "Project Discovery の Phase10（Integration Discovery）担当。外部との接続点・依存先・連携責任を発見する（外部サービス/認証/通知/決済/データ入出力/失敗時対応）。API仕様・Webhook設計・技術選定はしない。"
+```
+
+- 「担当」だけ（例: `…Phase10 担当。`）で終わらせない。必ず「何をするか」まで書く。
+- 除外（やらないこと）が重要な Skill は末尾に「〜はしない」を添える。
+- `description` は AI のトリガー判定用なので触らない（英語のままの Skill もある）。表示用の日本語要約は `summary` 側で担保する。
+- 新規 Skill を追加したら `summary` を書き、`scripts/build-skills-dashboard.ps1` を再実行する。
+
 ---
 
 ## 開発フロー と Skill の対応
@@ -246,6 +274,23 @@ Discovery suite は `.skills/` を正式な原本とする。
 
 ---
 
+## 運営者向けの操作手順をサイトに埋め込みたい / 後で剥がせる形にしたい
+
+**Skill:** `ops-guide-embedder`
+
+例:
+- 操作手順をサイトに入れて
+- 使い方パネルを埋め込んで / runbook を埋め込んで
+- どの画面で何をするか画面に表示して
+- ディスパッチの実行文を番号付き手順として並べて
+- 販売するときに操作手順を一括で消せる形で入れて
+
+> 運営者が上から追える番号付き実行手順パネル（場所タグ＋Copyボタン＋slugから `c:\work\{slug}` 動的生成）を
+> `features/ops-guide/` に隔離して埋め込む。フォルダ削除＋マウント1箇所除去で跡形なく剥がせる。
+> 手順の元になる操作フローは `requirements-discovery`、実行文の設計は `dispatch-pattern-builder`。
+
+---
+
 ## 新規案件にlint/formatを初期セットアップしたい
 
 **Skill:** `project-quality-tooling`
@@ -374,6 +419,69 @@ Discovery suite は `.skills/` を正式な原本とする。
 
 ---
 
+## 判断・計画・料金プランを敵対的に潰したい
+
+**Skill:** `adversarial-review`
+
+例:
+- この判断を攻撃して / レッドチームして
+- この料金プランの穴を突いて
+- 前提の甘さを潰して
+- この計画で失敗するとしたらどこ？
+- 投資家/契約先/競合の視点で潰しにかかって
+
+> コード以外の判断物（料金・事業仮説・提供範囲・見積り・計画）を複数の敵対視点で攻撃し、
+> 反例を具体シナリオで提示して止まる。コードは `code-review` / `security-review`、
+> テスト台帳は `testmaster-adversarial-review`、discovery成果物の整合性は `discovery-auditor` を使う。
+
+---
+
+## 法務文書の矛盾を横断チェックしたい
+
+**Skill:** `legal-consistency-audit`
+
+例:
+- 法務文書の矛盾を確認して
+- 規約とポリシーがズレてないか見て
+- 特商法と規約の記載が一致してるか監査して
+- 公開前に法務文書を横断チェックして
+
+> 作成済みの利用規約・プラポリ・特商法表記・契約書等を用語定義/責任範囲/データ取扱い/金銭/手続/実態一致/版
+> の7軸で突き合わせる。何が必要かの発見は `legal-discovery`、掲載管理は `legal-publication-manager` を使う。
+> 適法性は断定せず要専門家確認を付けて止まる。
+
+---
+
+## アプリ販売・譲渡の引き渡し資料を作りたい
+
+**Skill:** `handover-package`
+
+例:
+- 引き渡し資料を作って
+- 販売用の引き継ぎパッケージを作って
+- 名義切替の手順を出して
+- このアプリを売る準備をして
+
+> 環境変数（キー名のみ・値は書かない）/外部サービス名義切替/運用手順/法務掲載状況/後始末（ops-guide剥がし）を
+> `handover/` 配下に生成。埋め込みは `ops-guide-embedder`、契約条件の整理は `contract-discovery` を使う。
+
+---
+
+## 頭の中の暗黙知を文書化したい
+
+**Skill:** `tacit-knowledge-extractor`
+
+例:
+- 頭の中を言語化して
+- ノウハウをまとめて / 暗黙知を文書化して
+- 判断基準を言葉にしたい
+- この業務の知見を構造化して
+
+> 具体例→一般化・例外掘り・判断基準の4方向で対話抽出し、`domain-knowledge/<topic>.md` に構造化。
+> 要件への変換は `requirements-discovery`、事業仮説は `business-discovery` を使う。
+
+---
+
 ## コードを整理・リファクタしたい
 
 **Skill:** `refactor-planner`
@@ -394,26 +502,31 @@ Discovery suite は `.skills/` を正式な原本とする。
 
 ## 一覧表
 
-| やりたいこと | Skill |
-|---|---|
-| 実装前の要件洗い出し・抜け漏れ確認 | `requirements-discovery` |
-| 画面設計・導線・状態・Stitchプロンプト・UI反復改善 | `screen-design-architect` |
-| 使用箇所調査・影響範囲分析 | `system-investigator` |
-| エラー・不具合の原因調査 | `bug-investigator` |
-| データの流れ・CRUD可視化 | `data-flow-mapper` |
-| 機能仕様整理・MVP・Phase分け | `saas-product-manager` |
-| DB設計・RLS・migration案 | `db-designer` |
-| API設計・エンドポイント設計 | `api-designer` |
-| AI向け実装仕様書作成 | `feature-spec-writer` |
-| 実装計画・Codex指示文作成 | `implementation-planner` |
-| 新規案件のlint/format初期セットアップ（スタック別ツール選定） | `project-quality-tooling` |
-| LLMプロンプト設計・改善 | `prompt-architect` |
-| migration SQL安全確認 | `migration-review` |
-| セキュリティ確認・RLS監査 | `security-review` |
-| テスト観点・受け入れ条件 | `test-planner` |
-| コードレビュー・品質確認 | `code-review` |
-| UI/UX改善・導線確認 | `ui-ux-review` |
-| リファクタ・構造整理 | `refactor-planner` |
+| やりたいこと | Skill | ティア |
+|---|---|---|
+| 実装前の要件洗い出し・抜け漏れ確認 | `requirements-discovery` | standard |
+| 画面設計・導線・状態・Stitchプロンプト・UI反復改善 | `screen-design-architect` | deep |
+| 使用箇所調査・影響範囲分析 | `system-investigator` | standard |
+| エラー・不具合の原因調査 | `bug-investigator` | standard |
+| データの流れ・CRUD可視化 | `data-flow-mapper` | standard |
+| 機能仕様整理・MVP・Phase分け | `saas-product-manager` | deep |
+| DB設計・RLS・migration案 | `db-designer` | deep |
+| API設計・エンドポイント設計 | `api-designer` | deep |
+| AI向け実装仕様書作成 | `feature-spec-writer` | standard |
+| 実装計画・Codex指示文作成 | `implementation-planner` | standard |
+| 新規案件のlint/format初期セットアップ（スタック別ツール選定） | `project-quality-tooling` | standard |
+| LLMプロンプト設計・改善 | `prompt-architect` | deep |
+| migration SQL安全確認 | `migration-review` | deep |
+| セキュリティ確認・RLS監査 | `security-review` | deep |
+| テスト観点・受け入れ条件 | `test-planner` | standard |
+| コードレビュー・品質確認 | `code-review` | deep |
+| UI/UX改善・導線確認 | `ui-ux-review` | standard |
+| リファクタ・構造整理 | `refactor-planner` | deep |
+| 運営者向け操作手順パネルの埋め込み（隔離・販売時一括削除） | `ops-guide-embedder` | standard |
+| 判断・計画・料金の敵対的レビュー（汎用レッドチーム） | `adversarial-review` | deep |
+| 法務文書群の横断矛盾監査 | `legal-consistency-audit` | deep |
+| 販売・譲渡の引き渡しパッケージ生成 | `handover-package` | standard |
+| 暗黙知の対話抽出・構造化 | `tacit-knowledge-extractor` | deep |
 
 ---
 

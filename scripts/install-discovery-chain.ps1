@@ -61,7 +61,10 @@ $chain = @(
   "git-init-setup", "project-quality-tooling",
   # screen design -> Google Stitch (image UI) -> implementation handoff
   "screen-design-architect", "ui-ux-review",
-  "feature-spec-writer", "saas-product-manager", "implementation-planner"
+  "feature-spec-writer", "saas-product-manager", "implementation-planner",
+  # test & quality loop (post-implementation verification / red-team)
+  "test-planner", "system-investigator", "bug-investigator",
+  "migration-review", "adversarial-review"
 )
 
 # --- Claude Code only (post-image-UI implementation loop) ---

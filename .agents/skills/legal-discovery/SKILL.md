@@ -1,6 +1,9 @@
 ---
 name: legal-discovery
 allowed-tools: Read, Write, Edit, Grep, Glob
+metadata:
+  reasoning-tier: deep
+  summary: "Project Discovery の Phase7（Legal Discovery）担当。公開・運営・課金・個人情報管理に「何の法務成果物が必要か」を発見する（利用規約/プラポリ/特商法/同意/返金・削除ポリシー等）。法的助言は断定しない。"
 description: >-
   Project Discovery の Phase7（Legal Discovery）担当。「どの法律が適用されるか」を調べるスキルではない。
   サービスを公開・運営・課金・個人情報管理するために「何の法務成果物が必要か」を発見する工程。
@@ -282,3 +285,11 @@ Stripe / Supabase / OpenAI / Google / LINE / AWS など。
 ---
 
 関連スキル: [[project-discovery]]（オーケストレーター）/ [[discovery-planner]]（次の1問）/ [[discovery-auditor]]（横断監査）/ 入力: [[requirements-discovery]] / [[data-discovery]] / [[business-discovery]] / [[contract-discovery]] / [[integration-discovery]] / 引き渡し先: [[contract-discovery]] / [[scope-discovery]] / [[screen-design-architect]] / [[risk-discovery]]。
+
+# 実行モデルティア
+
+推奨ティア: **deep**（判断・設計・監査の質がモデルの推論力に依存する）。
+最上位推論クラスのモデルが使えない環境でも中止しない。代わりに劣化運転として、
+結論は候補＋根拠＋確信度で提示して1本に絞り込まず、工程を細かく区切って
+ユーザー確認を挟み、不可逆な提案（削除・破壊的変更・本番適用）では必ず停止すること。
+具体的なモデル名はここに書かない（対応表は `.skills/MODEL-TIERS.md`）。

@@ -1,6 +1,9 @@
 ---
 name: integration-discovery
 allowed-tools: Read, Write, Edit, Grep, Glob
+metadata:
+  reasoning-tier: standard
+  summary: "Project Discovery の Phase10（Integration Discovery）担当。外部との接続点・依存先・連携責任を発見する（外部サービス/認証/通知/決済/データ入出力/失敗時対応）。API仕様・Webhook設計・技術選定はしない。"
 description: >-
   Project Discovery の Phase10（Integration Discovery）担当。外部API設計や実装方式を決めるスキルではない。
   「プロジェクト外部との接続点・依存先・連携責任を発見する」工程。requirements / data / operations / business の成果物を入力に、
@@ -460,3 +463,10 @@ description: >-
 ---
 
 関連スキル: [[project-discovery]]（オーケストレーター・Phase10）/ [[discovery-planner]]（次の1問）/ [[discovery-auditor]]（外部サービス責任者・通知条件・決済責任・失敗時対応の監査）/ 入力元: [[requirements-discovery]]（機能・通知・決済・入出力・画面）・[[data-discovery]]（外部入出力データ・所有権・個人情報）・[[operations-discovery]]（運営主体・運用フロー・異常時対応）・[[business-discovery]]（決済責任・費用構造）・[[scope-discovery]]（users/stakeholders）・[[legal-discovery]]（PII外部送信・同意）/ 引き渡し先: [[risk-discovery]] / [[nfr-discovery]] / [[contract-discovery]] / [[legal-discovery]]。
+
+# 実行モデルティア
+
+推奨ティア: **standard**（手順追従型のため標準クラスのモデルで品質が安定する）。
+最上位推論クラスのモデルを占有する必要はない。手順から外れる複雑な判断が
+必要になったら、その論点を明示して deep ティアの設計・監査系スキルへ引き渡すこと。
+具体的なモデル名はここに書かない（対応表は `.skills/MODEL-TIERS.md`）。

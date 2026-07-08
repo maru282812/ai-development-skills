@@ -1,6 +1,9 @@
 ---
 name: contract-discovery
 allowed-tools: Read, Write, Edit, Grep, Glob
+metadata:
+  reasoning-tier: deep
+  summary: "Project Discovery の契約発見担当。「誰と・何を・どの条件で契約するか」を発見・整理する（提供範囲/対象外/SLA/返金/成果物権利/責任範囲など）。契約書は作らず条件は断定しない。"
 description: >-
   Project Discovery の契約発見担当。法務文書・契約書を作成するスキルではない。
   サービス提供後のトラブルを防ぐために「誰と・何を・どの条件で契約するか」を発見・整理する工程。
@@ -292,3 +295,11 @@ NDA / 業務委託 / 共同開発 / 代理店・紹介契約。
 ---
 
 関連スキル: [[project-discovery]]（オーケストレーター）/ [[discovery-planner]]（次の1問）/ [[discovery-auditor]]（横断監査）/ 入力: [[requirements-discovery]] / [[data-discovery]] / [[business-discovery]] / [[operations-discovery]] / [[integration-discovery]] / 引き渡し先: [[legal-discovery]] / [[scope-discovery]] / [[operations-discovery]] / [[data-discovery]] / [[risk-discovery]]。
+
+# 実行モデルティア
+
+推奨ティア: **deep**（判断・設計・監査の質がモデルの推論力に依存する）。
+最上位推論クラスのモデルが使えない環境でも中止しない。代わりに劣化運転として、
+結論は候補＋根拠＋確信度で提示して1本に絞り込まず、工程を細かく区切って
+ユーザー確認を挟み、不可逆な提案（削除・破壊的変更・本番適用）では必ず停止すること。
+具体的なモデル名はここに書かない（対応表は `.skills/MODEL-TIERS.md`）。

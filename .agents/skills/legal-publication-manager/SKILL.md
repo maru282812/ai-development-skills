@@ -1,6 +1,9 @@
 ---
 name: legal-publication-manager
 allowed-tools: Read, Write, Edit, Grep, Glob
+metadata:
+  reasoning-tier: standard
+  summary: "法務成果物の掲載・版管理の運用担当。必要文書を「どこに載せるか/どの雛形を使うか/どう更新管理するか」に変換し、掲載設計・成果物レジストリ・更新トリガーを生成する。適法性判断はしない。"
 description: >-
   [[legal-discovery]] が発見した「必要な法務成果物」を、実際に **どこに掲載するか / どの雛形を使うか /
   どう版管理・更新管理するか** に変換する運用管理スキル。法的助言・規約本文の適法性判断はしない。
@@ -196,3 +199,10 @@ description: >-
 ---
 
 関連スキル: 入力元 [[legal-discovery]]（何が必要か）/ [[contract-discovery]]（契約条件）/ [[data-discovery]]（PII・取得データ）/ [[business-discovery]]（課金方式）/ 引き渡し先 [[screen-design-architect]]（掲載UI・同意導線）/ 進行補助 [[discovery-planner]]（次の1問）/ [[discovery-auditor]]（横断監査）/ オーケストレーター [[project-discovery]]。
+
+# 実行モデルティア
+
+推奨ティア: **standard**（手順追従型のため標準クラスのモデルで品質が安定する）。
+最上位推論クラスのモデルを占有する必要はない。手順から外れる複雑な判断が
+必要になったら、その論点を明示して deep ティアの設計・監査系スキルへ引き渡すこと。
+具体的なモデル名はここに書かない（対応表は `.skills/MODEL-TIERS.md`）。

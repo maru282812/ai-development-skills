@@ -1,6 +1,9 @@
 ---
 name: discovery-planner
 allowed-tools: Read, Write, Edit, Grep, Glob
+metadata:
+  reasoning-tier: deep
+  summary: "Project Discovery の意思決定プランナー担当。現在フェーズを仮置きで埋め切って完走させ、フェーズ末に「仮置き＋人間必須の要確認」を1枚の表で一括提示する。人しか決められない核は仮置きにしない。"
 description: >-
   Project Discovery 専用のプランナー。[[agent-planner]] の「停止ゲートで止める」思想を、コード実装ではなく
   **意思決定** に移植したもの。git diff は読まない（discovery 段階に diff は無い）。代わりに
@@ -120,3 +123,11 @@ Project Discovery ループの推進役。[[discovery-auditor]] と対になる�
 ---
 
 関連スキル: [[project-discovery]]（オーケストレーター）/ [[discovery-auditor]]（横断監査・対）/ 思想の参照元 [[agent-planner]]（ただし実装ループ専用で流用不可）。
+
+# 実行モデルティア
+
+推奨ティア: **deep**（判断・設計・監査の質がモデルの推論力に依存する）。
+最上位推論クラスのモデルが使えない環境でも中止しない。代わりに劣化運転として、
+結論は候補＋根拠＋確信度で提示して1本に絞り込まず、工程を細かく区切って
+ユーザー確認を挟み、不可逆な提案（削除・破壊的変更・本番適用）では必ず停止すること。
+具体的なモデル名はここに書かない（対応表は `.skills/MODEL-TIERS.md`）。
