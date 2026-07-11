@@ -41,6 +41,12 @@ description: >-
 - どのファイルを作成・修正するか事前に洗い出したい
 - 複数人(または複数セッション)で分担するためにタスク分解したい
 
+対象外(このスキルは使わない):
+
+- 環境構築・PCセットアップ・ツール導入・アカウント作成など、コードを1行も書かない準備工程(Phase 0系)。
+  このスキルの Phase は「コード実装の依存順(DB→型→API→UI)」であって作業手順書ではないため噛み合わない。
+  git/GitHub の初期化は [git-init-setup](../git-init-setup/SKILL.md)、それ以外の準備工程は要件定義成果物から直接手順化する。
+
 調査だけが目的なら [system-investigator](../system-investigator/SKILL.md)、
 DB設計の詳細は [db-designer](../db-designer/SKILL.md)、
 API設計の詳細は [api-designer](../api-designer/SKILL.md) を先に使うこと。
