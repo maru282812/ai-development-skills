@@ -77,6 +77,7 @@ $CategoryMap = @{
   'prompt-architect'         = '設計・調査'
   'feature-spec-writer'      = '設計・調査'
   'screen-design-architect'  = '設計・調査'
+  'design-variant-preview'   = '設計・調査'
 
   'implementation-planner'   = '実装計画'
   'refactor-planner'         = '実装計画'

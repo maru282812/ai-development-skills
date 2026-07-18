@@ -60,6 +60,7 @@ frontmatter の `metadata.reasoning-tier` が SSOT。この表はその一覧ビ
 | `api-designer` | インターフェース契約の設計判断 |
 | `prompt-architect` | 失敗の切り分け・プロンプト構造の設計 |
 | `screen-design-architect` | Screen Coverage Audit＋設計反復の判断 |
+| `design-variant-preview` | 「どの軸で案を振るか / 何を捨てるか」の判断が案の質を決める |
 | `refactor-planner` | 構造改善の判断（何を触らないかの判断を含む） |
 | `code-review` | バグ発見は推論力に直結する敵対的読解 |
 | `security-review` | 敵対的レビューの代表格。攻撃者視点の網羅 |
