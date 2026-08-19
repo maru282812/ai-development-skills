@@ -120,6 +120,16 @@ powershell -ExecutionPolicy Bypass -File C:\work\ai-development-skills\.skills\g
   「git作成」で再開できる旨を伝える（docs 配置をやり直す必要はない）。
 - リポジトリは **private** が既定。
 
+### 5.5 製造ループ基盤を設置する（factory-bootstrap）
+
+git 初期化が終わったら、[[factory-bootstrap]]（`C:\work\ai-development-skills\.skills\factory-bootstrap\SKILL.md` を
+Read して従う）で引き継ぎ先に製造ループ基盤を設置する:
+
+- `docs\VERIFY.md`（検証レシピ）・`.claude\loop.md`（保守ループ既定）・CLAUDE.md への「製造ループ」節追記。
+- 立ち上げ直後でコードが無い場合、VERIFY.md の Gates / Runtime Verify は `<TODO>` のまま置いてよい
+  （雛形コード生成後の最初のセッションが具体化する。その旨を引継ぎ書 §8「未解決」に1行足す）。
+- 設置分は追加コミットする（メッセージ例: `chore: 製造ループ基盤を設置 (factory-bootstrap)`）。
+
 ### 6. 完了報告と次の一手
 
 置いたファイル一覧と GitHub リポジトリ URL を示し、次の手順を案内する（実行はしない）:
