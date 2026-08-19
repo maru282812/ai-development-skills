@@ -2,10 +2,34 @@
 
 全プロジェクト共通の製造ループ（Loop Engineering）を対象リポジトリに設置するための profile。
 
-## 使い方
+## 使い方（2段階）
 
-対象プロジェクトに対して `factory-bootstrap` スキル
-（`.skills/factory-bootstrap/SKILL.md` を Read して従う）を実行する。
+### 1. スキルをインストールする（1回だけ）
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/install-factory.ps1 -Global -Apply
+```
+
+グローバル（`~/.claude/skills/` と `~/.codex/skills/`）に入るので、**全プロジェクトから使える**。
+repo ごとのコピーは不要（特定 repo に固定したいときだけ `-Project <path> -Apply`）。
+
+インストールされるのは: development-router / factory-bootstrap / verification-loop /
+phase-runner / implementation-planner / migration-review。
+
+> **code-review / security-review は意図的に除外**している。Claude Code に同名の組み込みコマンド
+> （`/code-review ultra` 等）があり、同名スキルを `~/.claude/skills/` に置くと組み込み側を
+> 覆い隠して壊すため。この2つは `.skills/` を canonical のまま development-router 経由で使う。
+
+### 2. 各プロジェクトで「ループ」と言う
+
+新規・既存どちらでも、対象 repo で Claude Code を開いて次のいずれかを言うだけ:
+
+```
+ループしちゃって / ループして / ループ入れて
+製造ループを入れて / 製造ラインを整えて
+/factory-bootstrap   ← 明示的に呼ぶ場合
+```
+
 skill フォルダを対象 repo にコピーする必要はない — 設置されるのは以下の薄いファイルだけ:
 
 | ファイル | 役割 |
