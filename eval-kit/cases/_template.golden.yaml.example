@@ -1,0 +1,50 @@
+# =============================================================
+# ゴールデンケース テンプレ（プロジェクトごとにコピーして使う）
+# -------------------------------------------------------------
+# 使い方:
+#   1) このファイルを cases/<機能名>.golden.yaml にコピー
+#      （.example を外すと promptfooconfig.yaml が拾うようになる）
+#   2) ケースを書き、人間が「期待出力 = これでよい」と承認してから確定する
+#      ← この承認ゲートが「正解を人間が固定する」唯一の工程。最重要。
+#   3) npx promptfoo eval で検証
+#
+# アサーション方針（最重要）:
+#   - 分岐・フラグ・構造 → 決定論アサーション（LLMを通さない＝ブレない）
+#       contains / not-contains / equals / regex / is-json / javascript
+#   - 自由回答の質       → llm-rubric（judge/rubric.md の分離Judgeが採点）
+#   できる限り決定論側に寄せ、LLM判定は本当に自由な部分だけに使う。
+# =============================================================
+
+- description: "【決定論】公式案件フラグONのとき定型免責文が必ず入る"
+  vars:
+    user_input: "（例）この案件は公式ですか？"
+    is_official: true
+  assert:
+    - type: contains
+      value: "※本回答は公式情報に基づきます"      # TODO: 実際の定型文に差し替え
+    - type: not-contains
+      value: "個人の感想"
+
+- description: "【構造】出力が所定のJSONスキーマに従う"
+  vars:
+    user_input: "（例）アンケートに回答する"
+    is_official: false
+  assert:
+    - type: is-json
+      value:
+        type: object
+        required: [answer, followup]
+        properties:
+          answer: { type: string }
+          followup: { type: string }
+
+- description: "【自由回答 / Judge分離】深掘り質問が的確で、誘導的でない"
+  vars:
+    user_input: "（例）最近の睡眠の質について"
+    is_official: false
+  assert:
+    - type: llm-rubric
+      value: |
+        - ユーザー入力の主題（睡眠）に直接関係する深掘りである
+        - 誘導的・決めつけの質問になっていない
+        - 1つの明確な質問である（複数を詰め込んでいない）

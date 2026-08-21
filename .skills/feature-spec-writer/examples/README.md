@@ -3,7 +3,7 @@
 実際の実装仕様書サンプル(1〜2件)をこのディレクトリに配置する。
 
 - ファイル名: `<機能名>.md`(例: `survey-feature-spec.md`)
-- 内容: [skill.md](../skill.md) の Output テンプレートに従った実際の仕様書
+- 内容: [SKILL.md](../SKILL.md) の Output テンプレートに従った実際の仕様書
 
 ## 配置予定
 

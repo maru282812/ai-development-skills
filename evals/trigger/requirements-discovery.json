@@ -1,0 +1,82 @@
+[
+  {
+    "query": "実装前に要件を洗い出して",
+    "should_trigger": true
+  },
+  {
+    "query": "この機能、何が必要か段階的に整理して",
+    "should_trigger": true
+  },
+  {
+    "query": "後から『これも必要だった』を減らしたい",
+    "should_trigger": true
+  },
+  {
+    "query": "予約機能を作る前に業務フロー・状態・例外・通知まで要件を詰めたい",
+    "should_trigger": true
+  },
+  {
+    "query": "抜け漏れがないか要件をチェックリストで確認したい",
+    "should_trigger": true
+  },
+  {
+    "query": "利用者ごとに必要な機能を段階表で洗い出したい",
+    "should_trigger": true
+  },
+  {
+    "query": "通知連携や画面導線まで含めて要件を固めたい",
+    "should_trigger": true
+  },
+  {
+    "query": "キャンセル時の挙動など例外ケースの要件を詰めたい",
+    "should_trigger": true
+  },
+  {
+    "query": "要件定義して。必要/不要/後で で答えていきたい",
+    "should_trigger": true
+  },
+  {
+    "query": "この画面の入力項目とバリデーション要件を洗い出したい",
+    "should_trigger": true
+  },
+  {
+    "query": "今回のMVP範囲と対象外を線引きしたい",
+    "should_trigger": false
+  },
+  {
+    "query": "必要な画面と画面遷移を洗い出して",
+    "should_trigger": false
+  },
+  {
+    "query": "機能仕様をMVPとPhaseに分けて優先順位つけて",
+    "should_trigger": false
+  },
+  {
+    "query": "テーブル設計してRLS前提で",
+    "should_trigger": false
+  },
+  {
+    "query": "この500エラーの原因を調べて",
+    "should_trigger": false
+  },
+  {
+    "query": "事業として成立するか整理したい",
+    "should_trigger": false
+  },
+  {
+    "query": "Codexに渡す実装指示文を作って",
+    "should_trigger": false
+  },
+  {
+    "query": "運営体制と問い合わせ対応を決めたい",
+    "should_trigger": false
+  },
+  {
+    "query": "性能と可用性の非機能要件を決めたい",
+    "should_trigger": false
+  },
+  {
+    "query": "契約の提供範囲と対象外を決めたい",
+    "should_trigger": false
+  }
+]

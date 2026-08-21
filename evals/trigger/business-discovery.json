@@ -1,0 +1,82 @@
+[
+  {
+    "query": "事業として成立するか整理したい",
+    "should_trigger": true
+  },
+  {
+    "query": "誰に何をどの価値で売るのか決めたい",
+    "should_trigger": true
+  },
+  {
+    "query": "事業観点のKPIを出して",
+    "should_trigger": true
+  },
+  {
+    "query": "課金するか無料運用かを判断したい",
+    "should_trigger": true
+  },
+  {
+    "query": "初期ユーザーをどう集めるか流入経路を整理したい",
+    "should_trigger": true
+  },
+  {
+    "query": "このプロダクトの提供価値と差別化を言語化したい",
+    "should_trigger": true
+  },
+  {
+    "query": "優先して狙う顧客セグメントを決めたい",
+    "should_trigger": true
+  },
+  {
+    "query": "MVP時点で成立する事業仮説を1本立てたい",
+    "should_trigger": true
+  },
+  {
+    "query": "マネタイズの前提を整理したい",
+    "should_trigger": true
+  },
+  {
+    "query": "誰のどの課題を解いて対価をもらうのか整理したい",
+    "should_trigger": true
+  },
+  {
+    "query": "詳細な財務予測のPLを月次で作って",
+    "should_trigger": false
+  },
+  {
+    "query": "毎日の運営作業を洗い出して",
+    "should_trigger": false
+  },
+  {
+    "query": "利用規約が要るか整理して",
+    "should_trigger": false
+  },
+  {
+    "query": "成功指標を計測イベントに落として",
+    "should_trigger": false
+  },
+  {
+    "query": "リスクを洗い出して優先順位をつけて",
+    "should_trigger": false
+  },
+  {
+    "query": "今回作る範囲を線引きしたい",
+    "should_trigger": false
+  },
+  {
+    "query": "ランディングページの画面を設計して",
+    "should_trigger": false
+  },
+  {
+    "query": "外部決済との連携方式を整理して",
+    "should_trigger": false
+  },
+  {
+    "query": "課金まわりのDB設計をして",
+    "should_trigger": false
+  },
+  {
+    "query": "契約のSLAと返金条件を決めたい",
+    "should_trigger": false
+  }
+]
