@@ -1,5 +1,9 @@
 ---
 name: metrics-discovery
+allowed-tools: Read, Write, Edit, Grep, Glob
+metadata:
+  reasoning-tier: standard
+  summary: "Project Discovery の Phase11（Metrics / Success Discovery）担当。曖昧な成功状態を North Star / KPIツリー / 計測イベント / 計測手段に落とし、MVPで見るべき指標を3〜7個に絞る。ダッシュボード・SQL実装はしない。"
 description: >-
   Project Discovery の Phase11（Metrics / Success Discovery）担当。プロジェクトの目的・成功条件・利用状況を、
   後続工程で扱える「計測可能な指標」に変換する。scope/goals.md の曖昧な「成功状態」を North Star / KPIツリー /
@@ -428,3 +432,10 @@ metrics は他Skillと違い **「測りたいもの ≠ 作るもの」** の�
 ---
 
 関連スキル: [[project-discovery]]（オーケストレーター・Phase11）/ [[discovery-planner]]（次の1問）/ [[discovery-auditor]]（KPI・計測監査）/ 入力元: [[scope-discovery]]（goals）・[[requirements-discovery]]（導線）/ 引き渡し先: [[business-discovery]] / [[nfr-discovery]] / [[risk-discovery]] / [[operations-discovery]]。
+
+# 実行モデルティア
+
+推奨ティア: **standard**（手順追従型のため標準クラスのモデルで品質が安定する）。
+最上位推論クラスのモデルを占有する必要はない。手順から外れる複雑な判断が
+必要になったら、その論点を明示して deep ティアの設計・監査系スキルへ引き渡すこと。
+具体的なモデル名はここに書かない（対応表は `.skills/MODEL-TIERS.md`）。

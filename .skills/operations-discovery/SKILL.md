@@ -1,5 +1,9 @@
 ---
 name: operations-discovery
+allowed-tools: Read, Write, Edit, Grep, Glob
+metadata:
+  reasoning-tier: standard
+  summary: "Project Discovery の Phase6（Operations Discovery）担当。継続運営に必要な運用実態（運営主体/権限/日次・週次運用/問い合わせ/異常時対応/運営KPI/手作業vs自動化）を発見する。機能・画面・インフラ設計はしない。"
 description: >-
   Project Discovery の Phase6（Operations Discovery）担当。機能要件・画面要件を定義するスキルではなく、
   インフラ設計・非機能設計を行うスキルでもない。「システムを継続運営するために必要な運用実態を発見する」工程。
@@ -461,3 +465,10 @@ description: >-
 ---
 
 関連スキル: [[project-discovery]]（オーケストレーター・Phase6）/ [[discovery-planner]]（次の1問）/ [[discovery-auditor]]（運営主体・KPI接続・運営負荷の監査）/ 入力元: [[business-discovery]]（運営主体・費用構造・継続条件・revenue・go-to-market）・[[scope-discovery]]（users/stakeholders）・[[requirements-discovery]]（機能・管理機能・運用フロー）・[[metrics-discovery]]（KPI・成功定義）/ 引き渡し先: [[nfr-discovery]] / [[risk-discovery]] / [[contract-discovery]]。
+
+# 実行モデルティア
+
+推奨ティア: **standard**（手順追従型のため標準クラスのモデルで品質が安定する）。
+最上位推論クラスのモデルを占有する必要はない。手順から外れる複雑な判断が
+必要になったら、その論点を明示して deep ティアの設計・監査系スキルへ引き渡すこと。
+具体的なモデル名はここに書かない（対応表は `.skills/MODEL-TIERS.md`）。

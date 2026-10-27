@@ -1,5 +1,9 @@
 ---
 name: data-discovery
+allowed-tools: Read, Write, Edit, Grep, Glob
+metadata:
+  reasoning-tier: standard
+  summary: "Project Discovery の Phase9（Data Discovery）担当。「何のデータを扱うサービスか」を確定する（扱う情報/取得元/更新責任者/保持期間/削除条件/個人情報/システム境界）。DB設計・テーブル・ER図はしない。"
 description: >-
   Project Discovery の Phase9（Data Discovery）担当。DB設計をするスキルではない。
   「そもそも何のデータを扱うサービスなのか」を、画面・機能・運営・法務・リスク検討の結果として確定する。
@@ -233,3 +237,10 @@ Critical / Important / Optional に分類し、重要度を定義する。消失
 ---
 
 関連スキル: [[project-discovery]]（オーケストレーター）/ [[discovery-planner]]（次の1問）/ [[discovery-auditor]]（横断監査）/ [[requirements-discovery]]（入力）/ 引き渡し先: [[integration-discovery]] / [[legal-discovery]] / [[risk-discovery]] / [[metrics-discovery]] / [[nfr-discovery]] / [[scope-discovery]] / 詳細フロー図化: [[data-flow-mapper]]。
+
+# 実行モデルティア
+
+推奨ティア: **standard**（手順追従型のため標準クラスのモデルで品質が安定する）。
+最上位推論クラスのモデルを占有する必要はない。手順から外れる複雑な判断が
+必要になったら、その論点を明示して deep ティアの設計・監査系スキルへ引き渡すこと。
+具体的なモデル名はここに書かない（対応表は `.skills/MODEL-TIERS.md`）。

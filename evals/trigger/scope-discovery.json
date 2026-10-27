@@ -1,0 +1,82 @@
+[
+  {
+    "query": "そもそも何を作るか決めたい",
+    "should_trigger": true
+  },
+  {
+    "query": "今回のMVP範囲と対象外を線引きしたい",
+    "should_trigger": true
+  },
+  {
+    "query": "要件定義の前に方向性を固めたい",
+    "should_trigger": true
+  },
+  {
+    "query": "新規でtoBの予約管理SaaS作りたいんだけど、まず第一弾でどこまで作るか決めたい",
+    "should_trigger": true
+  },
+  {
+    "query": "機能を盛りすぎてる気がする。最初のリリースで作る範囲を絞りたい",
+    "should_trigger": true
+  },
+  {
+    "query": "管理画面って今回のスコープに入れる？対象外にする？を決めたい",
+    "should_trigger": true
+  },
+  {
+    "query": "このプロジェクト誰向けでどこまでやるか境界をはっきりさせたい",
+    "should_trigger": true
+  },
+  {
+    "query": "作らないものを先に決めておきたい",
+    "should_trigger": true
+  },
+  {
+    "query": "MVPに含める機能と次フェーズ送りを仕分けたい",
+    "should_trigger": true
+  },
+  {
+    "query": "キックオフ前にプロジェクトの範囲合意を取りたい",
+    "should_trigger": true
+  },
+  {
+    "query": "業務フローと例外パターンの要件を段階的に詰めたい",
+    "should_trigger": false
+  },
+  {
+    "query": "誰に何をいくらで売るか事業モデルを整理したい",
+    "should_trigger": false
+  },
+  {
+    "query": "必要な画面と画面遷移を洗い出して",
+    "should_trigger": false
+  },
+  {
+    "query": "usersとprofilesのリレーションをRLS前提で設計して",
+    "should_trigger": false
+  },
+  {
+    "query": "運営で毎日やる作業を洗い出したい",
+    "should_trigger": false
+  },
+  {
+    "query": "利用規約とプライバシーポリシーが要るか整理して",
+    "should_trigger": false
+  },
+  {
+    "query": "予約APIのエンドポイント設計して",
+    "should_trigger": false
+  },
+  {
+    "query": "成功指標を3つに絞ってKPIにしたい",
+    "should_trigger": false
+  },
+  {
+    "query": "外部の決済サービスと連携が要るか整理して",
+    "should_trigger": false
+  },
+  {
+    "query": "実装の順番とPhase分けの計画を作って",
+    "should_trigger": false
+  }
+]

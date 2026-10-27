@@ -1,5 +1,9 @@
 ---
 name: business-discovery
+allowed-tools: Read, Write, Edit, Grep, Glob
+metadata:
+  reasoning-tier: deep
+  summary: "Project Discovery の Phase5（Business Discovery）担当。事業として成立する前提・収益構造・顧客価値・優先ターゲット・成功条件を発見し、MVP時点の事業仮説を1本立てる。財務予測・PL作成はしない。"
 description: >-
   Project Discovery の Phase5（Business Discovery）担当。収益計画書やPLを作るスキルではない。
   project / scope / metrics の成果物を入力に、「このプロダクトが事業として成立するための前提・収益構造・
@@ -447,3 +451,11 @@ description: >-
 ---
 
 関連スキル: [[project-discovery]]（オーケストレーター・Phase5）/ [[discovery-planner]]（次の1問）/ [[discovery-auditor]]（事業成立条件・KPI整合の監査）/ 入力元: [[scope-discovery]]（users/stakeholders/goals/mvp-boundary）・[[requirements-discovery]]（機能・導線・CTA）・[[metrics-discovery]]（KPI・成功定義）/ 引き渡し先: [[operations-discovery]] / [[risk-discovery]] / [[nfr-discovery]] / [[contract-discovery]] / [[legal-discovery]]。
+
+# 実行モデルティア
+
+推奨ティア: **deep**（判断・設計・監査の質がモデルの推論力に依存する）。
+最上位推論クラスのモデルが使えない環境でも中止しない。代わりに劣化運転として、
+結論は候補＋根拠＋確信度で提示して1本に絞り込まず、工程を細かく区切って
+ユーザー確認を挟み、不可逆な提案（削除・破壊的変更・本番適用）では必ず停止すること。
+具体的なモデル名はここに書かない（対応表は `.skills/MODEL-TIERS.md`）。

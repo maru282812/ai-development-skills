@@ -1,5 +1,9 @@
 ---
 name: nfr-discovery
+allowed-tools: Read, Write, Edit, Grep, Glob
+metadata:
+  reasoning-tier: standard
+  summary: "Project Discovery の Phase12（NFR Discovery）担当。機能要件だけでは漏れる非機能要件（性能/可用性/セキュリティ/運用性/保守性/バックアップ/監視/コスト）を発見し、MVP最低ラインと将来理想ラインに分けて明文化する。具体実装はしない。"
 description: >-
   Project Discovery の Phase12（NFR Discovery）担当。DB設計・インフラ構築・監視ツール導入・CI/CD実装などの
   具体実装をするスキルではない。project / requirements / data / integration / operations / legal / metrics / risk の
@@ -440,3 +444,10 @@ description: >-
 ---
 
 関連スキル: [[project-discovery]]（オーケストレーター・Phase12）/ [[discovery-planner]]（次に決めるべき非機能の1問）/ [[discovery-auditor]]（過剰設計・不足・決定と仮置きの混同・バックアップ/ログ欠落・矛盾の検出）/ 入力元: [[requirements-discovery]]（機能・業務フロー）・[[data-discovery]]（データ種類・個人情報・保持）・[[integration-discovery]]（外部依存・失敗時対応）・[[operations-discovery]]（運営体制・運営作業）・[[metrics-discovery]]（想定規模・KPI・計測ログ）・[[legal-discovery]]（個人情報・保持の法務前提）・[[risk-discovery]]（可用性/性能/バックアップ/復旧へ渡されたリスク）/ 引き渡し先: 設計・実装フェーズ（どこまで作ればよいか）・[[risk-discovery]]（リスクありの非機能項目）・[[contract-discovery]]（SLA/責任範囲）。
+
+# 実行モデルティア
+
+推奨ティア: **standard**（手順追従型のため標準クラスのモデルで品質が安定する）。
+最上位推論クラスのモデルを占有する必要はない。手順から外れる複雑な判断が
+必要になったら、その論点を明示して deep ティアの設計・監査系スキルへ引き渡すこと。
+具体的なモデル名はここに書かない（対応表は `.skills/MODEL-TIERS.md`）。

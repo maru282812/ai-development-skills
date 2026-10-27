@@ -1,0 +1,82 @@
+[
+  {
+    "query": "公開前に必要な法務書類を洗い出して",
+    "should_trigger": true
+  },
+  {
+    "query": "利用規約やプライバシーポリシーが要るか整理して",
+    "should_trigger": true
+  },
+  {
+    "query": "特商法表記が必要か確認して",
+    "should_trigger": true
+  },
+  {
+    "query": "個人情報まわりで何を用意すべきか出して",
+    "should_trigger": true
+  },
+  {
+    "query": "課金するんだけど法務面で何が要るか整理して",
+    "should_trigger": true
+  },
+  {
+    "query": "ユーザー投稿があるサービスで必要な規約類を洗い出したい",
+    "should_trigger": true
+  },
+  {
+    "query": "公開前に法務の抜け漏れを潰したい",
+    "should_trigger": true
+  },
+  {
+    "query": "同意取得やデータ削除ポリシーが要るか確認したい",
+    "should_trigger": true
+  },
+  {
+    "query": "このサービス、どんな法務文書を準備すべき？",
+    "should_trigger": true
+  },
+  {
+    "query": "外部サービス連携してるけど法務的に何を用意する？",
+    "should_trigger": true
+  },
+  {
+    "query": "利用規約の本文を起案して適法か判断して",
+    "should_trigger": false
+  },
+  {
+    "query": "規約をどのページに載せるか決めたい",
+    "should_trigger": false
+  },
+  {
+    "query": "退会画面やフッターへの掲載導線を設計して",
+    "should_trigger": false
+  },
+  {
+    "query": "契約の提供範囲と返金条件を決めたい",
+    "should_trigger": false
+  },
+  {
+    "query": "外注のNDAが要るか洗い出して",
+    "should_trigger": false
+  },
+  {
+    "query": "扱う個人情報の保持期間を決めたい",
+    "should_trigger": false
+  },
+  {
+    "query": "事業リスクを洗い出して優先度つけて",
+    "should_trigger": false
+  },
+  {
+    "query": "プライバシーポリシーのHTMLを実装して",
+    "should_trigger": false
+  },
+  {
+    "query": "今回作る範囲を線引きしたい",
+    "should_trigger": false
+  },
+  {
+    "query": "課金のDB設計をして",
+    "should_trigger": false
+  }
+]

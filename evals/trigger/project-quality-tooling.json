@@ -1,0 +1,26 @@
+[
+  {
+    "query": "新規案件にLinter/Formatterを入れたい",
+    "should_trigger": true
+  },
+  {
+    "query": "iOSのコード整形ツールを設定して",
+    "should_trigger": true
+  },
+  {
+    "query": "この案件にどの静的解析ツールが要るか判定して",
+    "should_trigger": true
+  },
+  {
+    "query": "要件を洗い出して",
+    "should_trigger": false
+  },
+  {
+    "query": "保守性の非機能要件を決めたい",
+    "should_trigger": false
+  },
+  {
+    "query": "このPRをレビューして",
+    "should_trigger": false
+  }
+]

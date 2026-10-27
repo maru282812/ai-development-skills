@@ -1,5 +1,9 @@
 ---
 name: screen-design-architect
+allowed-tools: Read, Write, Edit, Grep, Glob
+metadata:
+  reasoning-tier: deep
+  summary: "画面設計担当。要件成果物から必要画面・遷移・状態・UI構成・Stitch用プロンプトを生成し、Stitch出力やレビューで反復改善する。生成前に Screen Coverage Audit で網羅検査し、不足は要件へ差し戻す。"
 description: >-
   project-discovery / requirements-discovery の成果物を入力に、必要画面・画面遷移・画面状態・
   UI構成・共通コンポーネント・Google Stitch 用プロンプトを生成し、Stitch 出力 /
@@ -655,3 +659,11 @@ MVP: MVP / Phase2 / 将来
 ---
 
 関連スキル: [[project-discovery]]（親・全Discovery統括 / implementation-brief / user-flows / admin-flows / decisions 生成）/ [[requirements-discovery]]（前工程・要件探索・差し戻し先）/ [[scope-discovery]]（users / mvp-boundary の生成元・MVP境界の差し戻し先）/ [[discovery-auditor]]（横断監査の思想参照元）/ [[ui-ux-review]]（画面の使い勝手レビュー）/ [[feature-spec-writer]]（UI確定後の実装仕様書化）/ [[implementation-planner]]（実装手順分解）/ [[agent-tester]]・[[agent-planner]]（実装後の反復改善・Audit/Planning 思想の参照元）。
+
+# 実行モデルティア
+
+推奨ティア: **deep**（判断・設計・監査の質がモデルの推論力に依存する）。
+最上位推論クラスのモデルが使えない環境でも中止しない。代わりに劣化運転として、
+結論は候補＋根拠＋確信度で提示して1本に絞り込まず、工程を細かく区切って
+ユーザー確認を挟み、不可逆な提案（削除・破壊的変更・本番適用）では必ず停止すること。
+具体的なモデル名はここに書かない（対応表は `.skills/MODEL-TIERS.md`）。

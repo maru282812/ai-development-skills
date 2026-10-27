@@ -1,0 +1,82 @@
+[
+  {
+    "query": "外部連携を整理したい",
+    "should_trigger": true
+  },
+  {
+    "query": "使う外部サービスを洗い出して",
+    "should_trigger": true
+  },
+  {
+    "query": "決済が必要か整理して",
+    "should_trigger": true
+  },
+  {
+    "query": "誰のアカウントで契約するか決めたい",
+    "should_trigger": true
+  },
+  {
+    "query": "通知の送り先と失敗時対応を決めたい",
+    "should_trigger": true
+  },
+  {
+    "query": "CSV取り込み・PDF出力の要否を整理して",
+    "should_trigger": true
+  },
+  {
+    "query": "外部API停止時の扱いを詰めたい",
+    "should_trigger": true
+  },
+  {
+    "query": "本人確認や認証の外部サービスが要るか整理して",
+    "should_trigger": true
+  },
+  {
+    "query": "何と連携して誰が管理するのか明確にしたい",
+    "should_trigger": true
+  },
+  {
+    "query": "メールやLINE通知の連携が要るか整理したい",
+    "should_trigger": true
+  },
+  {
+    "query": "決済のWebhook設計とOAuthスコープを実装して",
+    "should_trigger": false
+  },
+  {
+    "query": "外部API停止時のサービス継続リスクを評価して",
+    "should_trigger": false
+  },
+  {
+    "query": "レート制限・同期頻度の可用性要求を決めたい",
+    "should_trigger": false
+  },
+  {
+    "query": "外部サービスの利用規約・手数料・SLAを契約で詰めたい",
+    "should_trigger": false
+  },
+  {
+    "query": "扱うデータの取得元と流れを洗い出して",
+    "should_trigger": false
+  },
+  {
+    "query": "通知文面のUI画面を設計して",
+    "should_trigger": false
+  },
+  {
+    "query": "APIのエンドポイントを設計して",
+    "should_trigger": false
+  },
+  {
+    "query": "運営で通知対応する体制を決めたい",
+    "should_trigger": false
+  },
+  {
+    "query": "今回の対象外範囲を決めたい",
+    "should_trigger": false
+  },
+  {
+    "query": "決済まわりのDB設計をして",
+    "should_trigger": false
+  }
+]

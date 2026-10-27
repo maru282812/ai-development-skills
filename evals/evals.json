@@ -1,0 +1,195 @@
+{
+  "_comment": "skill-creator 評価用テストケース案。should_trigger / should_not_trigger でトリガー精度を検証する。フォーマットは案であり、skill-creator 同梱の eval スキーマと突き合わせて調整すること（review-report §3 要確認）。",
+  "_meta": {
+    "created": "2026-06-25",
+    "purpose": "誤発火しやすい兄弟Skillの排他性と、バンドル重複Skillの境界を検証",
+    "evaluation_axes": [
+      "trigger_precision: 想定依頼で正しく発火するか",
+      "exclusivity: 兄弟Skillの依頼で誤発火しないか",
+      "boundary: 公式バンドルに委ねるべき汎用依頼で発火しすぎないか",
+      "output: 期待される一次成果物が宣言どおりか"
+    ]
+  },
+  "skills": [
+    {
+      "skill": "requirements-discovery",
+      "should_trigger": [
+        "実装前に要件を洗い出して",
+        "この機能、何が必要か段階的に整理して",
+        "後から『これも必要だった』を減らしたい"
+      ],
+      "should_not_trigger": [
+        "今回どこまで作るか範囲を決めたい",
+        "必要な画面を洗い出して",
+        "テーブル設計して"
+      ],
+      "expected_output": "段階式チェックリストで質問（必要/不要/後で/未定/コメント）。scopeは変更しない。",
+      "notes": "scope-discovery（範囲確定）/ screen-design-architect（画面）/ db-designer（DB）と排他であること"
+    },
+    {
+      "skill": "scope-discovery",
+      "should_trigger": [
+        "そもそも何を作るか決めたい",
+        "今回のMVP範囲と対象外を線引きしたい",
+        "要件定義の前に方向性を固めたい"
+      ],
+      "should_not_trigger": [
+        "業務フローと例外の要件を詰めたい",
+        "DB設計して",
+        "収益モデルを固めたい"
+      ],
+      "expected_output": "scope/ 配下ドキュメント。確定後 release-plan.md でMVPの線を1本引く。",
+      "notes": "requirements-discovery（どう作るか）との前後関係を取り違えないこと"
+    },
+    {
+      "skill": "business-discovery",
+      "should_trigger": [
+        "事業として成立するか整理したい",
+        "誰に何をどの価値で売るのか決めたい",
+        "事業観点のKPIを出して"
+      ],
+      "should_not_trigger": [
+        "毎日の運営作業を洗い出して",
+        "詳細な財務予測のPLを作って",
+        "利用規約が要るか整理して"
+      ],
+      "expected_output": "business/ 配下に事業仮説1本。PL・詳細財務予測は作らない。",
+      "notes": "operations-discovery（運営実務）/ legal-discovery（法務）と排他。PL作成は明示的に対象外"
+    },
+    {
+      "skill": "operations-discovery",
+      "should_trigger": [
+        "運営体制を整理したい",
+        "問い合わせ対応フローを決めたい",
+        "MVPで手作業運用する範囲を確定したい"
+      ],
+      "should_not_trigger": [
+        "誰に何を売るか事業を整理したい",
+        "非機能要件の性能目標を決めたい",
+        "画面遷移を作って"
+      ],
+      "expected_output": "operations/ 配下に運営業務（誰が/いつ/何を/頻度）。実装・インフラは決めない。",
+      "notes": "business（事業）/ nfr（規模・負荷）/ risk（属人化）へ受け渡す境界を守ること"
+    },
+    {
+      "skill": "legal-discovery",
+      "should_trigger": [
+        "公開前に必要な法務書類を洗い出して",
+        "利用規約やプライバシーポリシーが要るか整理して",
+        "特商法表記が必要か確認して"
+      ],
+      "should_not_trigger": [
+        "この契約条件で適法か判断して",
+        "規約をどのページに載せるか決めたい",
+        "外注のNDAが要るか洗い出して"
+      ],
+      "expected_output": "legal/legal.md・legal-risk.md・legal-open-questions.md。法的助言は断定せず専門家確認を促す。",
+      "notes": "掲載運用は legal-publication-manager、契約相手・条件は contract-discovery へ。適法性判断はしない"
+    },
+    {
+      "skill": "legal-publication-manager",
+      "should_trigger": [
+        "法務文書をどこに載せるか整理して",
+        "規約・ポリシーの再利用雛形を用意して",
+        "課金方式を変えたらどの法務文書を直すか決めたい"
+      ],
+      "should_not_trigger": [
+        "必要な法務書類を洗い出して",
+        "この規約は法的に有効か判断して",
+        "契約の責任範囲を決めたい"
+      ],
+      "expected_output": "publication-plan.md / legal-doc-registry.md / legal-update-policy.md（必要なら templates/）。",
+      "notes": "『何が必要か』の発見は legal-discovery。本スキルは掲載先・雛形・版管理に特化。適法性は断定しない"
+    },
+    {
+      "skill": "contract-discovery",
+      "should_trigger": [
+        "提供範囲と対象外を決めたい",
+        "返金・キャンセル条件を固めたい",
+        "成果物の権利・データ所有権を整理したい"
+      ],
+      "should_not_trigger": [
+        "必要な法務書類を洗い出して",
+        "契約書本文を起案して適法性を判断して",
+        "扱うデータの保持期間を決めたい"
+      ],
+      "expected_output": "contract/contract-inventory.md・contract.md・contract-open-questions.md。条件は断定せず専門家確認を促す。",
+      "notes": "契約書本文起案・適法性判断は legal-discovery/専門家。data-discovery → contract の依存順"
+    },
+    {
+      "skill": "screen-design-architect",
+      "should_trigger": [
+        "必要な画面を洗い出して",
+        "画面遷移とStitch用プロンプトを作って",
+        "実装後に画面が足りないと発覚するのを防ぎたい"
+      ],
+      "should_not_trigger": [
+        "要件を段階的に洗い出して",
+        "APIのエンドポイントを設計して",
+        "テーブル設計して"
+      ],
+      "expected_output": "Screen Coverage Audit → 画面カタログ/導線/状態マトリクス/UI仕様/Stitchプロンプト。不足は requirements へ差し戻し。",
+      "notes": "要件探索はしない（requirements-discovery）。画面化に特化"
+    },
+    {
+      "skill": "project-quality-tooling",
+      "should_trigger": [
+        "新規案件にLinter/Formatterを入れたい",
+        "iOSのコード整形ツールを設定して",
+        "この案件にどの静的解析ツールが要るか判定して"
+      ],
+      "should_not_trigger": [
+        "要件を洗い出して",
+        "保守性の非機能要件を決めたい",
+        "このPRをレビューして"
+      ],
+      "expected_output": "スタック検出→ツール選定→biome.json/.swiftlint.yml/.swiftformat/.editorconfig 等＋scripts/README。越境禁止。",
+      "notes": "TS→Biome / Swift→SwiftLint+SwiftFormat / Kotlin→ktlint。混在は確認事項にする"
+    },
+    {
+      "skill": "code-review",
+      "should_trigger": [
+        "このSupabase実装のRLSと認可漏れを見て",
+        "Server Action の認可チェックの置き場所が正しいかレビューして",
+        "Next.js+Supabase のこの実装、型と境界が大丈夫か見て"
+      ],
+      "should_not_trigger": [
+        "この差分を一般的にレビューして（汎用 /code-review に委ねる）",
+        "セキュリティ脆弱性を網羅監査して（/security-review）",
+        "migration SQL が本番で安全か確認して（migration-review）"
+      ],
+      "expected_output": "Supabase/RLS/service_role/コンポーネント境界に特化した指摘。汎用品質はバンドルへ。",
+      "notes": "バンドル /code-review との境界検証が主目的。固有差分が出ないなら非推奨を再検討"
+    },
+    {
+      "skill": "security-review",
+      "should_trigger": [
+        "RLSが漏れてないか・他人のデータが見えないか確認して",
+        "service_role の使い方が危なくないか監査して",
+        "anon key で何ができてしまうか確認して"
+      ],
+      "should_not_trigger": [
+        "差分のセキュリティを一般的にレビューして（バンドル /security-review）",
+        "コード品質全般を見て（code-review）",
+        "この ALTER TABLE は危なくない？（migration-review）"
+      ],
+      "expected_output": "Supabase 権限モデル（RLS/anon/service_role/PII）特化の監査。汎用脆弱性はバンドルへ。",
+      "notes": "バンドル /security-review との差分価値を eval で測定"
+    },
+    {
+      "skill": "migration-review",
+      "should_trigger": [
+        "このSupabase migration、本番適用して大丈夫か確認して",
+        "この ALTER TABLE で既存データが壊れないか見て",
+        "rollback できる migration か確認して"
+      ],
+      "should_not_trigger": [
+        "これからテーブルを設計して（db-designer）",
+        "アプリ全体のセキュリティを監査して（security-review）",
+        "コードをレビューして（code-review）"
+      ],
+      "expected_output": "破壊性・RLS充足・rollback可否・既存データ影響の確認結果。",
+      "notes": "公式に同等なし。設計段階は db-designer と排他"
+    }
+  ]
+}

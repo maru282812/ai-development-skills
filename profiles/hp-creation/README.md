@@ -26,6 +26,6 @@ HP・Web サイト作成向けの profile です。
 
 ## 増やす時の置き場
 
-HP 作成専用の汎用 skill は `.skills/hp-<name>/skill.md` に追加します。
+HP 作成専用の汎用 skill は `.skills/hp-<name>/SKILL.md` に追加します。
 
 特定プロジェクトの参考サイト・素材・要件は、このリポジトリではなく対象プロジェクト側に置きます。

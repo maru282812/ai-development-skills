@@ -6,10 +6,39 @@ AI 開発で使う skill を蓄積し、他プロジェクトへ必要な分だ�
 
 | フォルダ | 役割 |
 |---|---|
-| `.skills/` | 汎用の初期 skill セット。多くのプロジェクトではまずここをコピーする |
-| `.claude/skills/` | Claude Code 専用の skill。Claude Code の自走検証・計画ループなど、必要な時だけコピーする |
+| `.skills/` | **原本（canonical）**。汎用 skill セット。多くのプロジェクトではまずここをコピーする |
+| `.agents/skills/` | Codex 用ミラー（原本 `.skills/` を同期したもの） |
+| `.claude/skills/` | Claude Code 用ミラー＋Claude Code 専用 skill（自走検証・計画ループ） |
 | `profiles/` | プロジェクト種別ごとの組み合わせガイド。どのフォルダをコピーするかを決める場所 |
 | `references/` | 横断的な補足資料や設計メモの入口。skill 本文は置かない |
+
+> 原本は `.skills/`。修正は原本 `SKILL.md` を更新してからミラー（`.agents/` `.claude/`）へ同期する。詳細な選択ガイドは [.skills/README.md](.skills/README.md)。
+> 棚卸し・整理の記録は [skill-review-report.md](skill-review-report.md) / [skill-migration-plan.md](skill-migration-plan.md) / [work-log.md](work-log.md)。
+
+## どんなプロジェクトでも使う（Codex / Claude Code 両対応）
+
+「要件定義 → 各 Discovery → 画面設計（Google Stitch=画像UI へ投げる）→ 実装引き渡し」の
+チェーン全体を、Codex と Claude Code の両方・任意のプロジェクトで使えるように配布します。
+
+```powershell
+# グローバル導入（~/.codex/skills と ~/.claude/skills に全チェーンを入れる＝全プロジェクトで自動利用）
+powershell -File scripts/install-discovery-chain.ps1 -Global -Apply
+
+# 特定プロジェクトへ導入（<path>/.agents/skills と <path>/.claude/skills へ一括コピー）
+powershell -File scripts/install-discovery-chain.ps1 -Project C:\work\foo -Apply
+
+# 両方まとめて／まず dry-run（-Apply を外すと書き込まずプレビュー）
+powershell -File scripts/install-discovery-chain.ps1 -Global -Project C:\work\foo
+```
+
+- 配布されるチェーン（両ツール・27本）: project / scope / requirements / business / operations /
+  legal / legal-publication-manager / contract / risk / data / integration / metrics / nfr /
+  discovery-planner / discovery-auditor / project-quality-tooling / screen-design-architect /
+  ui-ux-review / feature-spec-writer / saas-product-manager / implementation-planner、
+  および test & quality ループの test-planner / system-investigator / bug-investigator /
+  migration-review / adversarial-review。
+- Claude Code には加えて実装ループ専用の agent-planner / agent-tester も入る（Codex には入れない）。
+- 原本は常に `.skills/`（チェーン本体）と `.claude/skills/`（Claude 専用2本）。スクリプトはここからコピーする。
 
 ## 使い分け
 
@@ -19,9 +48,26 @@ HP・Web サイト作成では [hp-creation](profiles/hp-creation/README.md) を
 
 Claude Code で実装後の検証と次指示作成を回す場合は [claude-code-loop](profiles/claude-code-loop/README.md) を追加します。
 
+## skill 一覧ダッシュボード（管理者向け）
+
+全 skill を分類・検索・起動方法（トリガー語）付きで一覧するダッシュボードを、`.skills/*/SKILL.md` から自動生成します。
+
+```powershell
+# 再生成（新しい skill を追加したら必ず実行）
+powershell -ExecutionPolicy Bypass -File scripts/build-skills-dashboard.ps1
+
+# 生成して localhost で表示
+powershell -ExecutionPolicy Bypass -File scripts/build-skills-dashboard.ps1 -Serve
+# → http://localhost:8777/skills-dashboard.html
+```
+
+- 出力は [skills-dashboard.html](skills-dashboard.html)（単一ファイル・データ埋め込みなので `file://` でも閲覧可）。
+- 分類は生成スクリプト内の `$CategoryMap` で定義。未登録の skill は「その他」に入るので、新規追加時は 1 行足す。
+- **skill を追加・改名したら `scripts/build-skills-dashboard.ps1` を再実行してダッシュボードを更新すること。**
+
 ## 追加ルール
 
-新しい汎用 skill は `.skills/<skill-name>/skill.md` に追加します。
+新しい汎用 skill は `.skills/<skill-name>/SKILL.md` に追加します。
 
 Claude Code 専用 skill は `.claude/skills/<skill-name>/SKILL.md` に追加します。
 
@@ -29,23 +75,35 @@ Claude Code 専用 skill は `.claude/skills/<skill-name>/SKILL.md` に追加し
 
 個別 skill だけで使う参考資料は `.skills/<skill-name>/references/` に置きます。複数 skill から参照する資料だけ `references/` に置きます。
 
-## 現在の基本セット
+## 現在の skill セット
 
-`.skills/` には、要件探索、調査、設計、実装計画、レビュー、テストの初期セットが入っています。
+`.skills/` には、Project Discovery スイートと、調査・設計・実装計画・レビュー・テストの汎用 skill が入っています。
 
-- `requirements-discovery`
-- `system-investigator`
-- `bug-investigator`
-- `data-flow-mapper`
-- `saas-product-manager`
-- `db-designer`
-- `api-designer`
-- `prompt-architect`
-- `feature-spec-writer`
-- `implementation-planner`
-- `code-review`
-- `security-review`
-- `migration-review`
-- `ui-ux-review`
-- `refactor-planner`
+### Project Discovery スイート（企画→実装可能な状態まで詰める）
+
+- `project-discovery`（オーケストレータ）
+- `scope-discovery` / `requirements-discovery`
+- `business-discovery` / `operations-discovery`
+- `legal-discovery` / `legal-publication-manager` / `contract-discovery`
+- `risk-discovery` / `data-discovery` / `integration-discovery`
+- `metrics-discovery` / `nfr-discovery`
+- `discovery-planner` / `discovery-auditor`（ループ制御）
+- `screen-design-architect`（画面設計）
+
+### 設計・調査・実装計画
+
+- `system-investigator` / `bug-investigator` / `data-flow-mapper`
+- `saas-product-manager` / `db-designer` / `api-designer` / `prompt-architect`
+- `feature-spec-writer` / `implementation-planner` / `refactor-planner`
+- `project-quality-tooling`（新規案件の lint/format 初期セットアップ）
+
+### レビュー・テスト
+
+- `code-review` / `security-review` / `migration-review` / `ui-ux-review`
 - `test-planner`
+
+> `code-review` / `security-review` は Claude Code バンドルの `/code-review` `/security-review` と重複する。汎用レビューはバンドル、Supabase/RLS 特化の差分は自作 skill を使う（[skill-review-report.md](skill-review-report.md) 参照）。
+
+### Claude Code 専用（`.claude/skills/` のみ）
+
+- `agent-tester`（実装直後の軽量検証）/ `agent-planner`（次の1手決定）

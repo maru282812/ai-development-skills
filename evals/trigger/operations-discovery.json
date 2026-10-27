@@ -1,0 +1,82 @@
+[
+  {
+    "query": "運営体制を整理したい",
+    "should_trigger": true
+  },
+  {
+    "query": "問い合わせ対応フローを決めたい",
+    "should_trigger": true
+  },
+  {
+    "query": "MVPで手作業運用する範囲を確定したい",
+    "should_trigger": true
+  },
+  {
+    "query": "毎日・毎週やる運用作業を洗い出して",
+    "should_trigger": true
+  },
+  {
+    "query": "返金や削除依頼の運用対応フローを決めたい",
+    "should_trigger": true
+  },
+  {
+    "query": "運営KPI（対応時間など）を出して",
+    "should_trigger": true
+  },
+  {
+    "query": "管理者の権限と担当範囲を整理したい",
+    "should_trigger": true
+  },
+  {
+    "query": "コンテンツ更新の運用フローを決めたい",
+    "should_trigger": true
+  },
+  {
+    "query": "障害や通報があったときの運営対応を決めたい",
+    "should_trigger": true
+  },
+  {
+    "query": "運営の手作業と自動化の線引きをしたい",
+    "should_trigger": true
+  },
+  {
+    "query": "誰に何を売るか事業を整理したい",
+    "should_trigger": false
+  },
+  {
+    "query": "非機能要件の性能目標とコスト上限を決めたい",
+    "should_trigger": false
+  },
+  {
+    "query": "管理画面の画面遷移を作って",
+    "should_trigger": false
+  },
+  {
+    "query": "属人化など運営リスクを洗い出して優先度をつけて",
+    "should_trigger": false
+  },
+  {
+    "query": "返金・SLA・サポート条件を契約として明文化したい",
+    "should_trigger": false
+  },
+  {
+    "query": "今回の対象外範囲を決めたい",
+    "should_trigger": false
+  },
+  {
+    "query": "必要な要件を段階的に洗い出して",
+    "should_trigger": false
+  },
+  {
+    "query": "監視とログ基盤を実装して",
+    "should_trigger": false
+  },
+  {
+    "query": "KPIの計測イベントを設計して",
+    "should_trigger": false
+  },
+  {
+    "query": "外部APIが停止したときの扱いを決めたい",
+    "should_trigger": false
+  }
+]

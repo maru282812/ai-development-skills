@@ -3,7 +3,7 @@
 実際のプロンプト設計サンプル(1〜2件)をこのディレクトリに配置する。
 
 - ファイル名: `<機能名>.md`(例: `interview-analyzer.md`)
-- 内容: [skill.md](../skill.md) の Output テンプレートに従った実際の設計結果
+- 内容: [SKILL.md](../SKILL.md) の Output テンプレートに従った実際の設計結果
 
 ## 配置予定
 

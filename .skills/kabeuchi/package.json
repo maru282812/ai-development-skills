@@ -1,0 +1,11 @@
+{
+  "name": "kabeuchi-skill",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "idea-engine 壁打ちモード用の自己完結スクリプト（Supabase 直結）",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.4",
+    "zod": "^3.24.1"
+  }
+}
