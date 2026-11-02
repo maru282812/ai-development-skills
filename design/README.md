@@ -9,7 +9,7 @@
 |---|---|
 | 共通（和文組版・AIっぽさ・正直なコピー・心理学） | `~/.claude/skills/hallmark`（`references/ja.md`・`references/polish/signs.md`・`references/psychology.md`）、`.skills/ui-ux-review/references/ui-psychology.md` |
 | **媒体** | このフォルダ（下表） |
-| ブランド | 未整備（棚卸し §4 の4） |
+| ブランド | 書式 [brand.md](brand.md)・検査と CSS 書き出し [scripts/check-brand.mjs](scripts/check-brand.mjs)。自社は `brands/<id>/brand.json`（YOTTO 登録済み）、顧客はその案件のリポジトリ |
 | プロジェクト | 各リポジトリの `design.md`・`tokens.css`・`globals.css` など。**ここが最優先** |
 
 ## 媒体
