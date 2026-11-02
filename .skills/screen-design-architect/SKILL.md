@@ -70,6 +70,11 @@ project-discovery
 
 # 基本方針
 
+- **UIを考えるときは必ず心理学・行動経済学を根拠にする（必須）。**
+  [ui-psychology.md](../ui-ux-review/references/ui-psychology.md) を画面設計の開始前に読み、
+  §4 の画面タイプ別マッピングで各画面の適用原則（3〜7個）を選定する。
+  画面詳細仕様・デザイン方針・Stitch プロンプトの各判断（配置・選択肢数・順序・デフォルト値・文言）には
+  「どの原則に基づくか」を明記する。§5 のダークパターンに該当する設計は作らない。
 - このスキルは1回出力して終わらない。[[agent-tester]] / [[agent-planner]] と同じ思想で **Audit → Report → Planning → 修正 → 反復** を回す。
 - 理想形を先に洗い出してから MVP / Phase2 / 将来候補 に分類する。最初から MVP に絞らない。
 - 未確定は勝手に確定しない。`open-questions` 相当は [[requirements-discovery]] / [[project-discovery]] 側へ差し戻すか、notes に残す。
@@ -325,6 +330,9 @@ stitch-prompt.md（Global Design Context ＋ Screen Prompt）
 - **導線カバレッジ**: 顧客 / スタッフ / 管理者 の導線が成立するか
 - **運用カバレッジ**: 通知 / 履歴 / 権限 / 複製 / ロールバック が考慮されているか
 - **分離カバレッジ**: user 画面と admin 画面が分離され、各カタログが完走可能か
+- **心理カバレッジ**: 全画面に適用原則（心理学・行動経済学）が紐付いているか /
+  [ui-psychology.md](../ui-ux-review/references/ui-psychology.md) §6 のチェックリストを通過するか /
+  §5 のダークパターンが混入していないか（混入は Critical 扱い）
 
 # UI Test Report
 
@@ -520,6 +528,7 @@ MVP: MVP / Phase2 / 将来
 - PC表示:
 - 参考HPから寄せる点:
 - コピー禁止項目:
+- 適用原則(心理学・行動経済学): (原則名 → 適用箇所。ui-psychology.md §4 から選定)
 ```
 
 ### component-inventory.md
@@ -545,6 +554,8 @@ MVP: MVP / Phase2 / 将来
 - アクセシビリティ方針:
 - NG表現:
 - コピー禁止対象:
+- 心理学・行動経済学方針: (画面タイプ別の適用原則の全体方針。ui-psychology.md 準拠)
+- ダークパターン検査: (ui-psychology.md §5 の検査結果)
 ```
 
 ### stitch-prompt.md
@@ -654,6 +665,7 @@ MVP: MVP / Phase2 / 将来
 - 要件探索を始めていないか（探索は requirements-discovery）
 - ロゴ / 文章 / 写真のコピーを指示していないか（寄せるのは情報設計・導線・雰囲気のみ）
 - ユーザーコメントを原文引用し、反映先と修正後Stitchプロンプトを出したか
+- ui-psychology.md を読み、全画面に適用原則を紐付けたか / ダークパターン検査を通したか
 - 既存コード / DB / API / UI に変更を加えていないか
 
 ---
