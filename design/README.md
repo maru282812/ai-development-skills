@@ -21,7 +21,7 @@
 | SNS 画像・動画 | 起点候補: resto-sns `docs/ig-first/template-catalog.md` | 未整備（次の投稿案件で作る） |
 | 資料 | `~/.claude/skills/shiryo-slides` | 既存スキルで運用 |
 
-## 昇格ルール（案）
+## 昇格ルール
 
 デザインで差し戻しを受けたとき、または合格した判断が出たときに判定する。
 
@@ -30,4 +30,4 @@
 3. 全媒体なら hallmark の共通層（`ja.md` など）へ追記する。
 4. 案件だけの話なら、そのリポジトリの `design.md` に残す。
 
-グローバル CLAUDE.md への組み込みは棚卸し §4 の5で行う。
+2026-11-02 にグローバル CLAUDE.md（hallmark の項）へ組み込み済み。
