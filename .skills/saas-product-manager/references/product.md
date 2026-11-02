@@ -86,5 +86,5 @@ UIや通知は後付けできるが、データ構造に染み込む要素は MV
 - 1ユーザーが複数テナントに所属できるか(できるなら「現在のテナント」の切り替えUIが必要)
 - 運営(自社)はテナント横断でデータを見るか → service_role 利用箇所と監査ログ要件に直結
 
-この整理結果は [db-designer](../../db-designer/skill.md) の RLS 設計、
-[security-review](../../security-review/skill.md) の認可確認の入力になる。
+この整理結果は [db-designer](../../db-designer/SKILL.md) の RLS 設計、
+[security-review](../../security-review/SKILL.md) の認可確認の入力になる。

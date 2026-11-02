@@ -1,0 +1,26 @@
+[
+  {
+    "query": "このSupabase migration、本番適用して大丈夫か確認して",
+    "should_trigger": true
+  },
+  {
+    "query": "この ALTER TABLE で既存データが壊れないか見て",
+    "should_trigger": true
+  },
+  {
+    "query": "rollback できる migration か確認して",
+    "should_trigger": true
+  },
+  {
+    "query": "これからテーブルを設計して",
+    "should_trigger": false
+  },
+  {
+    "query": "アプリ全体のセキュリティを監査して",
+    "should_trigger": false
+  },
+  {
+    "query": "コードをレビューして",
+    "should_trigger": false
+  }
+]

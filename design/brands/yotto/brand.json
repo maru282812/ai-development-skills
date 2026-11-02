@@ -1,0 +1,69 @@
+{
+  "kind": "brand",
+  "id": "yotto",
+  "label": "YOTTO（紺×琥珀）",
+  "summary": "白地に淡い青灰の帯。紺の面と琥珀の CTA 1色、和文1書体（Zen Kaku Gothic New）で、実物を大きく見せる。",
+  "owner": "YOTTO 合同会社",
+  "fits": "YOTTO の自社サービス（◯◯deYOTTO 等）の LP・サイト",
+  "canonical": "https://claude.ai/artifact/RSZnMUnXwKsH1VEMzFPxET",
+  "color": {
+    "surface": "#ffffff",
+    "surfaceBand": "#f3f5f9",
+    "ink": "#12233a",
+    "inkMuted": "#5b6b80",
+    "brand": "#123551",
+    "accent": "#ffb400",
+    "onAccent": "#2b1d00",
+    "line": "#d9e0ea"
+  },
+  "colorExtra": {
+    "surfaceBandDeep": "#e6ebf3",
+    "onBrand": "#f2f5f9",
+    "onBrandMuted": "#c9d4e2",
+    "brandDeep": "#0d2740",
+    "brandSoft": "#1c3a5a",
+    "accentText": "#7a5a00",
+    "ok": "#1f7a4d"
+  },
+  "type": {
+    "headingWeight": 700,
+    "bodyWeight": 400,
+    "headingTracking": 0,
+    "verticalAccent": false,
+    "fonts": {
+      "heading": { "family": "Zen Kaku Gothic New", "generic": "sans-serif", "weights": [400, 700] },
+      "body": { "family": "Zen Kaku Gothic New", "generic": "sans-serif", "weights": [400, 700] }
+    }
+  },
+  "shape": {
+    "radius": 6,
+    "rule": "淡い青灰の1px罫（#d9e0ea）。面の区切りは罫でなく余白と帯",
+    "texture": "なし"
+  },
+  "radiusExtra": { "md": 14, "pill": 999 },
+  "motion": {
+    "reveal": "none",
+    "durationMs": 0,
+    "easing": "linear",
+    "distancePx": 0,
+    "parallax": false
+  },
+  "photo": {
+    "role": "実物（成果物・画面・店の写真）",
+    "treatment": "加工は控えめ。実物を大きく（面積50%以上）",
+    "placement": "1画面1メッセージ。見出し2行＋短文＋実物1枚"
+  },
+  "rules": [
+    "accent（琥珀）の CTA は1画面に1か所。FV の地を accent にするときは FV の CTA を紺地にする",
+    "本文は真っ黒にしない（ink #12233a）",
+    "和文1書体（＋欧文1つまで）"
+  ],
+  "media": {
+    "site": { "use": "full", "note": "自社サービスの LP・サイト（◯◯deYOTTO 等）。website-sales-ai docs/design-system.md §1" },
+    "app": { "use": "none", "note": "管理画面には自社トークンを使わない（design-system.md §1「資料・テンプレ・管理画面: 使わない」）。design/app.md に従う" },
+    "slides": { "use": "none", "note": "design-system.md §1 では資料に使わない。社外向け資料で自社色を出すかは未決（人の判断）" },
+    "sns": { "use": "undecided", "note": "自社アカウントの投稿に使うかは未決。使う前に確認する" }
+  },
+  "source": "正本 claude.ai artifact「YOTTO Design System」の tokens を、写し website-sales-ai sites/yotto-lp-a/assets/css/tokens.css と docs/design-system.md §1〜3 から起こした（2026-11-02）。headingWeight 700・headingTracking 0 は正本に定めなし→既定値。motion は正本に定めなし→none。radius 6 は --radius-sm、md/pill は radiusExtra。voice とロゴは未記入（正本の5原則・ロゴ規定を確認してから書く）",
+  "status": "active"
+}

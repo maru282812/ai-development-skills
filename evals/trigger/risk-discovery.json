@@ -1,0 +1,82 @@
+[
+  {
+    "query": "リスクを洗い出して",
+    "should_trigger": true
+  },
+  {
+    "query": "何が起きたら事業が失敗するか整理して",
+    "should_trigger": true
+  },
+  {
+    "query": "前提条件(assumptions)を明確にしたい",
+    "should_trigger": true
+  },
+  {
+    "query": "集客できなかった場合の代替を考えたい",
+    "should_trigger": true
+  },
+  {
+    "query": "API停止時にサービス継続できるか整理して",
+    "should_trigger": true
+  },
+  {
+    "query": "リスクの優先順位を発生可能性×影響度でつけて",
+    "should_trigger": true
+  },
+  {
+    "query": "運営の属人化リスクを洗い出したい",
+    "should_trigger": true
+  },
+  {
+    "query": "継続できなくなる要因を洗い出して",
+    "should_trigger": true
+  },
+  {
+    "query": "評判リスク・外部依存リスクを整理して",
+    "should_trigger": true
+  },
+  {
+    "query": "MVP検証を妨げるリスクを潰したい",
+    "should_trigger": true
+  },
+  {
+    "query": "脆弱性診断やペネトレーションテストをして",
+    "should_trigger": false
+  },
+  {
+    "query": "RLSの認可漏れを監査して",
+    "should_trigger": false
+  },
+  {
+    "query": "非機能の可用性・バックアップ目標を決めたい",
+    "should_trigger": false
+  },
+  {
+    "query": "運営体制と問い合わせ対応を決めたい",
+    "should_trigger": false
+  },
+  {
+    "query": "返金・SLA・責任範囲を契約で決めたい",
+    "should_trigger": false
+  },
+  {
+    "query": "必要な法務書類を洗い出して",
+    "should_trigger": false
+  },
+  {
+    "query": "外部APIの連携方式を設計して",
+    "should_trigger": false
+  },
+  {
+    "query": "事業の収益モデルを決めたい",
+    "should_trigger": false
+  },
+  {
+    "query": "KPIを計測イベントに落として",
+    "should_trigger": false
+  },
+  {
+    "query": "インフラ構成を設計して",
+    "should_trigger": false
+  }
+]

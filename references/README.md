@@ -4,10 +4,10 @@
 
 skill 本文はここには置かず、以下を canonical とします。
 
-- 汎用 skill: `.skills/<skill-name>/skill.md`
+- 汎用 skill: `.skills/<skill-name>/SKILL.md`
 - Claude Code 専用 skill: `.claude/skills/<skill-name>/SKILL.md`
 
-`system-investigator` の本文は `.skills/system-investigator/skill.md` を参照してください。
+`system-investigator` の本文は `.skills/system-investigator/SKILL.md` を参照してください。
 
 ## 置いてよいもの
 

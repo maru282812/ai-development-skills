@@ -1,0 +1,82 @@
+[
+  {
+    "query": "非機能要件を整理したい",
+    "should_trigger": true
+  },
+  {
+    "query": "性能・可用性の目標を決めたい",
+    "should_trigger": true
+  },
+  {
+    "query": "バックアップとログ保持を決めたい",
+    "should_trigger": true
+  },
+  {
+    "query": "セキュリティ要件を明文化したい",
+    "should_trigger": true
+  },
+  {
+    "query": "コスト上限を決めたい",
+    "should_trigger": true
+  },
+  {
+    "query": "過剰設計か不足か点検して",
+    "should_trigger": true
+  },
+  {
+    "query": "監視・ログの要件を決めたい",
+    "should_trigger": true
+  },
+  {
+    "query": "保守性・拡張性の要件を整理したい",
+    "should_trigger": true
+  },
+  {
+    "query": "MVPで必要な最低ラインの非機能を決めたい",
+    "should_trigger": true
+  },
+  {
+    "query": "復旧目標(RTO/RPO)を決めたい",
+    "should_trigger": true
+  },
+  {
+    "query": "監視ツールを導入してCI/CDを実装して",
+    "should_trigger": false
+  },
+  {
+    "query": "リスクを洗い出して優先度をつけて",
+    "should_trigger": false
+  },
+  {
+    "query": "運営の日次作業を洗い出して",
+    "should_trigger": false
+  },
+  {
+    "query": "RLSやservice_roleのセキュリティを監査して",
+    "should_trigger": false
+  },
+  {
+    "query": "テーブルとインデックスを設計して",
+    "should_trigger": false
+  },
+  {
+    "query": "SLA・返金条件を契約で決めたい",
+    "should_trigger": false
+  },
+  {
+    "query": "KPIを決めて計測イベントを出して",
+    "should_trigger": false
+  },
+  {
+    "query": "外部サービスを使うか洗い出して",
+    "should_trigger": false
+  },
+  {
+    "query": "必要な機能要件を段階的に洗い出して",
+    "should_trigger": false
+  },
+  {
+    "query": "Kubernetesでマイクロサービス構成を組んで",
+    "should_trigger": false
+  }
+]

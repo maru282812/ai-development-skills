@@ -1,0 +1,87 @@
+# =============================================================
+# 深掘り質問プロンプト ゴールデンセット（テンプレ既定）
+# 【状態: APPROVED 2026-06-27 / 物差しは本番プロンプトのルールから導出】
+# 確定した判断: 「1疑問符=1質問」で合格とする。背景の複数観点（時期/頻度/状況等）を
+#   1文で束ねて聞くのは許容。「1問1論点」の厳格化は行わない（緑化目的でこの基準を動かさない）。
+# -------------------------------------------------------------
+# 物差しの出所:
+#   ①本番プロンプトのハードルール（JSONキー/1質問/非繰り返し/grounded/内部コード非表示）
+#   ②調査目的・この質問で知りたいこと（変数で渡す）
+#   ③ポリシー(examples_allowed 等。質問ごと/プロジェクトごとに変える)
+#
+# 対象外（別レイヤー）:
+#   - 公式定型文・二重回答/二重付与防止 → 別機能。mode A(アプリAPI)+DBアサーションで検証。
+#   - 「深掘り不要で止める」判断 → このプロンプトの仕事ではなく完了/未取得スロットのロジック層。
+#
+# 注: prompts/under-test.md は本番プロンプトの“縮約スタンドイン”。物差し較正用。
+#     実挙動(実行時スロット/セッション要約に依存)の検証は mode A をアプリ側で。
+# =============================================================
+
+# --- ケースA: 標準ポリシー（例示可）。JSON契約 + 目的適合 -------------------
+- description: "【標準/例示可】JSON契約・1質問・目的適合の深掘り"
+  vars:
+    research_objective: "利用者が回答を途中でやめる理由を特定し、離脱を減らす"
+    want_to_know: "夜に寝付けない状況の具体的な背景"
+    question_text: "最近の睡眠について教えてください"
+    probe_type: "background"
+    answer: "在宅勤務になってから、夜なかなか寝付けなくなりました。"
+    previous_answer: ""
+    examples_allowed: true
+  assert:
+    - type: is-json
+      value:
+        type: object
+        required: [probe_question, probe_type, focus]
+        properties:
+          probe_question: { type: string }
+          probe_type: { type: string }
+          focus: { type: string }
+    - type: javascript        # 本番ルール「質問は正確に1つ」
+      value: |
+        const o = JSON.parse(output);
+        const marks = (String(o.probe_question).match(/[？?]/g) || []).length;
+        return marks === 1;
+    - type: javascript        # 本番ルール「原文を繰り返さない」
+      value: |
+        const o = JSON.parse(output);
+        return String(o.probe_question).trim() !== String(context.vars.question_text).trim();
+    - type: llm-rubric        # 目的適合・grounded（Judge）
+      value: |
+        次をすべて満たせば合格:
+        - 回答者の回答「{{answer}}」に基づいている（grounded）
+        - 調査目的「{{research_objective}}」と、この質問で知りたいこと「{{want_to_know}}」に資する深掘りである
+        - 1テーマに絞られている
+        次のいずれかなら不合格:
+        - 回答を無視した一般論
+        - 目的・知りたいことと無関係
+
+# --- ケースB: 例題禁止ポリシー。同じ回答でも例示したら不合格（ポリシーで反転） ---
+- description: "【例示禁止】同じ状況でも例示・列挙したら不合格"
+  vars:
+    research_objective: "利用者が回答を途中でやめる理由を特定し、離脱を減らす"
+    want_to_know: "夜に寝付けない状況の具体的な背景"
+    question_text: "最近の睡眠について教えてください"
+    probe_type: "background"
+    answer: "在宅勤務になってから、夜なかなか寝付けなくなりました。"
+    previous_answer: ""
+    examples_allowed: false
+  assert:
+    - type: is-json
+      value:
+        type: object
+        required: [probe_question, probe_type, focus]
+    - type: javascript
+      value: |
+        const o = JSON.parse(output);
+        const marks = (String(o.probe_question).match(/[？?]/g) || []).length;
+        return marks === 1;
+    - type: llm-rubric        # 例示禁止ポリシーを基準に採点（Judge）
+      value: |
+        本プロジェクトは「例示禁止」ポリシー。
+        次をすべて満たせば合格:
+        - 回答者の回答「{{answer}}」に基づいている
+        - 調査目的・知りたいことに資する
+        - 例示をしていない（「例：」、A・B・C などの列挙、「〜など」で例を挙げていない）
+        次のいずれかなら不合格:
+        - 例示や「など」で選択肢を誘導している
+        - 回答を無視した一般論

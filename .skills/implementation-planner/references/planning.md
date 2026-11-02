@@ -41,10 +41,10 @@ Phase 5: 動作確認・テスト
 
 各 Phase の中身を具体化する際の参照先:
 
-- DB: [db-designer](../../db-designer/skill.md)
-- API: [api-designer](../../api-designer/skill.md)
-- migration の安全性: [migration-review](../../migration-review/skill.md)
-- テスト観点: [test-planner](../../test-planner/skill.md)
+- DB: [db-designer](../../db-designer/SKILL.md)
+- API: [api-designer](../../api-designer/SKILL.md)
+- migration の安全性: [migration-review](../../migration-review/SKILL.md)
+- テスト観点: [test-planner](../../test-planner/SKILL.md)
 
 ## 3. AIエージェント向け指示文の書き方
 

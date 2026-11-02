@@ -1,5 +1,9 @@
 ---
 name: scope-discovery
+allowed-tools: Read, Write, Edit, Grep, Glob
+metadata:
+  reasoning-tier: deep
+  summary: "Project Discovery の最前段（Scope Discovery）担当。「そもそも何を/どこまで作るか・今回は作らないもの」を決めてプロジェクトの境界線を確定し、MVPの線を1本引く。画面/DB/API設計はしない。"
 description: >-
   Project Discovery の最前段（Scope Discovery）担当。requirements-discovery が「どう作るか」を固める工程なら、
   scope-discovery は「そもそも何を作るのか / どこまで作るのか / 今回は何を作らないのか」を決める工程。
@@ -304,3 +308,11 @@ scope は一度引いて終わりではない。下流の発見が境界を揺�
 ---
 
 関連スキル: [[project-discovery]]（オーケストレーター）/ [[discovery-planner]]（次の1問）/ [[discovery-auditor]]（境界・MVP監査）/ 引き渡し先: [[requirements-discovery]]（どう作るか）/ [[integration-discovery]]（外部依存）/ [[metrics-discovery]]（KPI）/ 差し戻し連携: [[legal-discovery]] / [[contract-discovery]] / [[nfr-discovery]]。
+
+# 実行モデルティア
+
+推奨ティア: **deep**（判断・設計・監査の質がモデルの推論力に依存する）。
+最上位推論クラスのモデルが使えない環境でも中止しない。代わりに劣化運転として、
+結論は候補＋根拠＋確信度で提示して1本に絞り込まず、工程を細かく区切って
+ユーザー確認を挟み、不可逆な提案（削除・破壊的変更・本番適用）では必ず停止すること。
+具体的なモデル名はここに書かない（対応表は `.skills/MODEL-TIERS.md`）。
