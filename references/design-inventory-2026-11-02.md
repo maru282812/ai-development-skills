@@ -86,7 +86,7 @@ hallmark の `design.md`／PET の `design.md`／ai-ideas の `DESIGN.template.m
 |---|---|---|
 | 1 | ✅ 2026-11-02 `design/app.md` 作成。**アプリ媒体の基準を1本にまとめる**（admin-design.md ＋ PET signature ＋ shiseki・qr-order の判断 ＋ hallmark polish） | 対象プロジェクトが最も多く（7件以上）、毎回作り直しているので効き目が最大 |
 | 2 | **サイト媒体はハブから website-sales-ai を参照する**（正本は動かさない） | 自動計測・mood.json の仕組みと結びついている。website-sales-ai には v2 ロードマップが進行中なので、移さず参照 |
-| 3 | **媒体共通の知見を共通層へ昇格**（v2 §8 訴求調査・§9 好み判定ループ・UI心理学の一本化） | どの媒体でも効く。好み判定はデータが貯まるほど価値が上がる |
+| 3 | ✅ 2026-11-02 hallmark `references/research.md`・`taste-loop.md`（§8・§9 を昇格）、UI心理学は `ui-psychology.md` を正本に一本化。**媒体共通の知見を共通層へ昇格**（v2 §8 訴求調査・§9 好み判定ループ・UI心理学の一本化） | どの媒体でも効く。好み判定はデータが貯まるほど価値が上がる |
 | 4 | ✅ 2026-11-02 `design/brand.md`・`brands/yotto`・`check-brand.mjs`。**ブランド層の書式を1つ決める**（mood.json 形式を流用し、design.md 系の書式もこれに寄せる） | SNS・資料でブランドを引き継ぐ前提になる |
 | 5 | ✅ 2026-11-02 グローバル CLAUDE.md に追記。**昇格ルールをグローバル CLAUDE.md に入れる** | 無いとまた散らばる |
 | 6 | SNS 媒体は次の投稿案件で、resto-sns の型カタログを起点に作る | 机上で作ると外れる |

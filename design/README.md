@@ -7,7 +7,7 @@
 
 | 層 | どこにあるか |
 |---|---|
-| 共通（和文組版・AIっぽさ・正直なコピー・心理学） | `~/.claude/skills/hallmark`（`references/ja.md`・`references/polish/signs.md`・`references/psychology.md`）、`.skills/ui-ux-review/references/ui-psychology.md` |
+| 共通（和文組版・AIっぽさ・正直なコピー・心理学・外部調査・好み判定） | `~/.claude/skills/hallmark`（`references/ja.md`・`references/polish/signs.md`・`references/psychology.md`・`references/research.md`・`references/taste-loop.md`）、`.skills/ui-ux-review/references/ui-psychology.md`（心理学の正本。hallmark 側は使い方だけ） |
 | **媒体** | このフォルダ（下表） |
 | ブランド | 書式 [brand.md](brand.md)・検査と CSS 書き出し [scripts/check-brand.mjs](scripts/check-brand.mjs)。自社は `brands/<id>/brand.json`（YOTTO 登録済み）、顧客はその案件のリポジトリ |
 | プロジェクト | 各リポジトリの `design.md`・`tokens.css`・`globals.css` など。**ここが最優先** |
@@ -29,5 +29,7 @@
 2. 媒体全体なら、このフォルダの該当ファイルに1規則として追記し、末尾に【出どころ・日付】を付ける。
 3. 全媒体なら hallmark の共通層（`ja.md` など）へ追記する。
 4. 案件だけの話なら、そのリポジトリの `design.md` に残す。
+
+好み判定ループ（`taste-loop.md`）の月次レポートで採否が決まった型・× 理由も、この順で振り分ける。
 
 2026-11-02 にグローバル CLAUDE.md（hallmark の項）へ組み込み済み。
