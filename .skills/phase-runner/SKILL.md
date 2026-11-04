@@ -144,7 +144,7 @@ fresh session は文脈を持たない。**phase-status.md が唯一の handoff*
 >    - `MINOR-FIXES:` 自動修正した軽微（無ければなし）
 >    - `HANDOFF:` 次フェーズへの申し送り・前提
 >    - `NEEDS-DECISION:` 人間判断が要る論点（blocked 時のみ）
-> 調査だけで完結する下位タスクはさらに Explore サブエージェントに分けてよい。**指示書に無い機能を推測で足さない。**
+> 調査だけで完結する下位タスクはさらに Explore サブエージェントに分けてよい（その子は `model: "sonnet"`。[MODEL-TIERS](../MODEL-TIERS.md)「サブエージェントの既定」）。**指示書に無い機能を推測で足さない。**
 
 ### 独立チェッカー（Maker → Checker）
 
